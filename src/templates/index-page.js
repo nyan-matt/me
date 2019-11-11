@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
@@ -15,55 +15,75 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
+  <Fragment>
+    <section class="home hero is-medium has-background-white">
+      <div class="hero-body">
+        <div id="hero-container" class="container" style={{
+          backgroundImage: `url(${
+            !!image.childImageSharp ? image.childImageSharp.fluid.src: image
+          })`
+        }}>
+          <div class="columns is-mobile">
+            <div class="column is-half-desktop is-full-tablet hero-text-container">
+              <h1 class="title is-spaced hero-headline">
+                {title}
+              </h1>
+              <h2 class="subtitle hero-subheadline">
+                
+              </h2>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+    <section class="section has-background-white">
+      <div class="container">
+      <h3 class="title">Expertise &amp; Skills</h3>
+        <div class="columns is-mobile is-multiline">
+          <div class="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
+            <div class="columns is-mobile">
+              <div class="column ">
+                <img class="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/strategy.svg" alt="Cloud Services icon" />
+                Strategy
+              </div>
+              <div class="column ">
+                <img class="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/interview.svg" alt="Cloud Services icon" />
+                User Research
+              </div>
+            </div>
+            {/* User Research &amp; Strategy */}
+          </div>
+          <div class="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
+            <div class="columns is-mobile">
+              <div class="column ">
+                <img class="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/journey-map.svg" alt="Cloud Services icon" />
+                Journey Mapping
+              </div>
+              <div class="column ">
+                <img class="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/wireframe.svg" alt="Cloud Services icon" />
+                Design
+              </div>
+            </div>
+            {/* Design &amp; Ideation */}
+          </div>
+          <div class="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
+            <div class="columns is-mobile">
+              <div class="column ">
+                <img class="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/prototype.svg" alt="Cloud Services icon" />
+                Testing
+              </div>
+              <div class="column ">
+                <img class="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="Cloud Services icon" />
+                Prototyping
+              </div>
+            </div>
+            {/* Prototyping &amp; Validation */}
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
@@ -98,7 +118,7 @@ export const IndexPageTemplate = ({
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories
                   </h3>
-                  <BlogRoll />
+                  <BlogRoll count={2} />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more
@@ -111,7 +131,7 @@ export const IndexPageTemplate = ({
         </div>
       </div>
     </section>
-  </div>
+  </Fragment>
 )
 
 IndexPageTemplate.propTypes = {

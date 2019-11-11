@@ -1,8 +1,8 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
+title: Hi, I’m Matthew Rea, an experienced design and product professional living and working in St. Louis.
+image: /img/shapes-bg.png
+heading: Whatever Brah
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:
   title: Why Kaldi

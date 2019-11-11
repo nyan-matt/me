@@ -10,6 +10,52 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
+$family-primary: "Open Sans", sans-serif
+$family-sans-serif: "Maven Pro", sans-serif
+$family-serif: "Museo", serif
+
+$navbar-height: 3.5rem
+.columns 
+  margin-left: 0 !important
+  margin-right: 0 !important
+
+
+.home.hero 
+  .hero-body 
+    padding-bottom: 2.5rem !important
+    padding-top: 2.5rem !important
+    @media (max-width:1027)
+      padding-bottom: .5rem
+      padding-top: 1.5rem
+    .container 
+      background-size: inherit
+      background-position: right
+      background-repeat: no-repeat
+      height: 500px
+      transform: translateX(0px)
+      background-position-y: 0px
+
+      @media (min-width: 767px) and (max-width: 1023px)
+          height: 350px
+          background-image: none !important
+          padding-top: 2em
+      
+      @media (max-width:767px)
+          background-image: none !important
+          height: 200px
+  
+  h1.title 
+    font-family: $family-serif
+    color: $body-color
+    font-weight: normal
+    font-size: 3rem
+    line-height: 3.5rem
+    @media (max-width: 767px)
+      font-size: 2rem
+      line-height: 2rem
+  h2.subtitle 
+    font-family: $family-primary
+
 .navbar .navbar-menu
   box-shadow:none !important
 
@@ -29,6 +75,8 @@ $black: #2b2523
     margin-top: 0
 
 // Helper Classes
+.is-centered-img
+  margin: 0 auto
 .full-width-image-container
   width: 100vw
   height: 400px
@@ -71,9 +119,12 @@ $black: #2b2523
 .margin-top-0
   margin-top: 0 !important
 
-.navbar-item .icon
+.navbar-item 
   color: $primary
-// Override for use of svg's from https://simpleicons.org/
+  text-transform: uppercase
+  &.is-active
+    text-decoration: underline
+
 .icon svg
   width: 1.5rem
   height: 1.5rem
