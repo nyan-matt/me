@@ -3,7 +3,7 @@ templateKey: index-page
 title: Hi, I’m Matthew Rea, an experienced design and product professional living and working in St. Louis.
 image: /img/shapes-bg.png
 heading: Whatever Brah
-subheading: Support sustainable farming while enjoying a cup
+subheading: Currently working as a Human-Centered Designer at 1904labs
 mainpitch:
   title: Why Kaldi
   description: >
