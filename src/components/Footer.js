@@ -8,105 +8,61 @@ import twitter from '../img/social/twitter.svg'
 import vimeo from '../img/social/vimeo.svg'
 
 const Footer = class extends React.Component {
+  currentYear() {
+    return new Date().getFullYear()
+  }
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
-          />
-        </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
-            <div className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        Latest Stories
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4 social">
-                <a title="facebook" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
+      <footer className="footer">
+        <div className="container is-fluid has-background-light">
+          <div className="columns">
+            <div className="column is-12 has-text-centered">
+              <h4 className="title">Still Reading?</h4>
+              <p className="subtitle is-6">Read more about my background, what I’m listening to, reading, watching, or contact me!</p>
+              <div className="buttons is-centered">
+                <a className="button is-rounded is-primary">Rounded</a>
+                <a class="button is-rounded">Rounded</a>
               </div>
             </div>
+          </div>  
+        </div>
+
+        <div className="container is-fluid has-background-primary has-text-white-ter footer-bg">
+          <div className="columns is-multiline">
+            <div className="column is-5">
+
+            </div>
+            <div className="column is-7">
+              <div className="columns">
+                <div className="column is-6">
+                  <section>
+                  <p className="is-uppercase is-family-secondary has-text-weight-bold">MATTHEW REA</p>
+                  <p>Interested in assisting companies and startups with roadmap and concept visualization through research, design, and prototyping.</p>
+                  <p className="has-margin-top-16">&copy; { this.currentYear()} All rights reserved</p>
+                  </section>
+              </div>
+              <div className="column is-6">
+                <section>
+                <p className="is-uppercase is-family-secondary has-text-weight-bold">LINKS</p>
+                    <ul className="footer-links">
+                      <li><Link className="" to="/about">About</Link></li>
+                      <li><Link className="" to="/work">Work</Link></li>
+                      <li><Link className="" to="/blog">Blog</Link></li>
+                      <li><Link className="" to="/contact">Contact</Link></li>
+                    </ul>
+                  <p className="is-uppercase is-family-secondary has-text-weight-bold">CONNECT</p>
+                  <ul className="footer-links">
+                    <li><Link className="" to="/blog">LinkedIn</Link></li>
+                    <li><Link className="" to="/contact">Github</Link></li>
+                  </ul>
+                </section>
+              </div>
+              </div>  
+            </div>
+            
           </div>
         </div>
+        
       </footer>
     )
   }

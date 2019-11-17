@@ -27,7 +27,7 @@ export const IndexPageTemplate = ({
         }}>
           <div className="columns is-mobile">
             <div className="column is-half-desktop is-full-tablet hero-text-container">
-              <h1 className="title is-spaced hero-headline">
+              <h1 className="title is-spaced hero-headline is-primary">
                 {title}
               </h1>
               <h2 className="subtitle hero-subheadline">
@@ -97,7 +97,7 @@ export const IndexPageTemplate = ({
       <div className="container">
         <div className="columns">
           <div className="column">
-            <h3 className="has-text-weight-semibold is-size-2">Latest stories</h3>
+          <h3 className="title">Latest Stories</h3>
             <BlogRoll />
           </div>
         </div>

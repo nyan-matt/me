@@ -1,18 +1,44 @@
 @import "~bulma/sass/utilities/initial-variables"
 
+$spaceamounts: (4, 8, 12, 16, 24, 32)
+$sides: (top, bottom, left, right)
+
+@each $space in $spaceamounts
+  @each $side in $sides
+    .has-margin-#{$side}-#{$space}
+      margin-#{$side}: #{$space}px !important
+  
+
+    .has-padding-#{$side}-#{$space}
+      padding-#{$side}: #{$space}px !important;
+  
+
+
+
 // Config vars
 // Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
+$dark-blue: #333E48
+$green: #5BB75B
+$med-grey: #56595C
+$cyan: #62A0A5
+$red: #E2504D
+$yellow: #F2C750
+$dark-grey: #333333
+
 $kaldi-red-invert: #fff
 
-$primary: $kaldi-red
+$primary: $dark-blue
 $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
-$family-primary: "Open Sans", sans-serif
-$family-sans-serif: "Maven Pro", sans-serif
+$family-sans-serif: "Open Sans", sans-serif
 $family-serif: "Museo", serif
+
+$family-primary: $family-sans-serif
+$family-secondary: $family-serif
+
+
 
 $navbar-height: 3.5rem
 
@@ -65,7 +91,7 @@ $navbar-height: 3.5rem
   
   h1.title 
     font-family: $family-serif
-    color: $body-color
+    color: $primary
     font-weight: normal
     font-size: 3rem
     line-height: 3.5rem
@@ -85,7 +111,7 @@ $navbar-height: 3.5rem
       min-height: 240px
       
 
-h3.title
+h1, h2, h3, h4, h5, h6 
   font-family: $family-serif
 
 section.background-divider
@@ -95,6 +121,34 @@ section.background-divider
   background-position: center
   background-attachment: fixed
   transform: translate3d(0,0,0)
+
+footer
+  .container
+    padding-bottom: 32px
+    padding-top: 32px
+.footer-bg
+  background-image: url('/img/footer-shapes-bg.png')
+  background-position: left
+  background-repeat: no-repeat
+  background-size: contain
+  min-height: 350px
+  @media(max-width:1023px)
+    background-image: none
+  @media(max-width: 768px)
+    min-height: 300px  
+ul.footer-links
+  li
+    margin-top: 8px
+    text-transform: uppercase
+    font-size: 14px
+    a
+      color: $grey-lightest
+      
+      &:hover
+        color: $white
+    &:last-child
+      margin-bottom: 16px
+
 
 
 .content .taglist

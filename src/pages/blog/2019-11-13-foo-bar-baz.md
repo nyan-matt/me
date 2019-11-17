@@ -1,6 +1,7 @@
 ---
-templateKey: 'blog-post'
-title: 'Foo: Bar Baz'
+templateKey: blog-post
+title: Foo Bar Baz
+featuredimage: /img/chemex.jpg
 date: 2019-11-12T16:04:10.000Z
 featuredpost: true
 description: >-
