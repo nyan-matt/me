@@ -16,3 +16,11 @@ Lorem ipsum delor
 
 
 ![test](/img/card-work-empathy-map.png "test")
+
+
+
+<div style="background-image:url('/img/blog-index.jpg'); background-size:cover; height: 200px">
+  
+</div>
+
+<section className="backgroud-divider"><div>123</div></section>
