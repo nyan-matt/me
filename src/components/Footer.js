@@ -21,7 +21,7 @@ const Footer = class extends React.Component {
               <p className="subtitle is-6">Read more about my background, what I’m listening to, reading, watching, or contact me!</p>
               <div className="buttons is-centered">
                 <a className="button is-rounded is-primary">Rounded</a>
-                <a class="button is-rounded">Rounded</a>
+                <a className="button is-rounded">Rounded</a>
               </div>
             </div>
           </div>  

@@ -23,4 +23,4 @@ Lorem ipsum delor
   
 </div>
 
-<section className="backgroud-divider"><div>123</div></section>
+<section class="background-divider" markdown="0"><div>456</div></section>

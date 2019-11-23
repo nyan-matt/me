@@ -7,13 +7,18 @@ class FeaturedWork extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
-    console.log(posts)
     return (
       <div className="columns is-mobile is-multiline work">
         {posts &&
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
-              <div className="column-content" style={{ backgroundColor: post.frontmatter.cardcolor, backgroundImage: `url(${post.frontmatter.cardimage.publicURL})` }}>
+              <div className="column-content" style={{ 
+                backgroundColor: post.frontmatter.cardcolor,
+                backgroundImage: `url(${
+                  !!post.frontmatter.cardimage.childImageSharp ?
+                  post.frontmatter.cardimage.childImageSharp.fluid.src: post.frontmatter.cardimage 
+                })` 
+              }}>
               </div>
               <Link className="" to={post.fields.slug}>
                     {post.frontmatter.title}
@@ -57,7 +62,11 @@ export default () => (
                 featuredpost
                 cardcolor
                 cardimage {
-                  publicURL
+                  childImageSharp {
+                    fluid(maxWidth:600, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
             }

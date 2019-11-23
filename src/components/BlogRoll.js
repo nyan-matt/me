@@ -14,7 +14,12 @@ class BlogRoll extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
-              <div className="column-content" style={{ backgroundImage: `url(${post.frontmatter.featuredimage.childImageSharp.fluid.src})` }}>
+              <div className="column-content" style={{ 
+                backgroundImage: `url(${
+                  post.frontmatter.featuredimage ?
+                  post.frontmatter.featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+                })` 
+              }}>
               </div>
               <Link className="" to={post.fields.slug}>
                     {post.frontmatter.title}
