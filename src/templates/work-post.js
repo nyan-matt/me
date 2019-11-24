@@ -6,6 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import MarkdownContent from '../components/MarkdownContent'
+import BlogRoll from '../components/BlogRoll'
 
 export const WorkPostTemplate = ({
   content,
@@ -18,7 +19,8 @@ export const WorkPostTemplate = ({
   summary,
   roles,
   bannerimage1,
-  bodyblock1,
+  showcase1
+
 }) => {
   const PostContent = contentComponent || Content
   
@@ -63,23 +65,25 @@ export const WorkPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            <MarkdownContent className="foo" content={bodyblock1} />
+            <PostContent content={content} />
           </div>
         </div>
       </div>
       <div className="container is-fluid is-paddingless">
         <div className="work-banner-image" style={{
           backgroundImage: `url('${
-          bannerimage1 ?
-          bannerimage1.childImageSharp.fluid.src : 'img/chemex.jpg' 
-          }')` 
+          showcase1.backgroundimage ?
+          showcase1.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+          }')`,
+          height: showcase1.height,
+          backgroundAttachment: `${showcase1.fixed ? 'fixed' : null}`  
         }}>
         </div>
       </div>
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            <MarkdownContent className="foo" content={bodyblock1} />
+            123
           </div>
         </div>
       </div>
@@ -95,20 +99,25 @@ export const WorkPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-          <PostContent content={content} />
+            {tags && tags.length ? (
+              <div>
+                <h4>Tags</h4>
+                <div className="buttons">
+                  {tags.map(tag => (
+                    <Link key={tag} className="button is-small is-rounded is-outline" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  ))}
+                </div>
+              </div>            
+            ) : null}
+          </div>
+        </div>
+      </div>
 
-          {tags && tags.length ? (
-            <div style={{ marginTop: `4rem` }}>
-              <h4>Tags</h4>
-              <ul className="taglist">
-                {tags.map(tag => (
-                  <li key={tag + `tag`}>
-                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-12">
+            <h4 className="title">Latest Stories</h4>
+            <BlogRoll />
           </div>
         </div>
       </div>
@@ -128,8 +137,8 @@ WorkPostTemplate.propTypes = {
   helmet: PropTypes.object,
   featuredimage: PropTypes.object,
   summary: PropTypes.string,
-  bodyblock1: PropTypes.string,
   bannerimage1: PropTypes.object,
+  showcase1: PropTypes.object
 }
 
 const WorkPost = ({ data }) => {
@@ -156,7 +165,7 @@ const WorkPost = ({ data }) => {
         featuredimage={post.frontmatter.featuredimage}
         summary={post.frontmatter.summary}
         bannerimage1={post.frontmatter.bannerimage1}
-        bodyblock1={post.frontmatter.bodyblock1}
+        showcase1={post.frontmatter.showcase1}
       />
     </Layout>
   )
@@ -180,9 +189,19 @@ export const pageQuery = graphql`
         title
         description
         summary
-        bodyblock1
         tags
         roles
+        showcase1 {
+          height
+          fixed
+          backgroundimage {
+            childImageSharp {
+              fluid(maxWidth:1200, quality:100) {
+                src
+              }
+            }
+          }
+        }
         bannerimage1 {
           childImageSharp {
             fluid(maxWidth: 1200, quality: 100) {

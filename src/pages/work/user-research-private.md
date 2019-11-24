@@ -20,22 +20,43 @@ roles: >
     - sd;lkf s;ldfk;lsdkfl;sd kf;lskf
 cardcolor: '#333E48'
 bannerimage1: /img/workshop.jpg
-bodyblock1: >
-  Laldi is the coffee store for everyone who believes that great coffee
-  shouldn't just taste good, it **should** do good too. We source all of our beans
-  directly from small scale sustainable farmers and make sure part of the
-  profits are reinvested in their communities.
-
-  Laldi is the coffee store for everyone who believes that great coffee
-  shouldn't just taste good, it **should** do good too. We source all of our beans
-  directly from small scale sustainable farmers and make sure part of the
-  profits are reinvested in their communities.
-  
+showcase1: 
+  backgroundimage: /img/flavor_wheel.jpg
+  height: 600
+  fixed: true
 tags:
   - user research
   - healthcare
   - journey mapping
   - personas
 ---
-Lorem ipsum delor
+#### Heading
+ Laldi is the coffee store for everyone who believes that great coffee
+  shouldn't just taste good, it **should** do good too. We source all of our beans
+  directly from small scale sustainable farmers and make sure part of the
+  profits are reinvested in their communities.
+
+   Laldi is the coffee store for everyone who believes that great coffee
+  shouldn't just taste good, it **should** do good too. We source all of our beans
+  directly from small scale sustainable farmers and make sure part of the
+  profits are reinvested in their communities.
+
+<div class="columns">
+  <div class="column is-6">
+    <img srcset="/img/card-work-empathy-map.png" alt="asdasd" />
+  </div>
+  <div class="column is-6">
+    <img srcset="/img/card-work-storyboards.png" alt="asdasd" />
+  </div>
+</div>
+
+   Laldi is the coffee store for everyone who believes that great coffee
+  shouldn't just taste good, it **should** do good too. We source all of our beans
+  directly from small scale sustainable farmers and make sure part of the
+  profits are reinvested in their communities.
+
+   Laldi is the coffee store for everyone who believes that great coffee
+  shouldn't just taste good, it **should** do good too. We source all of our beans
+  directly from small scale sustainable farmers and make sure part of the
+  profits are reinvested in their communities.
 

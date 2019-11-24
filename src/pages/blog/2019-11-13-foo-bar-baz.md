@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Foo Bar Baz
-featuredimage: 
+featuredimage: /img/products-full-width.jpg
 date: 2019-11-12T16:04:10.000Z
 featuredpost: true
 description: >-

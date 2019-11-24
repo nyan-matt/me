@@ -43,13 +43,11 @@ collections:
       - {label: "Summary", name: "summary", widget: "markdown"}
       - {label: "Roles", name: "roles", widget: "markdown"}
       - {label: "Banner Image 1", name: "bannerimage1", widget: image}
-      - {label: "Body Block 1", name: "bodyblock1", widget: "markdown"}
-      - {label: "Banner Image 2", name: "bannerimage2", widget: image}
-      - {label: "Body Block 2", name: "bodyblock2", widget: "markdown"}
-      - {label: "Banner Image 3", name: "bannerimage3", widget: image}
-      - {label: "Body Block 3", name: "bodyblock3", widget: "markdown"}
-      - {label: "Learning", name: "learning", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Banner Image 2", name: "bannerimage2", widget: image}
+      - {label: "Learning", name: "learning", widget: "markdown"}
+      - {label: "Showcase Image", name: "showcase1", widget: object, fields: [{label: "Background Image", name: "backgroundimg", widget: image}, {label: "Height", name: "height", widget: number}, {label: "Fixed", name:"fixed", widget: "boolean"}]}
+      
       - {label: "Tags", name: "tags", widget: "list"}
   - name: "pages"
     label: "Pages"
