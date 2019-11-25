@@ -18,8 +18,9 @@ export const WorkPostTemplate = ({
   featuredimage,
   summary,
   roles,
-  bannerimage1,
-  showcase1
+  showcase1,
+  showcase2,
+  learning
 
 }) => {
   const PostContent = contentComponent || Content
@@ -38,7 +39,7 @@ export const WorkPostTemplate = ({
               }')` 
             }}>
             </div>
-            <h1 className="title is-size-2">{title}</h1>
+            <h1 className="title is-size-3">{title}</h1>
             <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">{description}</h2>
             <div className="columns">
               <div className="column is-6">
@@ -55,11 +56,13 @@ export const WorkPostTemplate = ({
       </div>
       <div className="container is-fluid is-paddingless">
         <div className="work-banner-image" style={{
-          backgroundImage: `url('${
-          bannerimage1 ?
-          bannerimage1.childImageSharp.fluid.src : 'img/chemex.jpg' 
-          }')` 
-        }}>
+            backgroundImage: `url('${
+            showcase1.backgroundimage ?
+            showcase1.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+            }')`,
+            height: showcase1.height,
+            backgroundAttachment: `${showcase1.fixed ? 'fixed' : null}`  
+          }}>
         </div>
       </div>
       <div className="container content">
@@ -72,26 +75,18 @@ export const WorkPostTemplate = ({
       <div className="container is-fluid is-paddingless">
         <div className="work-banner-image" style={{
           backgroundImage: `url('${
-          showcase1.backgroundimage ?
-          showcase1.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+          showcase2.backgroundimage ?
+          showcase2.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
           }')`,
           height: showcase1.height,
-          backgroundAttachment: `${showcase1.fixed ? 'fixed' : null}`  
+          backgroundAttachment: `${showcase2.fixed ? 'fixed' : null}`  
         }}>
         </div>
       </div>
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            123
-          </div>
-        </div>
-      </div>
-
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-12">
-
+            <MarkdownContent className="foo" content={learning} />
           </div>
         </div>
       </div>
@@ -137,8 +132,9 @@ WorkPostTemplate.propTypes = {
   helmet: PropTypes.object,
   featuredimage: PropTypes.object,
   summary: PropTypes.string,
-  bannerimage1: PropTypes.object,
-  showcase1: PropTypes.object
+  showcase1: PropTypes.object,
+  showcase2: PropTypes.object,
+  learning: PropTypes.string
 }
 
 const WorkPost = ({ data }) => {
@@ -164,8 +160,9 @@ const WorkPost = ({ data }) => {
         title={post.frontmatter.title}
         featuredimage={post.frontmatter.featuredimage}
         summary={post.frontmatter.summary}
-        bannerimage1={post.frontmatter.bannerimage1}
         showcase1={post.frontmatter.showcase1}
+        showcase2={post.frontmatter.showcase2}
+        learning={post.frontmatter.learning}
       />
     </Layout>
   )
@@ -191,6 +188,7 @@ export const pageQuery = graphql`
         summary
         tags
         roles
+        learning
         showcase1 {
           height
           fixed
@@ -202,10 +200,14 @@ export const pageQuery = graphql`
             }
           }
         }
-        bannerimage1 {
-          childImageSharp {
-            fluid(maxWidth: 1200, quality: 100) {
-              ...GatsbyImageSharpFluid
+        showcase2 {
+          height
+          fixed
+          backgroundimage {
+            childImageSharp {
+              fluid(maxWidth:1200, quality:100) {
+                src
+              }
             }
           }
         }
