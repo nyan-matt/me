@@ -57,10 +57,10 @@ export const WorkPostTemplate = ({
       <div className="container is-fluid is-paddingless">
         <div className="work-banner-image" style={{
             backgroundImage: `url('${
-            showcase1.backgroundimage ?
+            showcase1 && showcase1.backgroundimage ?
             showcase1.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
             }')`,
-            height: showcase1.height,
+            height: `${showcase1.height ? showcase1.height : '400'}` ,
             backgroundAttachment: `${showcase1.fixed ? 'fixed' : null}`  
           }}>
         </div>
@@ -75,11 +75,11 @@ export const WorkPostTemplate = ({
       <div className="container is-fluid is-paddingless">
         <div className="work-banner-image" style={{
           backgroundImage: `url('${
-          showcase2.backgroundimage ?
+          showcase2 && showcase2.backgroundimage ?
           showcase2.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
           }')`,
-          height: showcase1.height,
-          backgroundAttachment: `${showcase2.fixed ? 'fixed' : null}`  
+          height: `${showcase2 && showcase2.height ? showcase2.height : '400'}`,
+          backgroundAttachment: `${showcase2 && showcase2.fixed ? 'fixed' : null}`  
         }}>
         </div>
       </div>
@@ -132,6 +132,7 @@ WorkPostTemplate.propTypes = {
   helmet: PropTypes.object,
   featuredimage: PropTypes.object,
   summary: PropTypes.string,
+  roles: PropTypes.string,
   showcase1: PropTypes.object,
   showcase2: PropTypes.object,
   learning: PropTypes.string
@@ -160,7 +161,7 @@ const WorkPost = ({ data }) => {
         title={post.frontmatter.title}
         featuredimage={post.frontmatter.featuredimage}
         summary={post.frontmatter.summary}
-        showcase1={post.frontmatter.showcase1}
+        showcase1={post.frontmatter.showcase1 || {}}
         showcase2={post.frontmatter.showcase2}
         learning={post.frontmatter.learning}
       />
