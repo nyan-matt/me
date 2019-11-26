@@ -161,8 +161,8 @@ const WorkPost = ({ data }) => {
         title={post.frontmatter.title}
         featuredimage={post.frontmatter.featuredimage}
         summary={post.frontmatter.summary}
-        showcase1={post.frontmatter.showcase1 || {}}
-        showcase2={post.frontmatter.showcase2 || {}}
+        showcase1={post.frontmatter.showcase1}
+        showcase2={post.frontmatter.showcase2}
         learning={post.frontmatter.learning}
       />
     </Layout>
