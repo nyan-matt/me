@@ -18,11 +18,11 @@ roles: |-
   3. asdasdasd
 showcase1:
   backgroundimage: /img/products-grid2.jpg
-  fixed: true
+  fixed: false
   height: 400
 showcase2:
   backgroundimage: /img/products-grid1.jpg
-  fixed: true
+  fixed: false
   height: 500
 learning: asdlkja sldjalkdjlakdsj laksdjlkadsjlkajsdlkajsd lkajsldjklajsd
 tags:
