@@ -60,8 +60,8 @@ export const WorkPostTemplate = ({
             showcase1 && showcase1.backgroundimage ?
             showcase1.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
             }')`,
-            height: `${showcase1.height ? showcase1.height : '400'}` ,
-            backgroundAttachment: `${showcase1.fixed ? 'fixed' : null}`  
+            height: `${showcase1 && showcase1.height ? showcase1.height : '400'}` ,
+            backgroundAttachment: `${showcase1 && showcase1.fixed ? 'fixed' : null}`  
           }}>
         </div>
       </div>
