@@ -18,13 +18,15 @@ $sides: (top, bottom, left, right)
 // Config vars
 // Kaldi logo brand color: #FD461E
 $dark-blue: #333E48
+$light-blue: #1582AA
 $green: #5BB75B
 $med-grey: #56595C
 $cyan: #62A0A5
 $red: #E2504D
 $yellow: #F2C750
 $dark-grey: #333333
-
+$link: $light-blue
+$link-hover: darken($light-blue, 10%)
 $kaldi-red-invert: #fff
 
 $primary: $dark-blue
@@ -32,7 +34,7 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
-$family-sans-serif: "Open Sans", sans-serif
+$family-sans-serif: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 $family-serif: "Museo", serif
 
 $family-primary: $family-sans-serif
@@ -58,6 +60,9 @@ $navbar-height: 3.5rem
 
 .navbar .navbar-menu
   box-shadow:none !important
+
+.navbar-brand, .navbar-item
+  font-family: $family-serif
 
 
 .columns 
@@ -101,15 +106,31 @@ $navbar-height: 3.5rem
   h2.subtitle 
     font-family: $family-primary
 
-.columns.work
+.columns
   .column
     .column-content
       border-radius: 5px
       background-position: center
       background-repeat: no-repeat
-      background-size: cover
+      background-size: 100%
       min-height: 240px
-      
+      transition: all .22s ease-in
+      &:hover
+        background-size: 110%
+
+a.card-title
+  font-family: $family-serif
+  margin-top: 16px
+
+.work-banner-image 
+  @media (max-width: 767px)
+    background-attachment: initial !important
+
+p.excerpt 
+  display: -webkit-box
+  -webkit-line-clamp: 4
+  -webkit-box-orient: vertical
+  overflow: hidden
 
 h1, h2, h3, h4, h5, h6 
   font-family: $family-serif

@@ -6,7 +6,7 @@ import { kebabCase } from 'lodash'
 import Layout from '../../components/Layout'
 
 
-class BlogIndexPage extends React.Component {
+class WorkIndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -15,36 +15,34 @@ class BlogIndexPage extends React.Component {
     return (
       <Layout>
         <div className="container">
-        <Helmet title={`Blog listing | ${title}`} />
+        <Helmet title={`Work listing | ${title}`} />
             <div className="columns is-mobile is-multiline work">
             <div className="column is-12">
-              <h1 className="title is-size-3">Blog Posts</h1>
+              <h1 className="title is-size-3">Work Posts</h1>
               <p className="subtitle is-size-7">count {totalCount}</p>
             </div>
+
               {posts &&
                 posts.map(({ node: post }) => (
-                  <div className="column is-6-desktop is-6-tablet is-full-mobile" key={post.id} data-sal="fade">
+                  <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id} data-sal="fade">
                     <Link className="" to={post.fields.slug}>
                       <div className="column-content" style={{ 
                         backgroundImage: `url(${
-                          post.frontmatter.featuredimage ?
-                          post.frontmatter.featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
-                        })` 
+                          post.frontmatter.cardimage ?
+                          post.frontmatter.cardimage.childImageSharp.fluid.src : 'img/chemex.jpg'
+                        })`,
+                        backgroundColor: post.frontmatter.cardcolor ? post.frontmatter.cardcolor : '#AAA'  
                       }}>
                       </div>
                     </Link>
                     <Link className="card-title has-margin-top-12 is-block is-size-5" to={post.fields.slug}>{post.frontmatter.title}</Link>
                     <p className="is-size-6 has-text-grey-dark">{post.frontmatter.description}</p>
-                    {post.frontmatter.tags && post.frontmatter.tags.length ? (
-                      <div className="tags is-right">
-                        {post.frontmatter.tags.map(tag => (
-                          <span key={tag} className="tag is-small is-rounded is-outline">{tag}</span>
-                        ))}
-                      </div>
-                    ) : null}
+                    <p className="is-size-7 has-text-grey-dark excerpt">{post.frontmatter.summary}</p>
                   </div>
                 ))
               }
+
+
             </div>
            </div> 
       </Layout>
@@ -52,7 +50,7 @@ class BlogIndexPage extends React.Component {
   }
 }
 
-BlogIndexPage.propTypes = {
+WorkIndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -61,9 +59,9 @@ BlogIndexPage.propTypes = {
   }),
 }
 
-export default BlogIndexPage
-export const blogIndexQuery = graphql`
-  query BlogIndexQuery {
+export default WorkIndexPage
+export const workIndexQuery = graphql`
+  query WorkIndexQuery {
   site {
     siteMetadata {
       title
@@ -73,7 +71,7 @@ export const blogIndexQuery = graphql`
       limit: 100,
       skip: 0,
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      filter: { frontmatter: { templateKey: { eq: "work-post" } } }
   ) {
     edges {
       node {
@@ -86,9 +84,17 @@ export const blogIndexQuery = graphql`
           title
           templateKey
           description
+          summary
           date(formatString: "MMMM DD, YYYY")
           featuredpost
-          tags
+          cardcolor
+          cardimage {
+            childImageSharp {
+              fluid(maxWidth: 600, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           featuredimage {
             childImageSharp {
               fluid(maxWidth: 600, quality: 100) {

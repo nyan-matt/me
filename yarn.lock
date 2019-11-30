@@ -6124,6 +6124,14 @@ gatsby-plugin-sass@^2.0.7:
     "@babel/runtime" "^7.6.3"
     sass-loader "^7.3.1"
 
+gatsby-plugin-scroll-reveal@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-scroll-reveal/-/gatsby-plugin-scroll-reveal-0.0.4.tgz#dc2e55a653b70abfa9f1a6f5993b57f0ddf3127c"
+  integrity sha512-2bO8OB9LVHyMsBlgEQ7jIQFtQh9dPVmAy/lggn4jmHI1P4uhKIEcxKbvWl4AV8yuPA9HVE4npRLfOd8DSd9Fqw==
+  dependencies:
+    intersection-observer "^0.7.0"
+    sal.js "^0.6.2"
+
 gatsby-plugin-sharp@^2.2.9:
   version "2.2.36"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.36.tgz#860ab199fee7af1fb5bb3c5b5c3134fd84eca56a"
@@ -7695,6 +7703,11 @@ internal-ip@^4.3.0:
   dependencies:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
+
+intersection-observer@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.7.0.tgz#ee16bee978db53516ead2f0a8154b09b400bbdc9"
+  integrity sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==
 
 into-stream@^3.1.0:
   version "3.1.0"
@@ -12996,6 +13009,11 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
+sal.js@^0.6.2:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/sal.js/-/sal.js-0.6.4.tgz#ce46927c9c378ff6e54145e398a0843b7d133632"
+  integrity sha512-g//L71+lqjnWV3ewyppnN0OlkQefkuEwPsL9eELGHjFsHuMKYUozpADCNVvubEgzcw3HJ57mBOxqY2E136gpaQ==
 
 sanitize-filename@^1.6.1:
   version "1.6.3"

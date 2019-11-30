@@ -26,6 +26,6 @@ showcase2:
   height: 500
 learning: asdlkja sldjalkdjlakdsj laksdjlkadsjlkajsdlkajsd lkajsldjklajsd
 tags:
-  - ''
+  - 'foo'
 ---
 Lorem psim delor

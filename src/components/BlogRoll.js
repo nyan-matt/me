@@ -13,17 +13,17 @@ class BlogRoll extends React.Component {
       <div className="columns is-mobile is-multiline work">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
-              <div className="column-content" style={{ 
-                backgroundImage: `url(${
-                  post.frontmatter.featuredimage ?
-                  post.frontmatter.featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
-                })` 
-              }}>
-              </div>
+            <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id} data-sal="fade">
               <Link className="" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                </Link>
+                <div className="column-content" style={{ 
+                  backgroundImage: `url(${
+                    post.frontmatter.featuredimage ?
+                    post.frontmatter.featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+                  })` 
+                }}>
+                </div>
+                {post.frontmatter.title}
+              </Link>
             </div>
           ))
         }

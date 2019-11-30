@@ -18,15 +18,11 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
+    <section className="">
       {helmet || ''}
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
             <div className="featured-image" style={{ 
                 backgroundImage: `url(${
                   featuredimage ?
@@ -34,18 +30,24 @@ export const BlogPostTemplate = ({
                 })` 
               }}>
             </div>
+            <h1 className="title is-size-3">{title}</h1>
+            <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">{description}</h2>
             <PostContent content={content} />
+          </div>
+        </div>
+      </div>
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-12">
             {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
+              <div>
                 <h4>Tags</h4>
-                <ul className="taglist">
+                <div className="buttons">
                   {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
+                    <Link key={tag} className="button is-small is-rounded is-outline" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                   ))}
-                </ul>
-              </div>
+                </div>
+              </div>            
             ) : null}
           </div>
         </div>

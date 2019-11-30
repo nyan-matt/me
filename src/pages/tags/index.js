@@ -3,6 +3,8 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
+import FeaturedWork from '../../components/FeaturedWork'
+import BlogRoll from '../../components/BlogRoll'
 
 const TagsPage = ({
   data: {
@@ -17,20 +19,31 @@ const TagsPage = ({
       <Helmet title={`Tags | ${title}`} />
       <div className="container content">
         <div className="columns">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
-          >
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <ul className="taglist">
+          <div className="column is-12">
+            <h1 className="title is-size-3">Tags</h1>
+            <div className="buttons">
               {group.map(tag => (
-                <li key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
+                <Link key={tag.fieldValue} className="button is-rounded is-primary" to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                  {tag.fieldValue} ({tag.totalCount})
+                </Link>
               ))}
-            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-12">
+            <h4 className="title">Latest Stories</h4>
+            <BlogRoll />
+          </div>
+        </div>
+      </div>
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-12">
+            <h4 className="title">Featured Work</h4>
+            <FeaturedWork />
           </div>
         </div>
       </div>

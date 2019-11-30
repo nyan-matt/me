@@ -50,6 +50,10 @@ learning: >-
   rift in the clouds.
 tags:
   - something
+  - foo
+  - bar
+  - baz
+  - tasting
 ---
 The spectacle before us was indeed sublime.
 

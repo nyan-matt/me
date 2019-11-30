@@ -26,11 +26,11 @@ export const IndexPageTemplate = ({
         }}>
           <div className="columns is-mobile">
             <div className="column is-half-desktop is-full-tablet hero-text-container">
-              <h1 className="title is-spaced hero-headline is-primary">
+              <h1 data-sal="fade" data-sal-delay="300" className="title is-spaced hero-headline is-primary">
                 {title}
               </h1>
-              <h2 className="subtitle hero-subheadline">
-                {subheading}
+              <h2 data-sal="slide-up" data-sal-delay="600" className="subtitle hero-subheadline">
+              🙌 {subheading}
               </h2>
             </div>
           </div>
@@ -39,7 +39,7 @@ export const IndexPageTemplate = ({
     </section>
     <section className="section has-background-white">
       <div className="container">
-      <h3 className="title">Expertise &amp; Skills</h3>
+      <h3 className="title is-size-4">Expertise &amp; Skills</h3>
         <div className="columns is-mobile is-multiline">
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
@@ -82,7 +82,7 @@ export const IndexPageTemplate = ({
     </section>
     <section className="section has-background-white">
       <div className="container">
-        <h3 className="title">Featured Work</h3>
+        <h3 className="title is-size-4">Featured Work</h3>
         <FeaturedWork />
       </div>
     </section>
@@ -96,7 +96,7 @@ export const IndexPageTemplate = ({
       <div className="container">
         <div className="columns">
           <div className="column">
-          <h3 className="title">Latest Stories</h3>
+          <h3 className="title is-size-4">Latest Stories</h3>
             <BlogRoll />
           </div>
         </div>

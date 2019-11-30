@@ -12,17 +12,17 @@ class FeaturedWork extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
-              <div className="column-content" style={{ 
-                backgroundColor: post.frontmatter.cardcolor,
-                backgroundImage: `url(${
-                  !!post.frontmatter.cardimage.childImageSharp ?
-                  post.frontmatter.cardimage.childImageSharp.fluid.src: post.frontmatter.cardimage 
-                })` 
-              }}>
-              </div>
               <Link className="" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                </Link>
+                <div className="column-content" data-sal="fade" data-sal-duration="500" style={{ 
+                  backgroundColor: post.frontmatter.cardcolor,
+                  backgroundImage: `url(${
+                    !!post.frontmatter.cardimage.childImageSharp ?
+                    post.frontmatter.cardimage.childImageSharp.fluid.src: post.frontmatter.cardimage 
+                  })` 
+                }}>
+                </div>
+                {post.frontmatter.title}
+              </Link>
             </div>
           ))
         }
