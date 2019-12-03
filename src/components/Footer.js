@@ -1,12 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import logo from '../img/logo.svg'
-import facebook from '../img/social/facebook.svg'
-import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
-
 const Footer = class extends React.Component {
   currentYear() {
     return new Date().getFullYear()
@@ -20,8 +14,8 @@ const Footer = class extends React.Component {
               <h4 className="title">Still Reading?</h4>
               <p className="subtitle is-6">Read more about my background, what I’m listening to, reading, watching, or contact me!</p>
               <div className="buttons is-centered">
-                <a className="button is-rounded is-primary">Rounded</a>
-                <a className="button is-rounded">Rounded</a>
+                <Link className="button is-rounded is-primary is-uppercase" to="/contact/">Contact</Link>
+                <Link className="button is-rounded is-uppercase" to="/about/">About</Link>
               </div>
             </div>
           </div>  

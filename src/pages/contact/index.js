@@ -1,6 +1,8 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import githublogo from '../../img/github-icon.svg'
+import linkedinlogo from '../../img/linkedin-logo.svg'
 
 function encode(data) {
   return Object.keys(data)
@@ -34,12 +36,29 @@ export default class Index extends React.Component {
   }
 
   render() {
+    // const { title } = useSiteMetadata()
     return (
       <Layout>
         <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
+        <div className="container">
+          
+          <div className="container content">
+          <div className="columns">
+            <div className="column is-12">
+              <div
+                className="banner-image"
+                style={{
+                  backgroundImage:'url(/img/contact-hero.png)'
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+          <div className="columns is-mobile is-multiline work">
+            <div className="column is-12">
+              <h1 className="title is-size-3">Contact</h1>
+            </div>
+            <div className="column is-8">
               <form
                 name="contact"
                 method="post"
@@ -101,13 +120,28 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="button is-link" type="submit">
+                  <button className="button is-rounded is-primary" type="submit">
                     Send
                   </button>
                 </div>
               </form>
-            </div>
+              </div>
+              <div className="column is-4">
+                <p className="is-uppercase is-family-secondary has-text-weight-bold">CONNECT</p>
+                  <ul className="contact-links">
+                    <li className="is-block">
+                      <img className="image is-24x24 is-inline" src={githublogo} alt="github logo" />
+                      <a className="is-inline" href="/">Follow on Github</a>
+                    </li>
+                    <li className="is-block">
+                      <img className="image is-24x24 is-inline" src={linkedinlogo} alt="github logo" />
+                      <a className="is-inline" href="/">Connect on LinkedIn</a>
+                    </li>
+                  </ul>
+                
+              </div>
           </div>
+        </div>
         </section>
       </Layout>
     )

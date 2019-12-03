@@ -1,21 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
-    console.log(posts)
     return (
       <div className="columns is-mobile is-multiline work">
         {posts &&
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id} data-sal="fade">
               <Link className="" to={post.fields.slug}>
-                <div className="column-content" style={{ 
+                <div className="column-content" data-sal="fade" data-sal-duration="500" style={{ 
                   backgroundImage: `url(${
                     post.frontmatter.featuredimage ?
                     post.frontmatter.featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 

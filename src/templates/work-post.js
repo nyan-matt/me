@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
-import MarkdownContent from '../components/MarkdownContent'
-import BlogRoll from '../components/BlogRoll'
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import { kebabCase } from "lodash";
+import Helmet from "react-helmet";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
+import MarkdownContent from "../components/MarkdownContent";
+import BlogRoll from "../components/BlogRoll";
 
 export const WorkPostTemplate = ({
   content,
@@ -21,49 +21,62 @@ export const WorkPostTemplate = ({
   showcase1,
   showcase2,
   learning
-
 }) => {
-  const PostContent = contentComponent || Content
-  
+  const PostContent = contentComponent || Content;
+
   return (
-    <section className="">
-      {helmet || ''}
-      
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-12">
-            <div className="featured-image" style={{
-              backgroundImage: `url('${
-              featuredimage ?
-              featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
-              }')` 
-            }}>
-            </div>
-            <h1 className="title is-size-3">{title}</h1>
-            <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">{description}</h2>
-            <div className="columns">
-              <div className="column is-6">
-                <h4>Summary</h4>
-                <MarkdownContent className="foo" content={summary} />
-              </div>
-              <div className="column is-6">
-                <h4>Roles</h4>
-                <MarkdownContent className="foo" content={roles} />
+    <Fragment>
+      <section className="section">
+        {helmet || ""}
+
+        <div className="container content">
+          <div className="columns">
+            <div className="column is-12">
+              <div
+                className="featured-image"
+                style={{
+                  backgroundImage: `url('${
+                    featuredimage
+                      ? featuredimage.childImageSharp.fluid.src
+                      : "img/chemex.jpg"
+                  }')`
+                }}
+              ></div>
+              <h1 className="title is-size-3">{title}</h1>
+              <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
+                {description}
+              </h2>
+              <div className="columns">
+                <div className="column is-6">
+                  <h4>Summary</h4>
+                  <MarkdownContent className="foo" content={summary} />
                 </div>
+                <div className="column is-6">
+                  <h4>Roles</h4>
+                  <MarkdownContent className="foo" content={roles} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <div className="container is-fluid is-paddingless">
-        <div className="work-banner-image" style={{
+        <div
+          className="work-banner-image"
+          style={{
             backgroundImage: `url('${
-            showcase1 && showcase1.backgroundimage ?
-            showcase1.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+              showcase1 && showcase1.backgroundimage
+                ? showcase1.backgroundimage.childImageSharp.fluid.src
+                : "img/chemex.jpg"
             }')`,
-            height: `${showcase1 && showcase1.height ? showcase1.height : '400'}` ,
-            backgroundAttachment: `${showcase1 && showcase1.fixed ? 'fixed' : null}`  
-          }}>
-        </div>
+            height: `${
+              showcase1 && showcase1.height ? showcase1.height : "400"
+            }`,
+            backgroundAttachment: `${
+              showcase1 && showcase1.fixed ? "fixed" : null
+            }`
+          }}
+        ></div>
       </div>
       <div className="container content">
         <div className="columns">
@@ -73,15 +86,22 @@ export const WorkPostTemplate = ({
         </div>
       </div>
       <div className="container is-fluid is-paddingless">
-        <div className="work-banner-image" style={{
-          backgroundImage: `url('${
-          showcase2 && showcase2.backgroundimage ?
-          showcase2.backgroundimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
-          }')`,
-          height: `${showcase2 && showcase2.height ? showcase2.height : '400'}`,
-          backgroundAttachment: `${showcase2 && showcase2.fixed ? 'fixed' : null}`  
-        }}>
-        </div>
+        <div
+          className="work-banner-image"
+          style={{
+            backgroundImage: `url('${
+              showcase2 && showcase2.backgroundimage
+                ? showcase2.backgroundimage.childImageSharp.fluid.src
+                : "img/chemex.jpg"
+            }')`,
+            height: `${
+              showcase2 && showcase2.height ? showcase2.height : "400"
+            }`,
+            backgroundAttachment: `${
+              showcase2 && showcase2.fixed ? "fixed" : null
+            }`
+          }}
+        ></div>
       </div>
       <div className="container content">
         <div className="columns">
@@ -99,10 +119,16 @@ export const WorkPostTemplate = ({
                 <h4>Tags</h4>
                 <div className="buttons">
                   {tags.map(tag => (
-                    <Link key={tag} className="button is-small is-rounded is-outline" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    <Link
+                      key={tag}
+                      className="button is-small is-rounded is-outline"
+                      to={`/tags/${kebabCase(tag)}/`}
+                    >
+                      {tag}
+                    </Link>
                   ))}
                 </div>
-              </div>            
+              </div>
             ) : null}
           </div>
         </div>
@@ -116,13 +142,9 @@ export const WorkPostTemplate = ({
           </div>
         </div>
       </div>
-
-      
-      
-            
-    </section>
-  )
-}
+    </Fragment>
+  );
+};
 
 WorkPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -136,10 +158,10 @@ WorkPostTemplate.propTypes = {
   showcase1: PropTypes.object,
   showcase2: PropTypes.object,
   learning: PropTypes.string
-}
+};
 
 const WorkPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -166,16 +188,16 @@ const WorkPost = ({ data }) => {
         learning={post.frontmatter.learning}
       />
     </Layout>
-  )
-}
+  );
+};
 
 WorkPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default WorkPost
+export default WorkPost;
 
 export const pageQuery = graphql`
   query WorkPostByID($id: String!) {
@@ -195,7 +217,7 @@ export const pageQuery = graphql`
           fixed
           backgroundimage {
             childImageSharp {
-              fluid(maxWidth:1200, quality:100) {
+              fluid(maxWidth: 1200, quality: 100) {
                 src
               }
             }
@@ -206,7 +228,7 @@ export const pageQuery = graphql`
           fixed
           backgroundimage {
             childImageSharp {
-              fluid(maxWidth:1200, quality:100) {
+              fluid(maxWidth: 1200, quality: 100) {
                 src
               }
             }
@@ -222,4 +244,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

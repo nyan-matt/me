@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
@@ -94,12 +94,8 @@ export const IndexPageTemplate = ({
 
     <section className="section has-background-white">
       <div className="container">
-        <div className="columns">
-          <div className="column">
-          <h3 className="title is-size-4">Latest Stories</h3>
-            <BlogRoll />
-          </div>
-        </div>
+        <h3 className="title is-size-4">Latest Stories</h3>
+        <BlogRoll />
       </div>
     </section>
   </Fragment>

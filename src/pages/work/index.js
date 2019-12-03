@@ -1,113 +1,143 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql} from 'gatsby'
-import Helmet from 'react-helmet'
-import { kebabCase } from 'lodash'
-import Layout from '../../components/Layout'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import Helmet from "react-helmet";
+// import { kebabCase } from "lodash";
+import Layout from "../../components/Layout";
 
 
 class WorkIndexPage extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-    const totalCount = data.allMarkdownRemark.totalCount
-    const title = data.site.siteMetadata.title
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
+    // const totalCount = data.allMarkdownRemark.totalCount;
+    const title = data.site.siteMetadata.title;
     return (
       <Layout>
+        <section className="section">
         <div className="container">
-        <Helmet title={`Work listing | ${title}`} />
-            <div className="columns is-mobile is-multiline work">
+          <Helmet title={`Work listing | ${title}`} />
+          <div className="container content">
+          <div className="columns">
             <div className="column is-12">
-              <h1 className="title is-size-3">Work Posts</h1>
-              <p className="subtitle is-size-7">count {totalCount}</p>
+              <div
+                className="banner-image"
+                style={{
+                  backgroundImage:'url(/img/work-hero.png)'
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+          <div className="columns is-mobile is-multiline work">
+            <div className="column is-12">
+              <h1 className="title is-size-3">Work</h1>
             </div>
 
-              {posts &&
-                posts.map(({ node: post }) => (
-                  <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id} data-sal="fade">
-                    <Link className="" to={post.fields.slug}>
-                      <div className="column-content" style={{ 
+            {posts &&
+              posts.map(({ node: post }) => (
+                <div
+                  className="column is-4-desktop is-6-tablet is-full-mobile"
+                  key={post.id}
+                  data-sal="fade"
+                >
+                  <Link className="" to={post.fields.slug}>
+                    <div
+                      className="column-content"
+                      style={{
                         backgroundImage: `url(${
-                          post.frontmatter.cardimage ?
-                          post.frontmatter.cardimage.childImageSharp.fluid.src : 'img/chemex.jpg'
+                          post.frontmatter.cardimage
+                            ? post.frontmatter.cardimage.childImageSharp.fluid
+                                .src
+                            : "img/chemex.jpg"
                         })`,
-                        backgroundColor: post.frontmatter.cardcolor ? post.frontmatter.cardcolor : '#AAA'  
-                      }}>
-                      </div>
-                    </Link>
-                    <Link className="card-title has-margin-top-12 is-block is-size-5" to={post.fields.slug}>{post.frontmatter.title}</Link>
-                    <p className="is-size-6 has-text-grey-dark">{post.frontmatter.description}</p>
-                    <p className="is-size-7 has-text-grey-dark excerpt">{post.frontmatter.summary}</p>
-                  </div>
-                ))
-              }
-
-
-            </div>
-           </div> 
+                        backgroundColor: post.frontmatter.cardcolor
+                          ? post.frontmatter.cardcolor
+                          : "#AAA"
+                      }}
+                    ></div>
+                  </Link>
+                  <Link
+                    className="card-title has-margin-top-12 is-block is-size-5"
+                    to={post.fields.slug}
+                  >
+                    {post.frontmatter.title}
+                  </Link>
+                  <p className="is-size-6 has-text-grey-dark">
+                    {post.frontmatter.description}
+                  </p>
+                  {/* <p className="is-size-7 has-text-grey-dark excerpt">
+                    {post.frontmatter.summary}
+                  </p> */}
+                </div>
+              ))}
+          </div>
+        </div>
+        </section>
       </Layout>
-    )
+    );
   }
 }
 
 WorkIndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
+      edges: PropTypes.array
     }),
     totalCount: PropTypes.number
-  }),
-}
+  })
+};
 
-export default WorkIndexPage
+export default WorkIndexPage;
 export const workIndexQuery = graphql`
   query WorkIndexQuery {
-  site {
-    siteMetadata {
-      title
+    site {
+      siteMetadata {
+        title
+      }
     }
-  }
-  allMarkdownRemark(
-      limit: 100,
-      skip: 0,
+    allMarkdownRemark(
+      limit: 100
+      skip: 0
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { templateKey: { eq: "work-post" } } }
-  ) {
-    edges {
-      node {
-        excerpt(pruneLength: 400)
-        id
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          templateKey
-          description
-          summary
-          date(formatString: "MMMM DD, YYYY")
-          featuredpost
-          cardcolor
-          cardimage {
-            childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 400)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            templateKey
+            description
+            summary
+            date(formatString: "MMMM DD, YYYY")
+            featuredpost
+            cardcolor
+            cardimage {
+              childImageSharp {
+                fluid(maxWidth: 600, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
-          }
-          featuredimage {
-            childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ...GatsbyImageSharpFluid
+            featuredimage {
+              childImageSharp {
+                fluid(maxWidth: 600, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
         }
       }
-    }
-    totalCount
-    pageInfo {
-      currentPage
+      totalCount
+      pageInfo {
+        currentPage
+      }
     }
   }
-}`
+`;

@@ -44,19 +44,8 @@ $family-secondary: $family-serif
 
 $navbar-height: 3.5rem
 
-.oldbody:before
-  content: ""
-  display: block
-  position: fixed
-  left: 0
-  top: 0
-  width: 100%
-  height: 100%
-  z-index: -10
-  background: linear-gradient(rgba(51, 62, 72, 0.5), rgba(51, 62, 72, 0.5)), url('/img/workshop.jpg')
-  background-size: cover
-  background-position: bottom right
-
+.main-body 
+  min-height: calc(100vh - 642px)
 
 .navbar .navbar-menu
   box-shadow:none !important
@@ -136,14 +125,15 @@ h1, h2, h3, h4, h5, h6
   font-family: $family-serif
 
 section.background-divider
-  min-height: 400px
+  height: 400px
   background-image: linear-gradient(rgba(51, 62, 72, 0.5), rgba(51, 62, 72, 0.5)), url('/img/workshop.jpg')
   background-size: cover
   background-position: center center
   background-repeat: no-repeat
   background-attachment: fixed
-  transform: translate3d(0,0,0)
-
+  @media (max-width: 767px)
+    background-attachment: initial !important
+  
 footer
   .container
     padding-bottom: 32px
@@ -171,8 +161,29 @@ ul.footer-links
     &:last-child
       margin-bottom: 16px
 
+ul.contact-links
+
+  li
+    margin-top: 8px
+    font-size: 14px
+    margin-left: 8px
+    a
+      margin-left: 12px
+      vertical-align: top
+      color: $dark-blue
+      &:hover
+        color: darken($dark-blue, 10%)
+    &:last-child
+      margin-bottom: 16px
+
 .featured-image
   min-height: 400px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+.banner-image
+  min-height: 140px
   background-size: cover
   background-repeat: no-repeat
   background-position: center
