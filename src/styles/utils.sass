@@ -1,0 +1,17 @@
+$spaceamounts: (0, 4, 8, 12, 16, 24, 32)
+$sides: (top, bottom, left, right)
+
+@each $space in $spaceamounts
+  @each $side in $sides
+    .has-margin-#{$side}-#{$space}
+      margin-#{$side}: #{$space}px !important
+    
+    .has-padding-#{$side}-#{$space}
+      padding-#{$side}: #{$space}px !important
+
+// ****************
+// Helpers
+// ****************
+
+.is-centered-img
+  margin: 0 auto

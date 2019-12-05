@@ -1,0 +1,181 @@
+@import "~bulma/sass/utilities/initial-variables"
+@import "./utils.sass"
+@import "./variables.sass"
+
+
+// *********************
+// Layout 
+// *********************
+
+.main-body 
+  min-height: calc(100vh - 642px)
+
+.columns 
+  margin-left: 0 !important
+  margin-right: 0 !important
+
+.home.hero 
+  .hero-body 
+    padding-bottom: 2.5rem !important
+    padding-top: 2.5rem !important
+    @media (max-width:1027)
+      padding-bottom: .5rem
+      padding-top: 1.5rem
+    .container 
+      background-size: inherit
+      background-position: right
+      background-repeat: no-repeat
+      height: 500px
+      transform: translateX(0px)
+      background-position-y: 0px
+
+      @media (min-width: 767px) and (max-width: 1023px)
+          height: 350px
+          background-image: none !important
+          padding-top: 2em
+      
+      @media (max-width:767px)
+          background-image: none !important
+          height: 200px
+  
+  h1.title 
+    font-family: $family-serif
+    color: $primary
+    font-weight: 700
+    font-size: 3rem
+    line-height: 3.5rem
+    @media (max-width: 767px)
+      font-size: 2rem
+      line-height: 2rem
+  h2.subtitle 
+    font-family: $family-primary
+
+.columns
+  .column
+    .column-content
+      border-radius: 5px
+      background-position: center
+      background-repeat: no-repeat
+      background-size: 100%
+      min-height: 240px
+      transition: all .22s ease-in
+      &:hover
+        background-size: 110%
+
+
+// *********************
+// Components 
+// *********************
+
+a.card-title
+  font-family: $family-serif
+  margin-top: 16px
+
+section.background-divider
+  height: 400px
+  background-image: linear-gradient(rgba(51, 62, 72, 0.5), rgba(51, 62, 72, 0.5)), url('/img/workshop.jpg')
+  background-size: cover
+  background-position: center center
+  background-repeat: no-repeat
+  background-attachment: fixed
+  @media (max-width: 767px)
+    background-attachment: initial !important
+
+.featured-image
+  min-height: 400px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+.banner-image
+  min-height: 140px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+.work-banner-image
+  min-height: 400px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  margin: 32px 0
+  @media (max-width: 767px)
+    background-attachment: initial !important
+
+p.excerpt 
+  display: -webkit-box
+  -webkit-line-clamp: 4
+  -webkit-box-orient: vertical
+  overflow: hidden
+
+footer
+  .container
+    padding-bottom: 32px
+    padding-top: 32px
+
+.footer-bg
+  background-image: url('/img/footer-shapes-bg.png')
+  background-position: left
+  background-repeat: no-repeat
+  background-size: contain
+  min-height: 350px
+  @media(max-width:1023px)
+    background-image: none
+  @media(max-width: 768px)
+    min-height: 300px  
+
+footer.footer
+  padding: 3rem 0rem 0rem
+  background-color: transparent
+
+ul.footer-links
+  li
+    margin-top: 8px
+    text-transform: uppercase
+    font-size: 14px
+    a
+      color: $grey-lightest
+      &:hover
+        color: $white
+    &:last-child
+      margin-bottom: 16px
+
+ul.contact-links
+  li
+    margin-top: 8px
+    font-size: 14px
+    margin-left: 8px
+    a
+      margin-left: 12px
+      vertical-align: top
+      color: $dark-blue
+      &:hover
+        color: darken($dark-blue, 10%)
+    &:last-child
+      margin-bottom: 16px
+
+
+// *********************
+// Typography 
+// *********************
+
+h1, h2, h3, h4, h5, h6 
+  font-family: $family-serif
+
+// *********************
+// Navigation 
+// *********************
+
+.navbar-brand, .navbar-item
+  font-family: $family-serif
+
+.navbar-item 
+  color: $primary
+  text-transform: uppercase
+  &.is-active
+    text-decoration: underline  
+
+
+@import "~bulma"
+
+

@@ -44,11 +44,11 @@ export const IndexPageTemplate = ({
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
               <div className="column ">
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/strategy.svg" alt="Cloud Services icon" />
+                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/strategy.svg" alt="strategy icon" />
                 Strategy
               </div>
               <div className="column ">
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/interview.svg" alt="Cloud Services icon" />
+                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/interview.svg" alt="user research icon" />
                 User Research
               </div>
             </div>
@@ -56,11 +56,11 @@ export const IndexPageTemplate = ({
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
               <div className="column ">
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/journey-map.svg" alt="Cloud Services icon" />
+                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/journey-map.svg" alt="journey mapping icon" />
                 Journey Mapping
               </div>
               <div className="column ">
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/wireframe.svg" alt="Cloud Services icon" />
+                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/wireframe.svg" alt="design icon" />
                 Design
               </div>
             </div>
@@ -68,11 +68,11 @@ export const IndexPageTemplate = ({
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
               <div className="column ">
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/prototype.svg" alt="Cloud Services icon" />
+                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/prototype.svg" alt="user testing icon" />
                 Testing
               </div>
               <div className="column ">
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="Cloud Services icon" />
+                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="prototyping icon" />
                 Prototyping
               </div>
             </div>
