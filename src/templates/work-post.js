@@ -48,11 +48,11 @@ export const WorkPostTemplate = ({
               </h2>
               <div className="columns">
                 <div className="column is-6">
-                  <h4>Summary</h4>
+                  <h2 className="title is-size-4">Summary</h2>
                   <MarkdownContent className="foo" content={summary} />
                 </div>
                 <div className="column is-6">
-                  <h4>Roles</h4>
+                  <h4 className="title is-size-4">Role &amp; Contribution</h4>
                   <MarkdownContent className="foo" content={roles} />
                 </div>
               </div>
@@ -69,12 +69,8 @@ export const WorkPostTemplate = ({
                 ? showcase1.backgroundimage.childImageSharp.fluid.src
                 : "img/chemex.jpg"
             }')`,
-            height: `${
-              showcase1 && showcase1.height ? showcase1.height : "400"
-            }`,
-            backgroundAttachment: `${
-              showcase1 && showcase1.fixed ? "fixed" : null
-            }`
+            height: `${showcase1 && showcase1.height ? showcase1.height : 400}px`,
+            backgroundAttachment: `${ showcase1 && showcase1.fixed ? "fixed" : null}`
           }}
         ></div>
       </div>
@@ -95,8 +91,8 @@ export const WorkPostTemplate = ({
                 : "img/chemex.jpg"
             }')`,
             height: `${
-              showcase2 && showcase2.height ? showcase2.height : "400"
-            }`,
+              showcase2 && showcase2.height ? showcase2.height : 400
+            }px`,
             backgroundAttachment: `${
               showcase2 && showcase2.fixed ? "fixed" : null
             }`
@@ -116,7 +112,7 @@ export const WorkPostTemplate = ({
           <div className="column is-12">
             {tags && tags.length ? (
               <div>
-                <h4>Tags</h4>
+                <h4 className="title is-size-4">Tags</h4>
                 <div className="buttons">
                   {tags.map(tag => (
                     <Link

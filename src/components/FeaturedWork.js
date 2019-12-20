@@ -20,7 +20,7 @@ class FeaturedWork extends React.Component {
                   })` 
                 }}>
                 </div>
-                {post.frontmatter.title}
+                <span className="is-block is-family-secondary has-margin-top-12 is-size-6">{post.frontmatter.title}</span>
               </Link>
             </div>
           ))

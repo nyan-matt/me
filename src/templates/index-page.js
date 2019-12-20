@@ -30,7 +30,7 @@ export const IndexPageTemplate = ({
                 {title}
               </h1>
               <h2 data-sal="slide-up" data-sal-delay="600" className="subtitle hero-subheadline">
-              🙌 {subheading}
+                {subheading}
               </h2>
             </div>
           </div>

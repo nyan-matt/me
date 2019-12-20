@@ -45,20 +45,23 @@ export default class Index extends React.Component {
           <div className="container content">
           <div className="columns">
             <div className="column is-12">
-              <div
-                className="banner-image"
-                style={{
-                  backgroundImage:'url(/img/contact-hero.png)'
-                }}
-              ></div>
+              <div className="banner-image"
+                    style={{
+                      backgroundImage: 'url(/img/shapes-bg-4.png)',
+                      backgroundColor: '#333E48'
+                    }}
+                  >
+                    <div className="banner-image-text has-border-radius">
+                      <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Contact</h1>
+                      <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Send me a message</h2>
+                    </div>
+                  </div>
             </div>
           </div>
         </div>
           <div className="columns is-mobile is-multiline work">
-            <div className="column is-12">
-              <h1 className="title is-size-3">Contact</h1>
-            </div>
-            <div className="column is-8">
+            
+            <div className="column is-8-desktop is-12-tablet is-12-mobile">
               <form
                 name="contact"
                 method="post"
@@ -126,7 +129,7 @@ export default class Index extends React.Component {
                 </div>
               </form>
               </div>
-              <div className="column is-4">
+              <div className="column is-4-desktop is-12-tablet is-12-mobile">
                 <p className="is-uppercase is-family-secondary has-text-weight-bold">CONNECT</p>
                   <ul className="contact-links">
                     <li className="is-block">

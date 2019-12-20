@@ -6,7 +6,7 @@ description: delete me later
 featuredpost: true
 featuredimage: /img/card-work-lookahead-filters.png
 cardimage: /img/card-work-inet-1.png
-cardcolor: '#333333'
+cardcolor: '#F95C2B'
 summary: >-
   The spectacle before us was indeed sublime.
 

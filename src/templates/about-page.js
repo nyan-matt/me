@@ -14,19 +14,21 @@ export const AboutPageTemplate = ({ title, siteTitle, content, contentComponent 
       <div className="container content">
       <div className="columns">
         <div className="column is-12">
-          <div
-            className="banner-image"
-            style={{
-              backgroundImage:'url(/img/about-hero.png)'
-            }}
-          ></div>
+        <div className="banner-image"
+                style={{
+                  backgroundImage: 'url(/img/shapes-bg-1.png)',
+                  backgroundColor: '#333E48'
+                }}
+              >
+                <div className="banner-image-text has-border-radius">
+                  <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">About</h1>
+                  <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">About me</h2>
+                </div>
+              </div>
         </div>
       </div>
     </div>
       <div className="columns is-mobile is-multiline work">
-        <div className="column is-12">
-          <h1 className="title is-size-3">{title}</h1>
-        </div>
         <div className="column is-12">
           <PageContent className="content" content={content} />
         </div>

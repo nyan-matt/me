@@ -16,24 +16,25 @@ class WorkIndexPage extends React.Component {
       <Layout>
         <section className="section">
         <div className="container">
-          <Helmet title={`Work listing | ${title}`} />
+          <Helmet title={`Work - summaries of various projects | ${title}`} />
           <div className="container content">
           <div className="columns">
             <div className="column is-12">
-              <div
-                className="banner-image"
+              <div className="banner-image"
                 style={{
-                  backgroundImage:'url(/img/work-hero.png)'
+                  backgroundImage: 'url(/img/shapes-bg-2.png)',
+                  backgroundColor: '#333E48'
                 }}
-              ></div>
+              >
+                <div className="banner-image-text has-border-radius">
+                  <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Work</h1>
+                  <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Summaries of various projects</h2>
+                </div>
+              </div>
             </div>
           </div>
         </div>
           <div className="columns is-mobile is-multiline work">
-            <div className="column is-12">
-              <h1 className="title is-size-3">Work</h1>
-            </div>
-
             {posts &&
               posts.map(({ node: post }) => (
                 <div

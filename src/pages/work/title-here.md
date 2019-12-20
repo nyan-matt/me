@@ -6,7 +6,7 @@ description: description here
 featuredpost: true
 featuredimage: /img/card-work-7habits.png
 cardimage: /img/card-work-7habits.png
-cardcolor: '#dddddd'
+cardcolor: '#5BB75B'
 summary: >-
   asldja;lsd;jlkadsj ;lkajsd kjahsdjkha sdjghkajghd ahsdgkjhagdskj
   hagsdkjhagsdkjhagsdkjhgasdk

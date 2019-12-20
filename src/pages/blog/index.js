@@ -17,19 +17,21 @@ class BlogIndexPage extends React.Component {
             <div className="container content">
             <div className="columns">
               <div className="column is-12">
-                <div
-                  className="banner-image"
+                <div className="banner-image"
                   style={{
-                    backgroundImage: "url(/img/blog-hero.png)"
+                    backgroundImage: 'url(/img/shapes-bg-3.png)',
+                    backgroundColor: '#333E48'
                   }}
-                ></div>
+                >
+                  <div className="banner-image-text has-border-radius">
+                    <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Blog</h1>
+                    <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Random thoughts that may or may not make sense</h2>
+                  </div>
+                </div>
               </div>
             </div>
             </div>
             <div className="columns is-mobile is-multiline work">
-              <div className="column is-12">
-                <h1 className="title is-size-3">Blog</h1>
-              </div>
               {posts &&
                 posts.map(({ node: post }) => (
                   <div
@@ -56,7 +58,7 @@ class BlogIndexPage extends React.Component {
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <p className="is-size-6 has-text-grey-dark">
+                    <p className="is-size-6 has-text-grey-dark excerpt">
                       {post.frontmatter.description}
                     </p>
                   </div>
