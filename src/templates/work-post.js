@@ -20,7 +20,8 @@ export const WorkPostTemplate = ({
   roles,
   showcase1,
   showcase2,
-  learning
+  learning,
+  cardColor
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -39,7 +40,8 @@ export const WorkPostTemplate = ({
                     featuredimage
                       ? featuredimage.childImageSharp.fluid.src
                       : "img/chemex.jpg"
-                  }')`
+                  }')`,
+                  backgroundColor: cardColor
                 }}
               ></div>
               <h1 className="title is-size-3">{title}</h1>
@@ -153,7 +155,8 @@ WorkPostTemplate.propTypes = {
   roles: PropTypes.string,
   showcase1: PropTypes.object,
   showcase2: PropTypes.object,
-  learning: PropTypes.string
+  learning: PropTypes.string,
+  cardColor: PropTypes.string
 };
 
 const WorkPost = ({ data }) => {
@@ -182,6 +185,7 @@ const WorkPost = ({ data }) => {
         showcase1={post.frontmatter.showcase1}
         showcase2={post.frontmatter.showcase2}
         learning={post.frontmatter.learning}
+        cardColor={post.frontmatter.cardcolor}
       />
     </Layout>
   );
@@ -208,6 +212,7 @@ export const pageQuery = graphql`
         tags
         roles
         learning
+        cardcolor
         showcase1 {
           height
           fixed
