@@ -27,7 +27,7 @@ export const WorkPostTemplate = ({
 
   return (
     <Fragment>
-      <section className="section">
+      <section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
         {helmet || ""}
 
         <div className="container content">
@@ -48,20 +48,23 @@ export const WorkPostTemplate = ({
               <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
                 {description}
               </h2>
-              <div className="columns">
-                <div className="column is-6">
-                  <h2 className="title is-size-4">Summary</h2>
-                  <MarkdownContent className="foo" content={summary} />
-                </div>
-                <div className="column is-6">
-                  <h4 className="title is-size-4">Role &amp; Contribution</h4>
-                  <MarkdownContent className="foo" content={roles} />
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
       </section>
+      <div className="container content">
+                <div className="columns">
+                  <div className="column is-6">
+                    <h2 className="title is-size-4 has-margin-bottom-8">Summary</h2>
+                    <MarkdownContent className="foo" content={summary} />
+                  </div>
+                  <div className="column is-6">
+                    <h4 className="title is-size-4 has-margin-bottom-8">Role &amp; Contribution</h4>
+                    <MarkdownContent className="foo" content={roles} />
+                  </div>
+                </div>
+              </div>
       <div className="container is-fluid is-paddingless">
         <div
           className="work-banner-image"
@@ -69,9 +72,9 @@ export const WorkPostTemplate = ({
             backgroundImage: `url('${
               showcase1 && showcase1.backgroundimage
                 ? showcase1.backgroundimage.childImageSharp.fluid.src
-                : "img/chemex.jpg"
+                : null
             }')`,
-            height: `${showcase1 && showcase1.height ? showcase1.height : 400}px`,
+            height: `${showcase1 && showcase1.height ? showcase1.height : 0}px`,
             backgroundAttachment: `${ showcase1 && showcase1.fixed ? "fixed" : null}`
           }}
         ></div>
@@ -90,10 +93,10 @@ export const WorkPostTemplate = ({
             backgroundImage: `url('${
               showcase2 && showcase2.backgroundimage
                 ? showcase2.backgroundimage.childImageSharp.fluid.src
-                : "img/chemex.jpg"
+                : null
             }')`,
             height: `${
-              showcase2 && showcase2.height ? showcase2.height : 400
+              showcase2 && showcase2.height ? showcase2.height : 0
             }px`,
             backgroundAttachment: `${
               showcase2 && showcase2.fixed ? "fixed" : null
