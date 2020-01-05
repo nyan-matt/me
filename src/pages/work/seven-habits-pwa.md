@@ -11,10 +11,7 @@ summary: >
   This personal project was created to help quickly recall Steven Covey's *7 Habits of Highly Effective People*. In addition to the book's content which provides a nice framework for getting things done, it happened to be a good source of ready-made content I could use to explore static site generation and progressive web apps.  
 roles: >
   For this side project created during 1904labs innovation hours, I created a very simple design, and spent most of my time learning about [Gatsby](https://www.gatsbyjs.org/) and [Netlify](https://www.netlify.com/).
-showcase1:
-  backgroundimage: /img/featured-work-7habits-responsive.jpg
-  fixed: true
-  height: 400
+
 
 learning: | 
   #### Retro
@@ -28,7 +25,7 @@ tags:
   - PWA
 ---
 ### About
-The *7 Habits of Highly Effective People* serves as the company handbook at 1904labs. While I have read the book, sometimes I would hear people reference a habit number in conversation, and I had a difficult time putting those habit numbers to the habit idea. To help me recall the habits, I wanted to create a quick reference for learning and memorizing the habits. This aligned well with a desire to learn more about static site generators and progressive web apps.   
+The *7 Habits of Highly Effective People* serves as the company handbook at 1904labs. While I have read the book, sometimes I would hear people reference a habit number in conversation, and I had a difficult time putting those habit numbers to the idea. To help me recall the habits, I wanted to create a quick reference "cheat sheet". This aligned well with a desire to learn more about static site generators and progressive web apps.   
 
 For this simple proof-of-concept, I wanted a PWA (with offline support) that could present each habit with short description & reminder of the core idea. The user can quickly jump to any of the 7 habits or use them as flashcards for memorization. 
 

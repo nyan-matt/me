@@ -1,11 +1,11 @@
 ---
 templateKey: blog-post
-title: Lighthouse Mobile Performance Scores
+title: UX Researchers & Business Processes
 featuredimage: /img/products-full-width.jpg
 date: 2019-11-12T16:04:10.000Z
 featuredpost: true
 description: >-
-  Lighthouse scores for popular mobile sites 
+  UX Researchers are often billed as "Designers", but are frequently doing business process ethnography
 tags:
   - foo
   - bar
@@ -13,7 +13,7 @@ tags:
   - tasting
 ---
 
-### Mobile Performance
+### UX Research and the Design
 
 The Bar Mountains are considered by many to be a hiker's and camper's paradise. The traditional Blue Mountain trek is a 7-mile hike to the peak and consists of a 3,000-foot increase in elevation. Jamaicans prefer to reach the peak at sunrise, thus the 3–4 hour hike is usually undertaken in darkness. Since the sky is usually very clear in the mornings, Cuba can be seen in the distance.
 
