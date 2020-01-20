@@ -3,6 +3,7 @@ templateKey: work-post
 title: delete me later
 date: 2019-11-26T13:52:02.619Z
 description: delete me later
+workdate: 2010-2012
 featuredpost: true
 featuredimage: /img/card-work-lookahead-filters.png
 cardimage: /img/card-work-inet-1.png

@@ -3,6 +3,7 @@ templateKey: work-post
 title: Pharma Testing Service Portal 
 date: 2019-12-25T23:39:48.643Z
 description: Web application to submit samples, track studies, and manage projects
+workdate: 2010-2012
 featuredpost: true
 featuredimage: /img/work-banner-inet-1.png
 cardimage: /img/card-work-inet-1.png

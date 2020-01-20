@@ -12,6 +12,7 @@ export const WorkPostTemplate = ({
   content,
   contentComponent,
   description,
+  workdate,
   tags,
   title,
   helmet,
@@ -44,10 +45,12 @@ export const WorkPostTemplate = ({
                   backgroundColor: cardColor
                 }}
               ></div>
+              
               <h1 className="title is-size-3">{title}</h1>
               <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
                 {description}
               </h2>
+              <span className="tag is-primary is-rounded">{workdate}</span>
               
             </div>
           </div>
@@ -151,6 +154,7 @@ WorkPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  workdate: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
   featuredimage: PropTypes.object,
@@ -171,6 +175,7 @@ const WorkPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        workdate={post.frontmatter.workdate}
         helmet={
           <Helmet titleTemplate="%s | Work">
             <title>{`${post.frontmatter.title}`}</title>
@@ -211,6 +216,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        workdate
         summary
         tags
         roles

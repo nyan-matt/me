@@ -3,6 +3,7 @@ templateKey: work-post
 title: Title here
 date: 2019-11-25T23:39:48.643Z
 description: description here
+workdate: 2010-2012
 featuredpost: true
 featuredimage: /img/card-work-7habits.png
 cardimage: /img/card-work-7habits.png
