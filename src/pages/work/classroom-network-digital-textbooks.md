@@ -16,20 +16,15 @@ roles: >
 
   In this role, part of my responsibilities included producing concepts for future products and services. These designs were exploring how networked digital textbooks and other formative assessment tools could be used in the emerging tablet market.
 
-showcase1:
+showcase2:
   height: 400
   backgroundimage: /img/featured-work-classroom-network-sketch.jpg
   fixed: false
-showcase2:
-  height: 400
-  backgroundimage: /img/featured-work-ipad-digital-textbook.jpg
-  fixed: true
 
 learning: | 
   #### Retro
-  During 10+ years at Texas Instruments, much of my early career focused on designing embedded software that ran on monochromatic, low-resolution screens controlled by a physical keypad without the luxury of a pointing device. When mobile touch devices like the iPod touch and iPhone were released, it was delightful to reimagine design & interactions without legacy constraints. This exercise also demonstrated how we might take a monolithic, general purpose math & science product such as a graphing calculator to be used across multiple subjects, and split those feature sets into single-purpose, streamlined experiences that could stand alone and provide more intuitive interfaces.
+  Even after leaving the Educational Technology market in 2013, I still get excited about the possibilities of a networked digital textbook. While this was a great project to work on, I am not sure that it would have been considered as a viable product offering due to how much it diverged from the core business. In any case, it was a fun exercise and I am glad I was given an opportunity to work through these ideas!
 
-  
 tags:
   - sketching
   - edtech
@@ -62,11 +57,11 @@ Concepts for teacher software to manage and orchestrate formative assessments su
   </div>
 </div>
 
-Teacher Tablet polling and formative assessment application with custom keyboard.
+Teacher Tablet polling and formative assessment application with standards-aligned item bank.
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-12">
-    <img class="img" srcset="/img/card-work-edtech-tablet-poll.png" alt="Formative assessment tablet app" />
+    <img class="img" srcset="/img/card-work-edtech-tablet-poll-2.jpg" alt="Formative assessment tablet app" />
   </div>
 </div>
 
@@ -75,43 +70,41 @@ Traditional textbooks typically introduce concepts with examples and practice qu
 
 Although digital textbooks were not new, they mostly represented 1:1 digital copies of their hardcover counterparts. While there were some inherent advantages to this, their usage in the classroom still basically followed the existing pattern (concept introduction, practice / exploration, assessment). For these concepts, I wanted to illustrate how a truly interactive digital textbook could streamline the process - providing the concepts, exploratory tools, and formative assessment into a networked experience.  
 
-<div class="columns has-margin-top-32">
-  <div class="column is-12 has-text-centered">
-    <img class="img" srcset="/img/card-work-digital-textbook-1.png" alt="Digital Textbook" />
-  </div>
-</div>
-
-<div class="columns is-centered has-margin-top-32">
+***Digital Textbook (Student Edition) example lesson with integrated example questions***
+<div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-2.png" alt="Digital Textbook" />
   </div>
 </div>
 
-<div class="columns is-centered has-margin-top-32">
+***As answers are submitted, the student responses are collected and can be viewed and aggregated by the Teacher software***
+<div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-3.png" alt="Digital Textbook" />
   </div>
 </div>
 
-<div class="columns is-centered has-margin-top-32">
+***Integrated exploratory tools embedded in content help replace the need for separate instructional tools like graphing calculators***
+<div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-4.png" alt="Digital Textbook" />
   </div>
 </div>
 
-<div class="columns is-centered has-margin-top-32">
+<div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-5.png" alt="Digital Textbook" />
   </div>
 </div>
 
-<div class="columns is-centered has-margin-top-32">
+***Real-time feedback allows the teacher to assess student confidence in the material. Videos and Notes are additional tools to help student comprehension***
+<div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-6.png" alt="Digital Textbook" />
   </div>
 </div>
 
-<div class="columns is-centered has-margin-top-32">
+<div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-7.png" alt="Digital Textbook" />
   </div>
