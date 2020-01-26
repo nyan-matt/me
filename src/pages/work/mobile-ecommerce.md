@@ -3,7 +3,7 @@ templateKey: work-post
 title: Mobile eCommerce Web Application
 date: 2019-12-14T15:04:10.000Z
 description: Mobile ecommerce webapp for APAC regions (Sigma-Aldrich / MilliporeSigma)
-workdate: 2010-2012
+workdate: 2016
 featuredpost: true
 featuredimage: /img/work-banner-mobile-ecom.png
 cardimage: /img/card-work-mobile-ecom.png

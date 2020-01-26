@@ -50,7 +50,7 @@ export const WorkPostTemplate = ({
               <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
                 {description}
               </h2>
-              <span className="tag is-primary is-rounded">{workdate}</span>
+              <span className="tag has-background-grey-lighter is-rounded">{workdate}</span>
               
             </div>
           </div>

@@ -44,7 +44,7 @@ export default () => (
       query FeaturedWorkQuery {
         allMarkdownRemark(
           limit: 6
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: { order: ASC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "work-post" }, featuredpost: { eq: true } } }
         ) {
           edges {
