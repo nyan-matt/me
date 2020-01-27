@@ -19,7 +19,7 @@ export const BlogPostTemplate = ({
 
   return (
     <Fragment>
-      <section className="section">
+      <section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
         {helmet || ""}
         <div className="container content">
           <div className="columns">
