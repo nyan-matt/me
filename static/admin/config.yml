@@ -37,7 +37,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Work Date", name: "workdate", widget: "text"}
+      - {label: "Work Date", name: "workdate", widget: "string"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Card Image", name: "cardimage", widget: image}
       - {label: "Card Background Color", name: "cardcolor", widget: "string"}

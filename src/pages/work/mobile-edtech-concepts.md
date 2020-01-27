@@ -3,7 +3,7 @@ templateKey: work-post
 title: Mobile Education Technology Concepts
 date: 2019-12-25T23:39:48.643Z
 description: Work studies on mobile app concepts 
-workdate: 2007-2012
+workdate: '2007-2012'
 featuredpost: true
 featuredimage: /img/work-banner-edtech-1.png
 cardimage: /img/card-work-edtech-sketch.png

@@ -3,7 +3,7 @@ templateKey: work-post
 title: Search Result Category Templates
 date: 2019-12-25T23:39:48.643Z
 description: Category autosuggest & contextual search result templates
-workdate: 2018
+workdate: '2018'
 featuredpost: true
 featuredimage: /img/work-banner-category-suggest.png
 cardimage: /img/card-work-lookahead-filters.png
