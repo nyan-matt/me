@@ -6,7 +6,7 @@ description: Work studies on networked digital textbooks, formative assessment, 
 workdate: '2010-2012'
 featuredpost: true
 featuredimage: /img/work-banner-classroom-network.jpg
-cardimage: /img/card-work-sketches-alt.png
+cardimage: /img/card-work-sketches-alt.jpg
 cardcolor: '#E2504D'
 summary: >
   This page includes various work I produced while a in a Product Strategy Role at Texas Instruments between 2010-2012. This is an extension of my prior work on the TI-Navigator Classroom Network for graphing calculators pivoting emphasis to tablet based apps and digital math textbooks paired with a teacher desktop software.    

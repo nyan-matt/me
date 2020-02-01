@@ -6,7 +6,7 @@ description: User research discovery project for a managed healthcare provider
 workdate: '2019'
 featuredpost: true
 featuredimage: /img/featured-work-empathymap-1.jpg
-cardimage: /img/card-work-empathy-map.png
+cardimage: /img/card-work-empathy-map.jpg
 cardcolor: '#333E48'
 summary: >
   As part of a user research discovery project, our team worked with a large managed care provider to learn how its enterprise care management software is being used by internal staff as they interact with members, identify areas for improvement, and help align stakeholders on a vision for the next generation of its care management platform.  
