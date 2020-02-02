@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: Seven Habits PWA
-date: 2019-12-26T23:39:48.643Z
+date: 2019-08-01T00:00:00.000Z
 description: Personal project 
 workdate: '2019'
 featuredpost: true

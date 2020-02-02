@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: Classroom Networks & Digital Textbooks
-date: 2019-12-25T23:39:48.643Z
+date: 2012-01-01T00:00:00.000Z
 description: Work studies on networked digital textbooks, formative assessment, and adaptive learning
 workdate: '2010-2012'
 featuredpost: true

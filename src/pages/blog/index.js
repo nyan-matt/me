@@ -25,7 +25,7 @@ class BlogIndexPage extends React.Component {
                 >
                   <div className="banner-image-text has-border-radius">
                     <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Blog</h1>
-                    <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Random thoughts that may or may not make sense</h2>
+                    <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Random thoughts</h2>
                   </div>
                 </div>
               </div>

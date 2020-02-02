@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: Marvel API React
-date: 2019-12-26T23:39:48.643Z
+date: 2017-05-01T23:39:48.643Z
 description: Personal project 
 workdate: '2017'
 featuredpost: true

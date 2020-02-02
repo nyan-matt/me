@@ -57,17 +57,17 @@ export const WorkPostTemplate = ({
         </div>
       </section>
       <div className="container content">
-                <div className="columns">
-                  <div className="column is-6">
-                    <h2 className="title is-size-4 has-margin-bottom-8">Summary</h2>
-                    <MarkdownContent className="foo" content={summary} />
-                  </div>
-                  <div className="column is-6">
-                    <h4 className="title is-size-4 has-margin-bottom-8">Role &amp; Contribution</h4>
-                    <MarkdownContent className="foo" content={roles} />
-                  </div>
-                </div>
-              </div>
+        <div className="columns">
+          <div className="column is-6">
+            <h2 className="title is-size-4 has-margin-bottom-8">Summary</h2>
+            <MarkdownContent className="foo" content={summary} />
+          </div>
+          <div className="column is-6">
+            <h4 className="title is-size-4 has-margin-bottom-8">Role &amp; Contribution</h4>
+            <MarkdownContent className="foo" content={roles} />
+          </div>
+        </div>
+        </div>
       <div className="container is-fluid is-paddingless">
         <div
           className="work-banner-image"
@@ -227,7 +227,7 @@ export const pageQuery = graphql`
           fixed
           backgroundimage {
             childImageSharp {
-              fluid(maxWidth: 1200, quality: 100) {
+              fluid(maxWidth: 1600, quality: 60) {
                 src
               }
             }
@@ -238,7 +238,7 @@ export const pageQuery = graphql`
           fixed
           backgroundimage {
             childImageSharp {
-              fluid(maxWidth: 1200, quality: 100) {
+              fluid(maxWidth: 1600, quality: 60) {
                 src
               }
             }
@@ -246,7 +246,7 @@ export const pageQuery = graphql`
         }
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 1200, quality: 100) {
+            fluid(maxWidth: 1200, quality: 60) {
               ...GatsbyImageSharpFluid
             }
           }

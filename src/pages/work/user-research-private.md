@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: User Research (Private)
-date: 2019-11-14T15:04:10.000Z
+date: 2019-04-17T00:00:00.000Z
 description: User research discovery project for a managed healthcare provider
 workdate: '2019'
 featuredpost: true
@@ -84,4 +84,3 @@ We conducted a two day co-design workshop attended by ~20 end users and several 
 Personas and journey maps are common artifacts from a user research project, often used to align teams on the end-users for whom they are designing & developing. We usually follow-up personas and journey maps by conducting a story mapping exercise in order to generate items for a backlog. In this case, there was a desire to avoid any implicit "solutioning" that may be inherent to story mapping, and instead make sure all stakeholders were first aligned on the vision of the next generation sofware. 
 
 We worked with the client to create a "to-be" storyboard that was free of specific implementation solutions, and focused on the end-user experience instead. The storyboard depicted how various personas would experience their workflow in the future, free of the existing friction points identified in personas and journey maps. This would be used as a narrative to align various stakeholders on the experience end-goals, and teams would work backwards to a solution that make it possible.
-

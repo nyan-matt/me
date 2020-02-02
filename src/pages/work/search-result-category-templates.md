@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: Search Result Category Templates
-date: 2019-12-25T23:39:48.643Z
+date: 2018-12-01T23:39:48.643Z
 description: Category autosuggest & contextual search result templates
 workdate: '2018'
 featuredpost: true
