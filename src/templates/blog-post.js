@@ -96,7 +96,7 @@ const BlogPost = ({ data }) => {
             />
             <meta 
               property="og:image" 
-              content={`$post.frontmatter.featuredimage}`}
+              content={`${post.frontmatter.featuredimage}`}
             />
           </Helmet>
         }
