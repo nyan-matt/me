@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: Foo Bar Baz
 featuredimage: /img/products-full-width.jpg
-date: 2019-11-12T16:04:10.000Z
+date: 2018-11-12T16:04:10.000Z
 featuredpost: true
 description: >-
   What up playa!

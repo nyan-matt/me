@@ -29,7 +29,7 @@ learning: |
 tags:
   - ecommerce
   - search
-  - sketches
+  - sketching
   - information architecture
 ---
 ### About

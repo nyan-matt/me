@@ -1,30 +1,72 @@
 ---
 templateKey: blog-post
 title: Lighthouse Mobile Performance Scores
-featuredimage: /img/products-full-width.jpg
+featuredimage: /img/blog-banner-lighthouse.jpg
 date: 2019-11-12T16:04:10.000Z
 featuredpost: true
 description: >-
-  Lighthouse scores for popular mobile sites 
+  Lighthouse scores for popular mobile commerce sites 
+  (Photo by Paulius Dragunas on Unsplash)
 tags:
-  - foo
-  - bar
-  - baz
-  - tasting
+  - performance
+  - mobile
+  - ux
 ---
 
 ### Mobile Performance
+In 2016 our team was releasing a [mobile ecommerce web app](/work/mobile-ecommerce/), and my development team was assigned to help with performance optimization. During this process, I learned a great deal about metrics, optimization, and how difficult it can be to deliver a mobile experience that performs. Our CIO had quite confidently communicated to our stakeholders that our new platform would deliver pages in less than one second.  Although the threshold seemed to be a bit of internal marketing, and everyone had assumed this time came with caveats, (aggressive caching, low network latency, etc.) it would still be a challenging target to hit. 
 
-The Bar Mountains are considered by many to be a hiker's and camper's paradise. The traditional Blue Mountain trek is a 7-mile hike to the peak and consists of a 3,000-foot increase in elevation. Jamaicans prefer to reach the peak at sunrise, thus the 3–4 hour hike is usually undertaken in darkness. Since the sky is usually very clear in the mornings, Cuba can be seen in the distance.
 
->Some of the plants found on the Blue Mountain cannot be found anywhere else in the world and they are often of a dwarfed sort.
+### Google Lighthouse Audit Tool
+In 2016, I think [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was still a browser extension, but since then it has been integrated into Chrome Developer tools. While Lighthouse is based on a simulated device using a throttled network and CPU slowdown, it still seems like the most *practical* way to check a mobile site for performance best practices, and provides a reasonable approximation of real world load times.  Additionally, Lighthouse provides scores on Accessibility, Best Practices, SEO, while providing a checklist for PWA optimization.
 
-This is mainly due to the cold climate which inhibits growth. The small coffee farming communities of Claverty Cottage and Hagley Gap are located near the peak.
+While looking into the performance of our team's mobile site, I believe we consistently scored in the 40-50 range on performance  measure within Lighthouse. Without context, this seemed like a terrible measure, especially since we had already corrected many of the low-hanging issues. I decided to do some research on other mobile commerce sites just to see where we compared, and I was pretty surprised by how poor some of the major players were scoring.
 
-## Baz
+### Popular Mobile Site Scores
+Fast-forward four years, and I thought there would be a considerable improvement in the performance scores given the rising share of mobile transactions. For the most part, I was wrong. 
 
-Baz Bar Mountain Coffee or Jamaica Blue Mountain Coffee is a classification of coffee grown in the Blue Mountains of Jamaica. The best lots of Blue Mountain coffee are noted for their mild flavor and lack of bitterness. Over the past few decades, this coffee has developed a reputation that has made it one of the most expensive and sought-after coffees in the world. Over 80% of all Jamaican Blue Mountain Coffee is exported to Japan. In addition to its use for brewed coffee, the beans are the flavor base of Tia Maria coffee liqueur.
+A few points about the results below:
+- Scores were taken February 8-9, 2020
+- Sites were selected semi-randomly (this seemed like a good cross section from the US)
+- Are from one test audit (I did not run multiple audits)
+- Capture the site home page
+- Audit Settings:
+  - Mobile Device
+  - Simulated Slow 4G, 4x CPU Slowdown
+  - Storage Cleared
 
-Jamaican Blue Mountain Coffee is a globally protected certification mark, meaning only coffee certified by the Coffee Industry Board of Jamaica can be labeled as such. It comes from a recognized growing region in the Blue Mountain region of Jamaica, and its cultivation is monitored by the Coffee Industry Board of Jamaica.
+For more information on how to read the scores, visit:   
+👉 [Lighthouse Scoring Guide](https://developers.google.com/web/tools/lighthouse/v3/scoring)   
+👉 [Lighthouse Score Weighting](https://docs.google.com/spreadsheets/d/1up5rxd4EMCoMaxH8cppcK1x76n6HLx0e7jxb0e0FXvc/edit#gid=0)
 
-The Blue Mountains are generally located between Kingston to the south and Port Antonio to the north. Rising 7,402 ft, they are some of the highest mountains in the Caribbean. The climate of the region is cool and misty with high rainfall. The soil is rich, with excellent drainage. This combination of climate and soil is considered ideal for coffee.
+
+<div class="columns is-centered has-margin-top-32">
+  <div class="column is-12 has-text-centered">
+    <img class="img" srcset="/img/lighthouse-amazon.png" alt="amazon lighthouse score image" />
+    <img class="img" srcset="/img/lighthouse-walmart.png" alt="walmart lighthouse score image" />
+    <img class="img" srcset="/img/lighthouse-rei.png" alt="rei lighthouse score image" />
+    <img class="img" srcset="/img/lighthouse-walgreens.png" alt="walgreens lighthouse score image" />
+    <img class="img" srcset="/img/lighthouse-homedepot.png" alt="home depot lighthouse score image" />
+  </div>
+</div>
+
+First Contentful Paint, Speed Index, and Time to Interactive are performance score weighted 20%, 27%, 33% respectively. Here are the values:
+
+
+|            | FCP   | SI    | TTI    |
+|------------|-------|-------|--------|
+| amazon     | 2.7s  | 4.1s  | 9.3s   |
+| walmart    | 3.9s  | 7.4s  | 17.1s  |
+| rei        | 3.9s  | 9.0s  | 22.0s  |
+| walgreens  | 4.3s  | 12.6s | 25.5s  |
+| home depot | 3.8s  | 11.6s | 28.0s  |
+<small>**FCP** = First Content Paint **SI** = Speed Index **TTI**= Time to Interactive</small>
+
+### What is Going On?
+Why, what is slowing down these sites, major causes...
+
+### APAC Sites
+Do Asia sites value performance more? Why ? What are they doing differently?
+
+### Review
+Identify is first step. Are companies ignoring mobile web? 

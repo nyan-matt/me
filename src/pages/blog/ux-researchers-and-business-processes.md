@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: UX Researchers & Business Processes
 featuredimage: /img/products-full-width.jpg
-date: 2019-11-12T16:04:10.000Z
+date: 2017-11-12T16:04:10.000Z
 featuredpost: true
 description: >-
   UX Researchers are often billed as "Designers", but are frequently doing business process ethnography
