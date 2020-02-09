@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Helmet from "react-helmet";
-// import { kebabCase } from "lodash";
 import Layout from "../../components/Layout";
 
 
@@ -16,7 +15,9 @@ class WorkIndexPage extends React.Component {
       <Layout>
         <section className="section">
         <div className="container">
-          <Helmet title={`Work - summaries of various projects | ${title}`} />
+          <Helmet
+            title={`Work - summaries of various projects | ${title}`}
+          />
           <div className="container content">
           <div className="columns">
             <div className="column is-12">

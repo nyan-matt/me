@@ -183,6 +183,14 @@ const WorkPost = ({ data }) => {
               name="description"
               content={`${post.frontmatter.description}`}
             />
+            <meta
+              property="og:title"
+              content={`${post.frontmatter.title}`}
+            />
+            <meta
+              property="og:image"
+              content={`${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
+            />
           </Helmet>
         }
         tags={post.frontmatter.tags}
