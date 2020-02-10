@@ -46,8 +46,16 @@ const Footer = class extends React.Component {
                     </ul>
                   <p className="is-uppercase is-family-secondary has-text-weight-bold">CONNECT</p>
                   <ul className="footer-links">
-                    <li><Link className="" to="/blog">LinkedIn</Link></li>
-                    <li><Link className="" to="/contact">Github</Link></li>
+                    <li>
+                      <a href="https://www.linkedin.com/in/mattrea">
+                        LinkedIn
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/nyan-matt">
+                        Github
+                      </a>
+                    </li>
                   </ul>
                 </section>
               </div>

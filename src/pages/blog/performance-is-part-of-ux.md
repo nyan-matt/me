@@ -38,3 +38,8 @@ Globally, the average mobile connection speed is around 25Mbps; while this has s
 
 If your product relies on organic search results, you may find allies in your digital marketing organization. Google uses site speed as one of the factors its algorithm uses to rank pages. 
 
+### Reading
+
+- [Setting a web performance budget](https://www.invisionapp.com/inside-design/setting-a-web-performance-budget/)
+- [Good performance is good design](https://uxplanet.org/good-performance-is-good-design-the-5-principles-of-performant-design-54ca44c7c4e0)
+- [Why performance matters](https://developers.google.com/web/fundamentals/performance/why-performance-matters)
