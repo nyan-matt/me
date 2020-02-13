@@ -70,5 +70,3 @@ Do Asia sites value performance more? Why ? What are they doing differently?
 
 ### Review
 Identify is first step. Are companies ignoring mobile web? 
-
-<table></table>
