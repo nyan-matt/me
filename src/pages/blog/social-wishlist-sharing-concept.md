@@ -20,7 +20,6 @@ At some point during this process, I went down a bit of a rabbit hole  thinking 
 
 Over the holiday break, I decided to use this idea to familiize myself with Sketch and have a little fun designing something outside of my daily work domain. 
 
-Because I'm fairly certain there are multiple apps that already fill this need, and this was mostly an exercise to brush up on Sketch, I did not spend any time with research. Mostly, I stayed inside my head and added whatever came to mind.
 
 ### Feeds, Lists, Sharing, & Shopping
 - A feed displaying items from friends or subscribed lists facilitate discovery  

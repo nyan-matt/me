@@ -23,7 +23,7 @@ tags:
   - Netlify
   - Gatsby
   - React
-  - pwa
+  - PWA
 ---
 ### About
 The *7 Habits of Highly Effective People* serves as the company handbook at 1904labs. While I have read the book, sometimes I would hear people reference a habit number in conversation, and I had a difficult time putting those habit numbers to the idea. To help me recall the habits, I wanted to create a quick reference "cheat sheet". This aligned well with a desire to learn more about static site generators and progressive web apps.   

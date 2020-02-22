@@ -9,6 +9,7 @@ description: >-
   (Photo by Robert Wiedemann on Unsplash)
 tags:
   - performance
+  - ecommerce
   - mobile
   - ux
   - lighthouse

@@ -43,8 +43,8 @@ learning: |
 tags:
   - mobile
   - ecommerce
-  - pwa
-  - api
+  - PWA
+  - API
   - app
 ---
 ### Minimally Viable Product (MVP)

@@ -38,7 +38,6 @@ learning: |
 tags:
   - SPA
   - React
-  - Node
   - Axure
 ---
 ### About
