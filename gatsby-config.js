@@ -9,6 +9,19 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-scroll-reveal',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Matthew Rea`,
+        short_name: `Matthew Rea`,
+        start_url: `/`,
+        background_color: `#333E48`,
+        theme_color: `#F95C2B`,
+        display: `standalone`,
+        icon: `${__dirname}/src/img/icon.png`,
+      },
+    },
+      'gatsby-plugin-offline',
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
