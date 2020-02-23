@@ -6,7 +6,7 @@ import '../styles/all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, structuredData }) => {
   const { title, description } = useSiteMetadata()
   return (
     <div>
@@ -39,14 +39,15 @@ const TemplateWrapper = ({ children }) => {
           color="#ff4400"
         />
         <meta name="theme-color" content="#fff" />
-
-        <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <Navbar />
       <div className="main-body">{children}</div>

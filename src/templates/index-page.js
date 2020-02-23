@@ -6,6 +6,25 @@ import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
 import FeaturedWork from '../components/FeaturedWork'
 
+const structuredData = {
+  "@context": "https://schema.org",
+      "@type": "Person",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Saint Louis",
+        "addressRegion": "MO"
+      },
+      "knowsAbout": ["design", "user experience", "human-centered design", "product management", "technology"],
+      "image": "https://matthewrea.com/img/matt-rea.jpg",
+      "name": "Matthew Rea",
+      "additionalName": "Matt Rea",
+      "alumniOf": "Miami University",
+      "gender": "male",
+      "disambiguatingDescription": "Design and Technology Professional",
+      "url": "https://matthewrea.com",
+	    "sameAs" : [ "https://www.linkedin.com/in/mattrea/",
+      "https://github.com/nyan-matt"]
+}
 
 export const IndexPageTemplate = ({
   image,
@@ -107,7 +126,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <Layout structuredData={structuredData}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
