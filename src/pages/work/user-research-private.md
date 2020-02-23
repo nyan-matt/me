@@ -3,16 +3,24 @@ templateKey: work-post
 title: User Research (Private)
 date: 2019-04-17T00:00:00.000Z
 description: User research discovery project for a managed healthcare provider
+featuredpost: false
 workdate: '2019'
-featuredpost: true
 featuredimage: /img/featured-work-empathymap-1.jpg
 cardimage: /img/card-work-empathy-map.jpg
 cardcolor: '#333E48'
 summary: >
-  As part of a user research discovery project, our team worked with a large managed care provider to learn how its enterprise care management software is being used by internal staff as they interact with members, identify areas for improvement, and help align stakeholders on a vision for the next generation of its care management platform.  
-  
-  
-  Our team conducted stakeholder interviews, numerous contextual inquiry sessions, and several phone interviews with end users spanning various states and care plans. We developed validated personas, journey maps, delivered storyboards, and designed prototypes to help visualize future state experiences.
+  As part of a user research discovery project, our team worked with a large
+  managed care provider to learn how its enterprise care management software is
+  being used by internal staff as they interact with members, identify areas for
+  improvement, and help align stakeholders on a vision for the next generation
+  of its care management platform.  
+
+
+  Our team conducted stakeholder interviews, numerous contextual inquiry
+  sessions, and several phone interviews with end users spanning various states
+  and care plans. We developed validated personas, journey maps, delivered
+  storyboards, and designed prototypes to help visualize future state
+  experiences.
 roles: >
   Human-Centered Design Lead - worked with a group of other Human Centered
   Designers and Agile Engineering Lead 
@@ -24,19 +32,21 @@ roles: >
     - Storyboarding
     - Prototype design
 showcase1:
-  height: 400
   backgroundimage: /img/featured-work-workshop-1.jpg
   fixed: true
-showcase2:
   height: 400
+showcase2:
   backgroundimage: /img/featured-work-storyboards-1.jpg
   fixed: false
-  
-learning: |
+  height: 400
+learning: >
   #### Retro
-  Overall this was a great project to work on, and it was a nice change of pace coming from a previous role with limited time dedicated to user research activities. This was my first time working in the healthcare space, and getting up to speed with industry and client-specific terminology while onboarding to a new company and culture was quite challenging. 
 
-
+  Overall this was a great project to work on, and it was a nice change of pace
+  coming from a previous role with limited time dedicated to user research
+  activities. This was my first time working in the healthcare space, and
+  getting up to speed with industry and client-specific terminology while
+  onboarding to a new company and culture was quite challenging. 
 tags:
   - user research
   - healthcare
