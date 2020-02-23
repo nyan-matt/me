@@ -36,12 +36,10 @@ export default class Index extends React.Component {
   }
 
   render() {
-    // const { title } = useSiteMetadata()
     return (
       <Layout>
         <section className="section">
         <div className="container">
-          
           <div className="container content">
           <div className="columns">
             <div className="column is-12">

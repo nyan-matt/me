@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Matthew Rea',
+    title: 'Matthew Rea - Experienced design & technology professional living and working in St. Louis',
     description:
-      'Matthew Rea - Experienced design & technology professional living and working in St. Louis ',
+      'Personal website of Matt Rea showcasing past and current UX design work',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
