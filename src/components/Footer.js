@@ -39,10 +39,10 @@ const Footer = class extends React.Component {
                 <section>
                 <p className="is-uppercase is-family-secondary has-text-weight-bold">LINKS</p>
                     <ul className="footer-links">
-                      <li><Link className="" to="/about">About</Link></li>
-                      <li><Link className="" to="/work">Work</Link></li>
-                      <li><Link className="" to="/blog">Blog</Link></li>
-                      <li><Link className="" to="/contact">Contact</Link></li>
+                      <li><Link className="" to="/about/">About</Link></li>
+                      <li><Link className="" to="/work/">Work</Link></li>
+                      <li><Link className="" to="/blog/">Blog</Link></li>
+                      <li><Link className="" to="/contact/">Contact</Link></li>
                     </ul>
                   <p className="is-uppercase is-family-secondary has-text-weight-bold">CONNECT</p>
                   <ul className="footer-links">
