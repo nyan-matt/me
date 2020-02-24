@@ -31,6 +31,7 @@ tags:
   - mobile 
   - ideation
   - concepts
+  - personas
 ---
 ### Background
 In the early 2000s, TI introduced a classroom network system that allowed teachers to send quizzes and tests to students for completion on their graphing calculators. Results could be aggregated and added to a gradebook from the teacher's laptop computer. Functionality was later added to allow for students to participate in polling and collaborative classroom activities.   
