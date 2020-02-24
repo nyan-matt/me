@@ -70,7 +70,9 @@ Category suggestions offered in our search form lookahead results had the potent
   </div>
 </div>
 
-Because different product categories have distinct attributes that are important to users, we worked with product management teams to test a pattern in which search results could be templatized to highlight those key attributes, and allow users to more easily compare and scan those attributes among search results. 
+Because different product categories have distinct attributes that are important to users, we worked with product management teams to test a pattern in which search results could be templatized to highlight those key attributes, and allow users to more easily compare and scan those attributes among search results.  
+
+An example below displays the key attributes for two very different product types, Antibodies and Syringe filters. When browsing antibody results, we found that users zero-in on applications, species, and citations, whereas syringe filter buyers look at pore sizes, diameters, and sterility. Adding these attributes in a predictable, scannable layout allows users to more quickly identify products that meet their particular needs.
 
 
 <div class="columns is-centered has-margin-top-32">
