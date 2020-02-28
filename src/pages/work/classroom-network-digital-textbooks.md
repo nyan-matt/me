@@ -9,12 +9,12 @@ featuredimage: /img/work-banner-classroom-network.jpg
 cardimage: /img/card-work-sketches-alt.jpg
 cardcolor: '#E2504D'
 summary: >
-  This page includes various work I produced while a in a Product Strategy Role at Texas Instruments between 2010-2012. This is an extension of my prior work on the TI-Navigator Classroom Network for graphing calculators pivoting emphasis to tablet based apps and digital math textbooks paired with a teacher desktop software.    
+  This page includes various work I produced while a in a Product Strategy Role at Texas Instruments between 2010-2012. This is an extension of my prior work on the TI-Navigator Classroom Network for graphing calculators; pivoting emphasis to tablet based apps and digital math textbooks paired with a teacher desktop software.    
 roles: >
   Senior UX Designer, Product Strategy
 
 
-  In this role, part of my responsibilities included producing concepts for future products and services. These designs were exploring how networked digital textbooks and other formative assessment tools could be used in the emerging tablet market.
+  In this role, my responsibilities included producing concepts for future products and services. These designs explored how networked digital textbooks and other formative assessment tools could be used in the emerging tablet market.
 
 showcase2:
   height: 400
@@ -38,7 +38,7 @@ In the early 2000s, TI introduced a classroom network system that allowed teache
 
 Although the system could be engaging, it required new hardware, software, and suffered from a complicated setup process that some users found too troublesome for everyday usage. 
 
-With growing adoption of iPads in the classroom, I was tasked with exploring what a classroom network could look like with tablet clients rather than graphing calculators. During this time, there was also a push for states to adopt Core Core State Standards into their curriculum. 
+With growing adoption of iPads in the classroom, I was tasked with exploring what a classroom network could look like with tablet clients rather than graphing calculators. 
 
 ### Personas
 Example personas for various stakeholders. 
