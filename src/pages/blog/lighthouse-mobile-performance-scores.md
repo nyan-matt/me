@@ -65,7 +65,15 @@ First Contentful Paint, Speed Index, and Time to Interactive are performance sco
 <small>**FCP** = First Content Paint **SI** = Speed Index **TTI**= Time to Interactive</small>
 
 ### What is Going On?
-So why are most of these sites performing so poorly? Do they not have teams of engineers dealing with performance and optimization? At the very least, would these scores not catch the attention of some executives who understand the relationship between performance, user experience, and lost revenue potential? Obviously, we can't know what goes on in these organizations or what decisions may have led to a poorly performing mobile experience, but my guess is that one or more of the following apply:
+So why are most of these sites performing so poorly? Do they not have teams of engineers dealing with performance and optimization? At the very least, would these scores not catch the attention of some executives who understand the relationship between performance, user experience, and lost revenue potential?   
+
+According to a [2017 report from Akamai](https://www.akamai.com/us/en/about/news/press/2017-press/akamai-releases-spring-2017-state-of-online-retail-performance-report.jsp):  
+
+> - A two-second delay in web page load time increase bounce rates by 103 percent
+> - A 100-millisecond delay in website load time can hurt conversion rates by 7 percent 
+> - 53 percent of mobile site visitors will leave a page that takes longer than three seconds to load
+
+Obviously, we can't know what goes on in these organizations or what decisions may have led to a poorly performing mobile experience, but my guess is that one or more of the following apply:
 
 - Leadership (Business, IT, or UX) are unaware of the problem
 - Site performance is measured and benchmarked, but mobile web is not properly factored into this metric  
@@ -102,5 +110,4 @@ The Chinese sites average just over 1 Mb of page weight while the US sites avera
 > We've remade the Internet in our own image, which, in the United States, is obese.   
 > \- Jason Grigsby
 
-As US mobile transactions catch up with China, I'm hopeful we will we see more emphasis on mobile performance metrics. 
-
+As US mobile transactions catch up with China, I'm hopeful we will we see more emphasis on mobile performance metrics. My intuition is that this is largely a problem of awareness - without support from the UX community or some other performance "champion" in these organizations, metrics such as these often remain an afterthought. Since Google has been using page speed as a factor in their mobile rankings, it would reason that SEO teams would be strong advocates for performance optimization. As UX practitioners, we can and should advocate for a better experience through more performant web sites, however, drawing a strong correlation to bottom-line revenue figures can often provide more tangible motivations for decision makers.

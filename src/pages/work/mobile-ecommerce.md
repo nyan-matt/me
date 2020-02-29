@@ -46,6 +46,7 @@ tags:
   - PWA
   - API
   - app
+  - react
 ---
 ### Minimally Viable Product (MVP)
 This project was part of a larger effort to modernize an ecommerce platform - moving from a proprietary, monolithic architecture to an open-source, service-oriented architecture. Overhauling a [billion dollar ecommerce channel](https://www.digitalcommerce360.com/2017/11/13/e-commerce-comes-strong-mercks-milliporesigma/) comes with risks, and to help mitigate a big-bang release approach, this project was undertaken to work as a proof-of-concept for the new architecture, while providing a mobile presence for the fast growing Asia Pacific market. Historically, the vast majority of global transactions occur on a desktop browser through our B2B or B2C ecommerce channel, with many of our users in a lab environment. An existing mobile site offered a very basic product search capability, but was in need of an update. Because the new ecommerce platform was dependent on a parallel ERP upgrade (which typically released country-by-country) we decided to geo-target the new mobile site for countries in the APAC region that were using the new ERP system.     
