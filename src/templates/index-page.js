@@ -14,7 +14,7 @@ const structuredData = {
         "addressLocality": "Saint Louis",
         "addressRegion": "MO"
       },
-      "knowsAbout": ["design", "user experience", "human-centered design", "product management", "technology"],
+      "knowsAbout": ["design", "user experience", "human-centered design", "product management", "technology", "UX", "HCD", "product design"],
       "image": "https://matthewrea.com/img/matt-rea.jpg",
       "name": "Matthew Rea",
       "additionalName": "Matt Rea",
@@ -23,7 +23,7 @@ const structuredData = {
       "disambiguatingDescription": "Design and Technology Professional",
       "url": "https://matthewrea.com",
 	    "sameAs" : [ "https://www.linkedin.com/in/mattrea/",
-      "https://github.com/nyan-matt"]
+      "https://github.com/nyan-matt", "https://twitter.com/mattrea"]
 }
 
 export const IndexPageTemplate = ({

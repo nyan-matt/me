@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
@@ -39,7 +40,10 @@ const Navbar = class extends React.Component {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
+            <Link to="/" title="home">
+              <img src={`../../img/logo.png`} alt="logo" className="nav-logo" />
+            </Link>
+            <Link to="/" className="navbar-item" title="home">
               Matthew Rea
             </Link>
             {/* Hamburger menu */}

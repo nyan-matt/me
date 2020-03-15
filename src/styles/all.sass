@@ -126,7 +126,7 @@ section.background-divider
 
 .banner-image
   min-height: 300px
-  background-color: $white
+  background-color: $white !important
   background-size: cover
   background-repeat: no-repeat
   background-position: center
@@ -210,6 +210,7 @@ h1.landing-title
   padding-top: 32px
   font-size: 3rem !important
   margin-bottom: 0px !important
+  color: $dark-blue !important
   @media (max-width: 767px)
     color: $dark-blue !important
     padding-left: 0px !important
@@ -220,6 +221,7 @@ h2.landing-subtitle
   font-size: 1.25rem !important
   font-weight: normal !important
   margin-top: 0px !important
+  color: $dark-grey !important
   @media (max-width: 767px)
     color: $dark-grey !important
     padding-left: 0px !important
@@ -236,11 +238,19 @@ h2.landing-subtitle
 .navbar-brand, .navbar-item
   font-family: $family-serif
 
+
 .navbar-item 
   color: $primary
   text-transform: uppercase
   &.is-active
     text-decoration: underline  
+
+@media screen and (min-width: 1024px)
+  .navbar > .container .navbar-brand, .container > .navbar .navbar-brand
+    margin-left: 0px !important
+@media screen and (max-width: 768px)
+  .nav-logo
+    padding-left: 12px
 
 
 @import "~bulma"
