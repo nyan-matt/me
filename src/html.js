@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export default function HTML(props) {
+  const noScriptStyle = "[data-sal|=fade] { opacity: 1 }"
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -16,7 +17,10 @@ export default function HTML(props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
-          <div class="notification">
+          <style type="text/css">
+            {noScriptStyle}
+          </style>
+          <div class="notification is-primary">
             This site works best with JavaScript enabled.
           </div>
         </noscript>
