@@ -70,7 +70,7 @@ export const tagPageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___templateKey], order: ASC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, featuredpost: {eq: true } } }
     ) {
       totalCount
       edges {

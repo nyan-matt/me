@@ -22,14 +22,6 @@ In a previous post, I looked at [Lighthouse Mobile Performance Scores](/blog/lig
   </div>
 </div> 
 
-A few points about the results:
-- Scores were taken February 8-9, 2020
-- Capture the site home page
-- Audit Settings:
-  - Mobile Device
-  - Simulated Slow 4G, 4x CPU Slowdown
-  - Storage Cleared
-
 For more information on how to read the scores, visit:   
 👉 [Lighthouse Scoring Guide](https://developers.google.com/web/tools/lighthouse/v3/scoring)   
 👉 [Lighthouse Score Weighting](https://docs.google.com/spreadsheets/d/1up5rxd4EMCoMaxH8cppcK1x76n6HLx0e7jxb0e0FXvc/edit#gid=0)
@@ -38,7 +30,7 @@ For more information on how to read the scores, visit:
 ### What is Going On?
 Perhaps if we take a more detailed look at the specifics, we can understand what is causing the issue and be more performance-aware going forward.
 
-I'm not picking on Home Depot, I'm sure they have wonderful engineers and designers who care about performance and speed, but let's just say there is a lot of room for improvement. Home Depot's Time to Interactive (TTI) comes in at nearly 30 seconds, about 3x as lond as our best performer, Amazon.
+I'm not picking on Home Depot, I'm sure they have wonderful engineers and designers who care about performance and speed, but let's just say there is a lot of room for improvement. Home Depot's Time to Interactive (TTI) comes in at nearly 30 seconds, about 3x as long as our best performer, Amazon.
 
 If we look under the hood, we can see that the mobile home page comes in at a hefty 6 Mb. Keep in mind this is the **compressed** size transferred. Uncompressed size totals around 12 Mb.
 
