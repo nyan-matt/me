@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Matthew Rea - Experienced product design & technology professional living and working in St. Louis',
+    title: 'Matthew Rea - Experienced product design & technology professional living & working in St. Louis',
     description:
-      'Personal website of Matt Rea showcasing past and current UX design work',
+      'I have strong background in user-centered design methodologies, visual, & interaction design combined with extensive technical & product management experience.',
     siteUrl: 'https://matthewrea.com'
   },
   plugins: [
