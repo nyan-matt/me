@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Matthew Rea - Experienced product design & technology professional living & working in St. Louis',
     description:
-      'I have strong background in user-centered design methodologies, visual, & interaction design combined with extensive technical & product management experience.',
+      'I have a strong background in user-centered design methodologies, visual, & interaction design combined with extensive technical & product management experience.',
     siteUrl: 'https://matthewrea.com'
   },
   plugins: [
