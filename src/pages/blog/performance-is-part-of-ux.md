@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: Performance is a (Big) Part of UX
 featuredimage: /img/blog-banner-performance.jpg
-date: 2019-12-01T16:04:10.000Z
+date: 2019-02-01T16:04:10.000Z
 featuredpost: true
 description: >-
   UX designers need to care (a lot) about performance
@@ -10,7 +10,7 @@ description: >-
 tags:
   - performance
   - mobile
-  - ux
+  - UX
 ---
 
 ### Performance 

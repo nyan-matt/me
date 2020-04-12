@@ -5,13 +5,13 @@ featuredimage: /img/blog-banner-lighthouse.jpg
 date: 2019-11-12T16:04:10.000Z
 featuredpost: true
 description: >-
-  Lighthouse scores for popular mobile commerce sites 
+  Lighthouse performance scores for popular mobile retail commerce sites 
   (Photo by Robert Wiedemann on Unsplash)
 tags:
   - performance
   - ecommerce
   - mobile
-  - ux
+  - UX
   - lighthouse
 ---
 
