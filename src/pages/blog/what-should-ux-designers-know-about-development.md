@@ -27,18 +27,16 @@ Although users are the primary consideration in most projects, we can also turn 
 
 Before we start to think about "learning to code", we should probably get a better idea of what developers are doing, how they work, and what they care about. 
 
-
-
-##### Get to Know Your Team
+#### Get to Know Your Team
 It probably sounds like a no-brainer, and since we aren't robots, this is probably already happening to some degree. This is a building block for everything else. This is not to say you have to be best friends with everyone, but you need to build some sort of rapport and establish a baseline level of trust. Find some commonalities outside of work - don't pry, but casual conversation about sports, hobbies, family life, and pop-culture can help get the ball rolling. Some people are more guarded than others - no need to interrogate them, but sometimes offering information about yourself can provide the catalyst needed for others to open up.  
 
-##### Listen
+#### Listen
 If you have established a rapport with developers on your team, you might strike up a conversation about the project, what it's like to be a developer on this project, and try to understand some of the pain points they encounter. If you feel awkward initiating the conversation, it may help to frame the interaction by explaining that you would like to know more about how they work so that you can better support them on the design side of things. Asking questions like, "is there anything I should be doing / or stop doing to make your job easier?" could be an opportunity to get valuable feedback.  
 
-##### Learn
+#### Learn
 When you create a journey map to understand the workflow and areas of friction faced by an end-user of a system you are researching, you are also forming a mental model of the system(s) and process(es) in play. We usually have little domain knowledge going in, but over time we can learn enough to understand how it works. Similarly, as designers, we don't necessarily need to know how code is written, but if we can form a mental model of how modern software is built, we can make the start to make the "black box" of development a little more transparent. We can start by listening to the conversations that we might normally tune out, such as the developer exchanges happening during story grooming or retros. Asking devs how something works or the meaning of an unfamiliar term can be a more direct way of filling in the gaps of our understanding. You can start off very broadly and build your understanding over time - much of what you learn can be applied generically across different projects.   
 
-##### Involve
+#### Involve
 Designers sometimes have a tendency to be protective or even territorial of their processes and work. While expertise is important, collaboration is also necessary. Inviting your developers to user interviews, contextual inquiry sessions, or design reviews is the best way to build teamwide empathy and avoid designing solutions that are not feasible to implement. Developers can be powerful sources of creativity and if they understand the problem space, can be good partners in finding practical design solutions. In an agile world of development where it can be easy to keep your head down on the current sprint, whenever there is a chance to zoom-out and get a more birds-eye perspective, you should encourage your team to take the opportunity.
 
 
