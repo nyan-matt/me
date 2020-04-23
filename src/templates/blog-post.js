@@ -38,7 +38,7 @@ export const BlogPostTemplate = ({
               <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
                 {description}
               </h2>
-              <PostContent content={content} />
+              <PostContent className="main" content={content} />
             </div>
           </div>
         </div>

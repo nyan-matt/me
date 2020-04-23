@@ -85,7 +85,7 @@ export const WorkPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            <PostContent content={content} />
+            <PostContent className="main" content={content} />
           </div>
         </div>
       </div>
