@@ -231,8 +231,23 @@ h2.landing-subtitle
   font-size: 1.25em
 
 .content .main a 
-  font-weight: bold
-  text-decoration: underline
+  border-bottom: 1px solid $dark-blue
+  box-shadow: inset 0 -1px 0 $dark-blue
+  transition: all .25s cubic-bezier(.32,.75,.25,1)
+  padding: 2px 2px 0 2px
+  color: $dark-blue
+  &:hover
+    color: $orange
+    border-bottom: 1px solid $orange
+    box-shadow: inset 0 -1px 0 $orange
+code
+  border-radius: 4px
+
+figcaption
+  font-size: 12px
+  font-style: italic
+  margin-top: 8px 
+
 
 // *********************
 // Navigation 

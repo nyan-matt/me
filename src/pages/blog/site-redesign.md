@@ -24,6 +24,13 @@ For me, the attraction came from an appreciation of the performance a static sit
 
 The result is that the end product is much more performant with less moving parts and security vulnerabilities at runtime which also makes scaling much less expensive. Oh, and did I mention continuous integration and deployment are baked into the workflow? This makes your build and deploy process as simple as pushing to master.
 
+<div class="columns is-centered has-margin-top-32">
+  <div class="column is-12 has-text-centered">
+    <img class="img" srcset="/img/blog-lighthouse-matthewrea.png" alt="matthewrea.com lighthouse score image" />
+    <figcaption>Screenshot of Google Lighthouse audit</figcaption>
+  </div>
+</div>
+
 ### A New Mental Model
 Similarly to how React uprooted some traditional models on how people thought about DOM rendering and manipulation, static site generators flipped around the conventional thinking about how content is served. The classical pattern of serving authored content would include dynamic calls at runtime to fetch content from a database, stuff it in a template, and serve it over the wire. Static sites push the fetching and dynamic calls to build time - leaving runtime more performant as the database lookup and templating machinery are replaced with a simple GET request through a CDN. This is a bit of an oversimplification, as JAMstack sites can also leverage APIs and serverless functions that allow more dynamic behaviors such as ecommerce transactions, but it's useful to understand the shift in broad terms before we start digging into the specifics.   
 
@@ -32,30 +39,122 @@ JAMstack generally treats content as code that is co-located in your git reposit
 
 So, do content authors need to be taught how to use git? Will they be forced to write content in markdowm or some other unfamiliar language? If so, the adoption of content-as-code doesn't seem so promising. Fortunately, there are several light-weight connectors available that can abstract some of the git workflow and bridge the gap between what content editors are familiar with (Rich Text, maybe a little HTML) and the content markup of choice for static site generators (markdown, yaml, json). If you've ever encountered the "edit" functionality in github's UI for editing things like README files, that is one step toward making git commits a little more user friendly. If we extend that further, structured data in markdown or yaml files can be edited through a familiar form-based UI rather than editing and saving raw files. There is still a lot of room for improvement, but now we have the basic ingredients necessary to make this a viable solution.
 
+<div class="columns is-centered has-margin-top-32">
+  <div class="column is-12 has-text-centered">
+    <img class="img" srcset="/img/blog-post-editor.jpg" alt="netlify cms editor interface" />
+    <figcaption>Screenshot of Netlify CMS Content Editor with realtime preview</figcaption>
+  </div>
+</div>
+
 ### Getting Started
 Now that we're finished with the preamble, let's get started. I assume if you're still reading, you have some front-end development knowledge, and while you don't need to be an expert, it certainly helps to have a little experience with React and git. This won't be a step-by-step tutorial, (there are plenty of good resources for that) but I'll try to point out some landmarks and places where I struggled in hopes of filling in some gaps in understanding.  There are several tools and frameworks available, but I will be using the following:
-- [Gatsby](https://www.gatsbyjs.org/) - a static site generator which does much of the heavy lifting 
+- [Gatsby](https://www.gatsbyjs.org/) - a static site generator which does much of the heavy lifting at build time 
 - [Netlify CMS](https://www.netlifycms.org/) - a lightweight, client-side content management system that sits on top of your site and interfaces with your git repo for content updates
 - [Netlify](https://www.netlify.com/) - a cloud-based platform that integrates with your git repo for continuous deployment to a global CDN 
 
-We could start from scratch, but I would suggest looking at one of the starter templates available on the Gatsby or Netlify websites. I've found that <a href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"><code>gatsby-starter-netlify-cms</code></a> provides a good base for building without too much overhead, and I'll be referring to it's structure for the remainder of the post. This site was forked from there, and you can always see the source code for this site by looking at <a href="https://github.com/nyan-matt/me">my repo</a>. Follow the README, starting with the <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-starter-netlify-cms&stack=cms">Deploy to netlify badge</a> - this will copy the repo into your github account, then build and deploy the example site to Netlify's platform. From here, you can <a href="https://www.netlifycms.org/docs/add-to-your-site/#authentication">setup Netlify Identity and Git Gateway</a> to provide access to the CMS administration dashboard for managing content.      
+We could start from scratch, but I would suggest looking at one of the starter templates available on the Gatsby or Netlify websites. I've found that <a href="https://github.com/netlify-templates/gatsby-starter-netlify-cms">gatsby-starter-netlify-cms</a> provides a good base for building without too much overhead. This site was forked from there, and you can always see the source code for this site by looking at <a href="https://github.com/nyan-matt/me">my repo</a>. Follow the README, starting with the <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-starter-netlify-cms&stack=cms">Deploy to netlify badge</a> - this will copy the repo into your github account, then build and deploy the example site to Netlify's platform. From here, you can <a href="https://www.netlifycms.org/docs/add-to-your-site/#authentication">setup Netlify Identity and Git Gateway</a> to provide access to the CMS administration dashboard for managing content.      
 
 Once here, I would suggest cloning your remote repo locally, to get your dev environment setup. Gatsby CLI, Netlify CLI, and a recent version of Node are required. When you are up and running, you might want to familiarize yourself with the directory structure, change a few files locally, commit, and push to master. If you've properly connected Github and Netlify, once master has been updated, you should be able to see your app being built and deployed from Netlify's dashboard with your commit message. This part is pretty magical - within a few minutes, you'll see your changes update on the live site. If you've setup Identity, you could login to `your-site-name.netlify.com/admin` to take a look at the Netlify CMS dashboard. Now you could create or edit a new blog post or edit page content, publish your changes, and watch as your content edit is committed to git and a new build is kicked off and deployed to your site. There are settings and options within Netlify to explore, but my experience is that it is pretty turn-key out of the box. 
 
 Once you get acquainted with how the workflow is setup, you can take off your devops hat, because for the most part, you are done. 
 
+<hr/>
+
 ### Gatsby 
-Gatsby is our static site generator, and where we'll be spending the majority of our time. Based in React, Gatsby allows us to develop an application with reusable components, and much like Create React App, it abstracts away the webpack configuration so it's really easy to develop a modern application without much configuration and setup. Unlike Create React App, being a static site generator, Gatsy supports server rendering of pages which is done when you build your site, rather than at runtime when someone requests the page.   
+Gatsby is our static site generator, and where we'll be spending the majority of our time. Based in React, Gatsby allows us to develop an application with reusable components, and much like Create React App, it abstracts away the webpack configuration so it's really easy to develop a modern application without much configuration and setup. Unlike Create React App, Gatsy supports the static rendering of pages which is done when the site built, rather than at runtime when the page is requested. Another nice feature is that your site can be rendered without client side javascript enabled, but when it is present, Gatsby plays like a client side app; taking advantage of dynamic routing and content prefetching for a super fast and extemely responsive page load times.
 
-### Gatsby Ecosystem
+For more information about the differences among static rendering, server rendering, and client side rendering, I found [Rendering on the Web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web) to be a great resource.   
 
-```yml
+#### Directory Structure
+If we look inside the src folder it looks like a typical react setup with a few additions:  
+
+- `/src/components` - is a flat list of react components used to compose our UI
+
+- `/src/pages` - contains content in for form of markdown files; subdirectories reflect our routes that will be generated when we build our site
+
+- `/src/templates` - contain templates that function as sort of a "glue" that connects our UI components and content using a query language called GraphQL.
+  
+Outside our src folder we have two files sitting at the root of our project that contain configurations for Gatsby plugin funcitonality and instructions on how to build our static pages:
+
+- `gatsby-node.js` - configure how pages will be built
+
+- `gatsby-config.js` - configure plugins from the Gatsby ecosystem
+ 
+ A word about Gatsby plugins - These are small, self-contained utilities or functionality implementing Gatsby APIs, usually exposed and configured through options in the gastby-config file. There are hundreds of plugins available through the [Gatsby Plugin Library](https://www.gatsbyjs.org/plugins/)   
+
+
+Reading the [documentation](https://www.gatsbyjs.org/docs/) is a good way to understand how Gatsby works. If you are more apt to learn-by-doing, our starter repo is fairly easy to reason about. Try editing existing page content and layouts as an initial way-finding exercise, then adding content to existing pages, or a new type of page as you become more familiar with the repo, returning to the documentation when needed.  
+
+#### Data Fetching & GraphQL
+Gatsby leans heavily on GraphQL to source data for pages and components. If you're not familiar, GraphQL is just a way to query for data, but it also allows us control what data we request and the shape that it is returned. As the name implies, it has some similarities with graph database structures in describing relationships among data which is very convenient when constructing our query. In Gatsby, we use GraphQL to describe the type of data we need to populate our page or component. Because we are generating a static site, you might ask why GraphQL is necessary, or even a good idea. I think the power in GraphQL lies in the flexibility it provides; even though the site is built statically, having content available as data that can be sliced and diced in countless ways provides opportunities for building your static site as if it were dynamic. 
+
+One way to illustrate this flexibility is to run the local Graphiql client, located at `/___graphql`, and take a look at the explorer panel. Our starter project has some very basic queries - for a given page, the query might just describe the title, description, date, and the body of the page (html). To get all the blog posts, we might use an `allMarkdownRemark()` query filtered by templateKey and ordered by date to return the titles of all of our blog posts with an excerpt to preview. These queries are usually located in the template file, but can also be co-located inside a component as a StaticQuery (e.g., Blogroll.js). You might notice all of the options in the explorer panel of the graphiql client - some of these are baked into Gatsby (e.g., Word Count or Time to Read), but depending on your needs, you may structure your frontmatter fields in your markdown files to enable all sorts of rich data and customized views within your application.
+
+<div class="columns is-centered has-margin-top-32">
+  <div class="column is-12 has-text-centered">
+    <img class="img" srcset="/img/blog-graphiql.jpg" alt="GraphiQL editor" />
+    <figcaption>Screenshot of GraphiQL editor</figcaption>
+  </div>
+</div>
+
+#### Styling
+Our starter uses [Bulma](https://bulma.io/), an open source CSS framework based on Flexbox. Similar to Bootstrap, Bulma offers easy to understand class names and has good documentation. Unlike Bootstrap, it does not require or come with javascript. Prior to my site redesign, I had limited exposure to Bulma, but I'm happy to say that the learning curve was quite small, and most of the problems I encountered were because I did not read the documentation correctly. In this project, there is an `all.sass` file located under the components folder - although not exactly where I would expect it to be, it's easy enough to pull it into a styles folder and tease out the variables into their own import, add utilities, or organize based on your needs. One important thing to keep remember is to import bulma after you have declared any overrides (e.g., specifying your own values for bulma variables)
+
+Importing all of bulma styles can inflate your css file size, but thanks to the Gatsby plugin `gatsby-plugin-purgecss`, during build time, any unused styles are removed. For me, this represents about a 80% reduction in my css file size, going from 213KB to 41kb!  Keep in mind, the purge of styles is based only what gets processes by Webpack. That means, for example, if you are embedding html with custom style classes in your markdown files (sometimes this is useful when you need more layout control in your body content) you might load up a content page and see that the style you defined doesn't appear to be applied. This is likely because during build, webpack couldn't find any instances of the class, and purged the style. Fortunately, the plugin accepts a whitelist option applied in `gatsby-config.js` that will allow you to add a list of selectors to skip during the purge step.
+
+#### SEO, Helmet, and Google Analytics
+Search engine optimization can be tricky and tedious, but it really can't be ignored if you want your site to be found and indexed. Because we are generating performant pages, we already have an advantage as Google looks at page speed as a signal to their search algorithm, and if we are creating high quality content, then most of the hard work is done. Luckily, Gatsby supports methods for generating semantic pages and provides access to the meta fields in our document head that are crucial for search engines. Out-of-the-box, we can use Helmet to provide that data and hoist it up to the document head where it belongs. You may notice in the `Layout.js` component, we have some boilerplate meta tags exposed as Helmet children. The default values for these are fetched using the `useSiteMetadata()` query, pulling title and description from your gatsby config. This will at least provide default values, but you will want to work on this if you want to level-up your SEO game. 
+
+While our Layout file contains defaults, we can pass in more meaningful values within our template pages. You can see this concept working in the `blog-post.js` template, where we query the data from the blog post markdown, and pass in our frontmatter values into our template component as Helmet children. With a little work, you can include page specific data to your meta tags like [description](https://moz.com/learn/seo/meta-description) and [open graphs](https://ogp.me/). Adding structured data in the form of [json-ld](https://moz.com/blog/writing-structured-data-guide) is also an underrated, low-effort way to provide search engines with more information about your content.    
+
+When it comes time to launch, you probably want to have some visibility into how your site is performing. Adding Google Analytics can provide you with a window into your site's visitors and behavior. Usually implementing GA involves adding snippets of code to your pages. While this is not a huge effort, it does come with a few downsides. Since we are using Netlify, I wanted to point out a nifty feature that allows you to inject scripts into your deployed code without keeping that code in your repository. Using [snippet injection](https://docs.netlify.com/site-deploys/post-processing/snippet-injection/), we can include any required GA tags from the Netlify build & deploy screen. 
+
+Because our deployed Gatsby site supports client-side routing, sometimes how those route changes are reported to GA can be inconsistent. To mitigate this, you may want to read more this [in-depth article](https://www.analyticsmania.com/post/single-page-web-app-with-google-tag-manager/) on how it's possible to use GTM (Google Tag Manager) in conjuction with GA to make sure your analytics are being reported correctly.
+
+#### Making a PWA 
+Creating a Progressive Web App (PWA) from an existing Gatsby project is easy using `gatsby-plugin-manifest` and `gatsby-plugin-offline`.  The [Gatsby PWA docs](https://www.gatsbyjs.org/docs/progressive-web-app/) provide a good overview of what is neeed. My advice would be to complete this step near the end of your project - sometimes a misconfigured service worker can be hard to debug. For more information on service workers, see [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers/).
+
+#### Lighthouse Audit
+Performing a lighthouse audit will provide feedback around your site's performance and include suggestions on how to improve your scores for SEO, Best Practices, and Accessibility.  By default, our starter comes with an impressive score, so make sure that as you develop your application, you are keeping the audit scores in mind. If your site is image-heavy, make sure you are utilizing all the benefits that come with plugins like `gatsby-image-sharp` to ensure that your images are optimized correctly. Other "gotachs" may include making sure your 3rd party scripts (GTM, GA) are configured with the correct crossorigin attribute if lighthouse complains about preconnecting or dns-prefetch. 
+
+<hr />
+
+### Netlify CMS
+As I mentioned earlier, most of the development work will fall into the Gatsby bucket, but there is some configuration work needed in order enable Netlify CMS to read, edit, and create content from a web-based interface. Without some adapter (such as Netflify CMS) our content updates would be driven through a git workflow. For a solo developer or portfolio site, this is fine, however, if your site requires less tech-savvy users to update content, you'll want to have some way to facilitate this without teaching git commands or raw markdown editing.
+
+Enter [Netlify CMS](https://www.netlifycms.org/), an open source content management system that can sit on top of our site and make content edits and issue git commands through a familiar form-based UI. Although built by Netlify, it is not the same thing as Netlify *the platform* (which handles build & deploy duties), Netlify CMS is a separate, open source project that wraps git workflow to make it more accessible to non-developer roles. Luckily, our starter has Netlify CMS baked in, and there are only a few items we will need to cover.
+
+#### The Basics
+We covered how our markdown content contains data - some structured, as in the case of our frontmatter fields. Below the last "---"  delimiter, we have the content body which usually consists of unstructured markdown and/or html. How you structure the frontmatter data is completely up to you - personally I find that adding more fields provides flexibility when you query your data and more control as to how it can be presented. Because these fields are really just key value pairs, we can define what type of data structure makes sense for each field value (image, list, string, etc.)  In doing so, we can describe the type of UI control or widget would best fit the task of editing or creating this data.
+
+Essentially, when we have that definition, we can tell Netlify CMS how the content editor for that page should function. We define these field types through a yaml configuration file.
+
+#### YAML me
+The configuration file can be found at `/static/admin/config.yml`. Among instructions for how to authenticate, what commit messages should look like, and where media should be uploaded, there is a configuration called "collections" which helps define how the CMS should render frontmatter fields for editing. For example, if we look at a blog post, it's yaml configuration, and the Netlify CMS editor, you can see how these work. 
+
+📄 **content markdown**
+```markdown
+---
+templateKey: blog-post
+title: Making sense of the SCAA’s new Flavor Wheel
+date: 2016-12-17T15:04:10.000Z
+featuredpost: false
+featuredimage: /img/flavor_wheel.jpg
+description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
+tags:
+  - flavor
+  - tasting
+---
+```
+
+📄 **blog collection yml**
+```yaml
 collections:
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
@@ -67,12 +166,206 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
 
 ```
+📷 **Netlify CMS Editor UI**
+<div class="columns is-centered has-margin-top-16">
+  <div class="column is-12 has-text-centered">
+    <img class="img" srcset="/img/blog-yml-editor.jpg" alt="Content editor" />
+    <figcaption>Screenshot of CMS content editor UI</figcaption>
+  </div>
+</div>
 
 
-### Styling
 
-### Collections - Repeatable Data Patterns vs One-Off Pages 
 
-### GraphQL Data Fetching
 
-### Performance
+required parent, must require children
+
+#### What are Pages and Collections? 
+
+
+
+#### Kitchen Sink
+
+
+https://cms-demo.netlify.com/#/collections/kitchenSink/entries/a-big-entry-with-all-the-things
+<pre>
+ - name: 'kitchenSink' # all the things in one entry, for documentation and quick testing
+    label: 'Kitchen Sink'
+    folder: '_sink'
+    create: true
+    fields:
+      - label: 'Related Post'
+        name: 'post'
+        widget: 'relationKitchenSinkPost'
+        collection: 'posts'
+        displayFields: ['title', 'date']
+        searchFields: ['title', 'body']
+        valueField: 'title'
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: true }
+      - { label: 'Map', name: 'map', widget: 'map' }
+      - { label: 'Text', name: 'text', widget: 'text', hint: 'Plain text, not markdown' }
+      - { label: 'Number', name: 'number', widget: 'number', hint: 'To infinity and beyond!' }
+      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+      - { label: 'Date', name: 'date', widget: 'date' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'File', name: 'file', widget: 'file' }
+      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+      - {
+          label: 'Select multiple',
+          name: 'select_multiple',
+          widget: 'select',
+          options: ['a', 'b', 'c'],
+          multiple: true,
+        }
+      - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
+      - label: 'Object'
+        name: 'object'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - label: 'Related Post'
+            name: 'post'
+            widget: 'relationKitchenSinkPost'
+            collection: 'posts'
+            searchFields: ['title', 'body']
+            valueField: 'title'
+          - { label: 'String', name: 'string', widget: 'string' }
+          - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: false }
+          - { label: 'Text', name: 'text', widget: 'text' }
+          - { label: 'Number', name: 'number', widget: 'number' }
+          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+          - { label: 'Date', name: 'date', widget: 'date' }
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'File', name: 'file', widget: 'file' }
+          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+      - label: 'List'
+        name: 'list'
+        widget: 'list'
+        fields:
+          - { label: 'String', name: 'string', widget: 'string' }
+          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+          - { label: 'Text', name: 'text', widget: 'text' }
+          - { label: 'Number', name: 'number', widget: 'number' }
+          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+          - { label: 'Date', name: 'date', widget: 'date' }
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'File', name: 'file', widget: 'file' }
+          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+          - label: 'Object'
+            name: 'object'
+            widget: 'object'
+            fields:
+              - { label: 'String', name: 'string', widget: 'string' }
+              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+              - { label: 'Text', name: 'text', widget: 'text' }
+              - { label: 'Number', name: 'number', widget: 'number' }
+              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+              - { label: 'Date', name: 'date', widget: 'date' }
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'File', name: 'file', widget: 'file' }
+              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+              - label: 'List'
+                name: 'list'
+                widget: 'list'
+                fields:
+                  - label: 'Related Post'
+                    name: 'post'
+                    widget: 'relationKitchenSinkPost'
+                    collection: 'posts'
+                    searchFields: ['title', 'body']
+                    valueField: 'title'
+                  - { label: 'String', name: 'string', widget: 'string' }
+                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                  - { label: 'Text', name: 'text', widget: 'text' }
+                  - { label: 'Number', name: 'number', widget: 'number' }
+                  - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+                  - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+                  - { label: 'Date', name: 'date', widget: 'date' }
+                  - { label: 'Image', name: 'image', widget: 'image' }
+                  - { label: 'File', name: 'file', widget: 'file' }
+                  - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+                  - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
+                  - label: 'Object'
+                    name: 'object'
+                    widget: 'object'
+                    fields:
+                      - { label: 'String', name: 'string', widget: 'string' }
+                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                      - { label: 'Text', name: 'text', widget: 'text' }
+                      - { label: 'Number', name: 'number', widget: 'number' }
+                      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+                      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+                      - { label: 'Date', name: 'date', widget: 'date' }
+                      - { label: 'Image', name: 'image', widget: 'image' }
+                      - { label: 'File', name: 'file', widget: 'file' }
+                      - {
+                          label: 'Select',
+                          name: 'select',
+                          widget: 'select',
+                          options: ['a', 'b', 'c'],
+                        }
+      - label: 'Typed List'
+        name: 'typed_list'
+        widget: 'list'
+        types:
+          - label: 'Type 1 Object'
+            name: 'type_1_object'
+            widget: 'object'
+            fields:
+              - { label: 'String', name: 'string', widget: 'string' }
+              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+              - { label: 'Text', name: 'text', widget: 'text' }
+          - label: 'Type 2 Object'
+            name: 'type_2_object'
+            widget: 'object'
+            fields:
+              - { label: 'Number', name: 'number', widget: 'number' }
+              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+          - label: 'Type 3 Object'
+            name: 'type_3_object'
+            widget: 'object'
+            fields:
+              - { label: 'Date', name: 'date', widget: 'date' }
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'File', name: 'file', widget: 'file' }
+
+</pre>
+
+
+#### cms register template
+
+#### UI always publishes to master
+
+
+
+
+
+
+
+more concise version of what is below 😴
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />

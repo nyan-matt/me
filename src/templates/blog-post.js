@@ -16,7 +16,6 @@ export const BlogPostTemplate = ({
   featuredimage
 }) => {
   const PostContent = contentComponent || Content;
-
   return (
     <Fragment>
       <section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
@@ -30,7 +29,7 @@ export const BlogPostTemplate = ({
                   backgroundImage: `url(${
                     featuredimage
                       ? featuredimage.childImageSharp.fluid.src
-                      : "img/chemex.jpg"
+                      : "img/placholder.jpg"
                   })`
                 }}
               ></div>
@@ -80,7 +79,6 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
-
   return (
     <Layout>
       <BlogPostTemplate
