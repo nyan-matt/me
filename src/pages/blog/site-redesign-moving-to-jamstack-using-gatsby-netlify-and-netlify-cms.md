@@ -189,7 +189,7 @@ Content that does not have a repeatable data structure are file collections, and
 #### CMS Preview Templates
 The `/src/cms` folder contains preview templates that the CMS uses to render a page preview for the content editor. These templates are imported and registered in the `cms.js` file, and live in the `preview-templates` folder. The preview templates just wrap the actual templates (defined in `/src/templates`) and pass in the data from the CMS widgets. As with the config file, any additional fields beyond what is in the started template should be represented here.
 
-#### CMS UI Always Publishes to Origin
+#### CMS UI Always Publishes to Remote
 When testing the CMS locally, (i.e., http://localhost:8000/admin) you may expect that any updates performed through the the CMS would update your local branch content(at least I did), however, keep in mind that these updates will actually be pushed to your master branch (depending on configuration). If you do happen to publish to master, just remember to fetch those changes locally so you won't have to deal with a merge conflict later. Not a big deal, but it's worth mentioning.
 
 <hr />
