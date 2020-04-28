@@ -2,10 +2,10 @@
 templateKey: blog-post
 title: Site Redesign - Moving to JAMstack using Gatsby, Netlify, and Netlify CMS 
 featuredimage: /img/blog-banner-jamstack.jpg
-date: 2020-03-18T16:04:10.000Z
-featuredpost: false
+date: 2020-04-26T16:04:10.000Z
+featuredpost: true
 description: >-
-  How I built my personal site and what I learned from using a static site generator   
+  What I learned when moving my personal portfolio & blog to a static site generator  
   (Photo by Alexander Sinn on Unsplash)
 tags:
   - process
@@ -14,6 +14,7 @@ tags:
   - gatsby
   - PWA
   - JAMstack 
+  - Netlify CMS
 ---
 
 ### Way Back in the Day
@@ -147,7 +148,7 @@ tags:
 ---
 ```
 
-📄 **blog collection yml**
+📄 **blog collection yaml**
 ```yaml
 collections:
   - name: "blog"
@@ -174,198 +175,23 @@ collections:
   </div>
 </div>
 
+When the configuration of a field (aka *widget*) is a string, in the CMS UI it will be rendered with a textfield. Booleans get a toggle switch, and datetimes get a calendar picker. NetlifyCMS has around [16 default widgets](https://www.netlifycms.org/docs/widgets/), but you can also [create your own](https://www.netlifycms.org/docs/custom-widgets/). There is a [nice kitchen sink demo](https://cms-demo.netlify.com/#/collections/kitchenSink/entries/a-big-entry-with-all-the-things) which uses all the widget types on a fictional page.  
 
+The frontmatter & widget fields don't necessarily need to have a renderable UI on your site - you can also use these fields as flags to provide input to props if you need to enable some sort of conditional rendering at build time. Just remember that if you have added any frontmatter fields to your pages, they will need to be configured in the config.yml file if you want them to be editable through the CMS UI.
 
-
-
-required parent, must require children
+If you have optional fields, you mark these as `required: false`, but keep in mind if the field is an object, you'll need to mark each of the child fields not required.
 
 #### What are Pages and Collections? 
+In the config file, content is captured in the collections list. Content that has a repeatable data structure such as blog posts or products are referred to as folder collections. This simply means that there may be multiple instances of this type of content contained in a folder, and provides in the specified folder to get a list of content. The CMS may be instructed to create new types of this content by flagging `create: true` in the config. If true, the CMS UI will provide a "Create" button that provides a blank form for creating a new instance, and that content will be saved in the specified folder.   
 
+Content that does not have a repeatable data structure are file collections, and as you could probably guess, these will be single pages such as *home* and *about*. For these collection types, the config requires the file name and path. Since these are unquie pages, there is no option to create these in the CMS. 
 
+#### CMS Preview Templates
+The `/src/cms` folder contains preview templates that the CMS uses to render a page preview for the content editor. These templates are imported and registered in the `cms.js` file, and live in the `preview-templates` folder. The preview templates just wrap the actual templates (defined in `/src/templates`) and pass in the data from the CMS widgets. As with the config file, any additional fields beyond what is in the started template should be represented here.
 
-#### Kitchen Sink
-
-
-https://cms-demo.netlify.com/#/collections/kitchenSink/entries/a-big-entry-with-all-the-things
-<pre>
- - name: 'kitchenSink' # all the things in one entry, for documentation and quick testing
-    label: 'Kitchen Sink'
-    folder: '_sink'
-    create: true
-    fields:
-      - label: 'Related Post'
-        name: 'post'
-        widget: 'relationKitchenSinkPost'
-        collection: 'posts'
-        displayFields: ['title', 'date']
-        searchFields: ['title', 'body']
-        valueField: 'title'
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: true }
-      - { label: 'Map', name: 'map', widget: 'map' }
-      - { label: 'Text', name: 'text', widget: 'text', hint: 'Plain text, not markdown' }
-      - { label: 'Number', name: 'number', widget: 'number', hint: 'To infinity and beyond!' }
-      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-      - { label: 'Date', name: 'date', widget: 'date' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'File', name: 'file', widget: 'file' }
-      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-      - {
-          label: 'Select multiple',
-          name: 'select_multiple',
-          widget: 'select',
-          options: ['a', 'b', 'c'],
-          multiple: true,
-        }
-      - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
-      - label: 'Object'
-        name: 'object'
-        widget: 'object'
-        collapsed: true
-        fields:
-          - label: 'Related Post'
-            name: 'post'
-            widget: 'relationKitchenSinkPost'
-            collection: 'posts'
-            searchFields: ['title', 'body']
-            valueField: 'title'
-          - { label: 'String', name: 'string', widget: 'string' }
-          - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: false }
-          - { label: 'Text', name: 'text', widget: 'text' }
-          - { label: 'Number', name: 'number', widget: 'number' }
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-          - { label: 'Date', name: 'date', widget: 'date' }
-          - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'File', name: 'file', widget: 'file' }
-          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-      - label: 'List'
-        name: 'list'
-        widget: 'list'
-        fields:
-          - { label: 'String', name: 'string', widget: 'string' }
-          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-          - { label: 'Text', name: 'text', widget: 'text' }
-          - { label: 'Number', name: 'number', widget: 'number' }
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-          - { label: 'Date', name: 'date', widget: 'date' }
-          - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'File', name: 'file', widget: 'file' }
-          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-          - label: 'Object'
-            name: 'object'
-            widget: 'object'
-            fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-              - { label: 'Text', name: 'text', widget: 'text' }
-              - { label: 'Number', name: 'number', widget: 'number' }
-              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-              - { label: 'Date', name: 'date', widget: 'date' }
-              - { label: 'Image', name: 'image', widget: 'image' }
-              - { label: 'File', name: 'file', widget: 'file' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'List'
-                name: 'list'
-                widget: 'list'
-                fields:
-                  - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
-                    collection: 'posts'
-                    searchFields: ['title', 'body']
-                    valueField: 'title'
-                  - { label: 'String', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                  - { label: 'Text', name: 'text', widget: 'text' }
-                  - { label: 'Number', name: 'number', widget: 'number' }
-                  - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                  - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                  - { label: 'Date', name: 'date', widget: 'date' }
-                  - { label: 'Image', name: 'image', widget: 'image' }
-                  - { label: 'File', name: 'file', widget: 'file' }
-                  - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-                  - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
-                  - label: 'Object'
-                    name: 'object'
-                    widget: 'object'
-                    fields:
-                      - { label: 'String', name: 'string', widget: 'string' }
-                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                      - { label: 'Text', name: 'text', widget: 'text' }
-                      - { label: 'Number', name: 'number', widget: 'number' }
-                      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                      - { label: 'Date', name: 'date', widget: 'date' }
-                      - { label: 'Image', name: 'image', widget: 'image' }
-                      - { label: 'File', name: 'file', widget: 'file' }
-                      - {
-                          label: 'Select',
-                          name: 'select',
-                          widget: 'select',
-                          options: ['a', 'b', 'c'],
-                        }
-      - label: 'Typed List'
-        name: 'typed_list'
-        widget: 'list'
-        types:
-          - label: 'Type 1 Object'
-            name: 'type_1_object'
-            widget: 'object'
-            fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-              - { label: 'Text', name: 'text', widget: 'text' }
-          - label: 'Type 2 Object'
-            name: 'type_2_object'
-            widget: 'object'
-            fields:
-              - { label: 'Number', name: 'number', widget: 'number' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - label: 'Type 3 Object'
-            name: 'type_3_object'
-            widget: 'object'
-            fields:
-              - { label: 'Date', name: 'date', widget: 'date' }
-              - { label: 'Image', name: 'image', widget: 'image' }
-              - { label: 'File', name: 'file', widget: 'file' }
-
-</pre>
-
-
-#### cms register template
-
-#### UI always publishes to master
-
-
-
-
-
-
-
-more concise version of what is below 😴
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### CMS UI Always Publishes to Origin
+When testing the CMS locally, (i.e., http://localhost:8000/admin) you may expect that any updates performed through the the CMS would update your local branch content(at least I did), however, keep in mind that these updates will actually be pushed to your master branch (depending on configuration). If you do happen to publish to master, just remember to fetch those changes locally so you won't have to deal with a merge conflict later. Not a big deal, but it's worth mentioning.
 
 <hr />
+
+Thanks for hanging in there til the end, hope this post was useful! If you have any questions, please [reach out](/contact/).
