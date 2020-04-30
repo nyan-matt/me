@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import useSiteMetadata from '../components/SiteMetadata';
 
 export const BlogPostTemplate = ({
   content,
@@ -13,7 +14,8 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  featuredimage
+  featuredimage,
+  slug,
 }) => {
   const PostContent = contentComponent || Content;
   return (
@@ -72,13 +74,15 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  slug: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-  featuredimage: PropTypes.object
+  featuredimage: PropTypes.object,
 };
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  const { siteUrl } = useSiteMetadata();
   return (
     <Layout>
       <BlogPostTemplate
@@ -98,7 +102,15 @@ const BlogPost = ({ data }) => {
             />
             <meta 
               property="og:image" 
-              content={`${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
+              content={`${siteUrl}${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
+            />
+            <meta
+              property="og:description"
+              content={`${post.frontmatter.description}`}
+            />
+            <meta
+              property="og:url"
+              content={`${siteUrl}${post.fields.slug}`}
             />
           </Helmet>
         }
@@ -123,6 +135,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
