@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import MarkdownContent from "../components/MarkdownContent";
 import BlogRoll from "../components/BlogRoll";
+import useSiteMetadata from '../components/SiteMetadata';
 
 export const WorkPostTemplate = ({
   content,
@@ -22,10 +23,10 @@ export const WorkPostTemplate = ({
   showcase1,
   showcase2,
   learning,
-  cardColor
+  cardColor,
+  slug,
 }) => {
   const PostContent = contentComponent || Content;
-
   return (
     <Fragment>
       <section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
@@ -45,7 +46,6 @@ export const WorkPostTemplate = ({
                   backgroundColor: cardColor
                 }}
               ></div>
-              
               <h1 className="title is-size-3">{title}</h1>
               <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
                 {description}
@@ -114,7 +114,6 @@ export const WorkPostTemplate = ({
           </div>
         </div>
       </div>
-
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
@@ -137,7 +136,6 @@ export const WorkPostTemplate = ({
           </div>
         </div>
       </div>
-
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
@@ -168,7 +166,7 @@ WorkPostTemplate.propTypes = {
 
 const WorkPost = ({ data }) => {
   const { markdownRemark: post } = data;
-
+  const { siteUrl } = useSiteMetadata();
   return (
     <Layout>
       <WorkPostTemplate
@@ -189,7 +187,11 @@ const WorkPost = ({ data }) => {
             />
             <meta
               property="og:image"
-              content={`${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
+              content={`${siteUrl}${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
+            />
+            <meta
+              property="og:url"
+              content={`${siteUrl}${post.fields.slug}`}
             />
           </Helmet>
         }
@@ -220,6 +222,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
