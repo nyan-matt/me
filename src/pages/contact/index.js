@@ -3,6 +3,7 @@ import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import githublogo from '../../img/github-icon.svg'
 import linkedinlogo from '../../img/linkedin-logo.svg'
+import twitterlogo from '../../img/twitter-icon.svg'
 
 function encode(data) {
   return Object.keys(data)
@@ -132,11 +133,15 @@ export default class Index extends React.Component {
                   <ul className="contact-links">
                     <li className="is-block">
                       <img className="image is-24x24 is-inline" src={githublogo} alt="github logo" />
-                      <a className="is-inline" href="/">Follow on Github</a>
+                      <a className="is-inline" href="https://github.com/nyan-matt">Follow on Github</a>
                     </li>
                     <li className="is-block">
                       <img className="image is-24x24 is-inline" src={linkedinlogo} alt="github logo" />
-                      <a className="is-inline" href="/">Connect on LinkedIn</a>
+                      <a className="is-inline" href="https://www.linkedin.com/in/mattrea/">Connect on LinkedIn</a>
+                    </li>
+                    <li className="is-block">
+                      <img className="image is-24x24 is-inline" src={twitterlogo} alt="twitter logo" />
+                      <a className="is-inline" href="https://twitter.com/mattrea">Connect on Twitter</a>
                     </li>
                   </ul>
                 
