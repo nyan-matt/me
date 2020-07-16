@@ -5,3 +5,11 @@
 [build.environment]
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=360000"
+[[headers]]
+  for = "/work/user-research-private/"
+  [headers.values]
+    Basic-Auth = "guest:catspajamas"
