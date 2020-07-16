@@ -3,7 +3,7 @@ templateKey: work-post
 title: User Research (Private)
 date: 2019-04-17T00:00:00.000Z
 description: User research discovery project for a managed healthcare provider
-featuredpost: false
+featuredpost: true
 workdate: '2019'
 featuredimage: /img/featured-work-empathymap-1.jpg
 cardimage: /img/card-work-empathy-map.jpg
