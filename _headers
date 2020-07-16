@@ -1,6 +1,3 @@
-/work/user-research-private/
-  Basic-Auth: guest:sweaty-meatloaf
-
 [[headers]]
   for = "/static/*"
   [headers.values]
