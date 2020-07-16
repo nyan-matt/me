@@ -1,7 +1,8 @@
-[[headers]]
-for = "/static/*"
-[headers.values]
-Cache-Control = "public, max-age=360000"
+/work/user-research-private/
+  Basic-Auth: guest:sweaty-meatloaf
 
-/work/user-research-private
-  Basic-Auth: foo:bar
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=360000"
+

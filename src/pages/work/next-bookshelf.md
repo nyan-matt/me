@@ -9,7 +9,7 @@ featuredimage: /img/work-banner-next-books.png
 cardimage: /img/card-work-next-bookshelf.png
 cardcolor: '#f95c2b'
 summary: >
-  This **[personal project](https://next-book-gql.now.sh)** goal was to learn more about [Next.js](https://nextjs.org), [React hooks](https://reactjs.org/docs/hooks-intro.html), and explore serverless backend providers to create a web application to manage and share favorite book titles.
+  This **[personal project](https://book-next-gql.now.sh/)** goal was to learn more about [Next.js](https://nextjs.org), [React hooks](https://reactjs.org/docs/hooks-intro.html), and explore serverless backend providers to create a web application to manage and share favorite book titles.
 roles: >
   As a side project created during 1904labs innovation hours, I designed, developed, and deployed the Next Bookshelf concept application. 
 
