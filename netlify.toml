@@ -12,4 +12,4 @@
 [[headers]]
   for = "/work/user-research-private/"
   [headers.values]
-    Basic-Auth = "guest:catspajamas"
+    X-Foo = "bar"
