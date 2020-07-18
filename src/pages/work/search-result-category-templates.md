@@ -50,11 +50,28 @@ tags:
   - sketching
   - information architecture
 ---
+### TLDR
+You are a lab manager working in a cell culture lab. You're running low on syringe filters, and your usual brand is being discontinued. You need to order replacements that are sterile, and have a 0.2 µm pore size, and 15 mm diameter. After navigating to one of your preferred vendor sites, you search for "syringe filters" - hundreds of results are returned from the search. Can you find a suitable replacement in one of the two images below?   
+
+
+<div class="columns is-centered has-margin-top-32">
+  <div class="column is-12 has-text-centered">
+    <img class="img" srcset="/img/search-results-A-B.png" alt="two versions of search reult display" />
+    <figcaption>2 different versions of a product search result</figcaption>
+  </div>
+</div> 
+
+
+
 ### About
 
 This project was initiated by business stakeholders based on a user research project in which customer groups were observed searching and shopping for products on our ecommerce channel as well as competitors. 
 
-With a catalog approaching 300,000 products from a wide range of product categories and applications, it can be difficult to cater search results that support the diversified needs of users. Chemists, Biologists, Pharmaceutical Researchers, & Manufacturers all have different care-abouts, and use different types of product data for purchasing decisions. Because this product data can be very localized to a specific product category or application, users were having trouble identifying these key product attributes when sifting through search results.
+With a catalog approaching 300,000 products from a wide range of product categories and applications, it can be difficult to cater search results that support the diversified needs of users. Chemists, Biologists, Pharmaceutical Researchers, & Manufacturers all have different care-abouts, and use different types of product data for purchasing decisions. Because this product data can be very localized to a specific product category or application, users were having trouble identifying these key product attributes when sifting through search results. 
+
+Someone searching for syringe filters has specific attributes they are looking for (diameter, pore size, sterility) while someone searching for antibodies will be concerned with different attributes (application, species, citations).    
+
+The current state of search results displayed a concatenated list of attributes for each product which make it difficult to visually scan and parse in a results page containing dozens of very similar products.
 
 ### Research & Design
 

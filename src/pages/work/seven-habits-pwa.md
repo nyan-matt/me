@@ -2,7 +2,7 @@
 templateKey: work-post
 title: Seven Habits PWA
 date: 2019-08-01T00:00:00.000Z
-description: Personal project 
+description: PWA using Gatsby, Netlify, and Netlify CMS
 workdate: '2019'
 featuredpost: true
 featuredimage: /img/work-banner-7-habits.png
