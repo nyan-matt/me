@@ -4,7 +4,10 @@ path: /about
 title: About
 ---
 ## TLDR
-I'm an experienced design professional with a strong background in user-centered design methodologies, visual, and interaction design. I've worked in various roles including design, development, and product management. I'm interested in working at the intersection of user needs, technological capabilities, and business strategy. 
+I'm an experienced design professional with a strong background in user-centered design methodologies, visual, and interaction design. I've worked in various roles including design, development, and product management. I'm interested in working at the intersection of user needs, technological capabilities, and business strategy.   
+
+
+I think designers should be empathetic, curious, and have a deep understanding of the people for whom they're designing, but they should also aknowledge that design rarely happens in a vacuum, and the implementation of a good design is better than a perfect one that only lives in the designer's imagination.
 
 ## Background & Experience
 A designer at heart, I have a BFA in graphic design and spent my early career working as a web designer during the dot com boom of the late 90s and early 2000s where I mastered using tables for layout, the magical 1-pixel spacer gif, and flash intros. 
@@ -16,4 +19,6 @@ In 2013 I moved from the edtech space to ecommerce, taking a UX design position 
 In 2019 I was hired by 1904labs as a Human-Centered Design lead, where we help IT leaders implement modern software and data solutions. Here I co-lead project teams with an Agile Engineer and play the role of servant-leader working to ensure we build the right solutions for our customers and stakeholders.
 
 ## Non-Work
-Outside of work I can be found doing dad and husband stuff. While I'm an avid media consumer 🍿 (admittedly more than I should) I do occasionally get out of the house for golf or fishing. 
+Outside of work I can be found doing dad and husband stuff or occasionally playing golf or fishing. Best part of the day is listening to an [Audible book](https://book-next-gql.now.sh) while walking the dog.   
+
+
