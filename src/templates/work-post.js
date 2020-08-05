@@ -8,6 +8,7 @@ import Content, { HTMLContent } from "../components/Content";
 import MarkdownContent from "../components/MarkdownContent";
 import BlogRoll from "../components/BlogRoll";
 import useSiteMetadata from '../components/SiteMetadata';
+import backButton from "../img/arrow-left-solid.svg";
 
 export const WorkPostTemplate = ({
   content,
@@ -31,10 +32,17 @@ export const WorkPostTemplate = ({
     <Fragment>
       <section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
         {helmet || ""}
-
         <div className="container content">
           <div className="columns">
             <div className="column is-12">
+              <div className="has-margin-top-0 has-margin-bottom-8">
+                <Link to="/work/">
+                  <img className="image is-24x24 is-inline" src={backButton} alt="Back Arrow" /> 
+                  <span style={{position: 'absolute', top: '12px', paddingLeft: '12px'}}>
+                  Back
+                  </span>
+                </Link>
+              </div>
               <div
                 className="featured-image"
                 style={{

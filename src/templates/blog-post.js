@@ -6,7 +6,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import useSiteMetadata from '../components/SiteMetadata';
-
+import backButton from "../img/arrow-left-solid.svg";
 export const BlogPostTemplate = ({
   content,
   contentComponent,
@@ -25,6 +25,14 @@ export const BlogPostTemplate = ({
         <div className="container content">
           <div className="columns">
             <div className="column is-12">
+            <div className="has-margin-top-0 has-margin-bottom-8">
+                <Link to="/blog/">
+                  <img className="image is-24x24 is-inline" src={backButton} alt="Back Arrow" /> 
+                  <span style={{position: 'absolute', top: '12px', paddingLeft: '12px'}}>
+                  Back
+                  </span>
+                </Link>
+              </div>
               <div
                 className="featured-image"
                 style={{
