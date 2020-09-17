@@ -16,7 +16,7 @@
 
 .home.hero 
   .hero-body 
-    padding-bottom: 2.5rem !important
+    padding-bottom: 0px !important
     padding-top: 2.5rem !important
     @media (max-width:1027px)
       padding-bottom: .5rem
@@ -25,7 +25,7 @@
       background-size: inherit
       background-position: right
       background-repeat: no-repeat
-      height: 500px
+      height: 420px
       transform: translateX(0px)
       background-position-y: 0px
       @media (min-width: 767px) and (max-width: 1023px)
@@ -34,14 +34,13 @@
           padding-top: 2em
       @media (max-width:767px)
           background-image: none !important
-          height: 200px
+          height: 340px
       .hero-text-container
         @media (max-width:767px)
           padding: 0px
-  
   h1.title 
     font-family: $family-serif
-    color: $primary
+    color: $white
     font-weight: 700
     font-size: 3rem
     line-height: 3.5rem
@@ -53,6 +52,17 @@
       line-height: 2rem
   h2.subtitle 
     font-family: $family-primary
+    color: $white
+
+.full-height
+  height: 100%
+.hero-bg
+  background: url('/img/shapes-bg-home.png')
+  background-size: contain
+  background-position: right
+  background-repeat: no-repeat
+  @media (max-width: 1023px)
+    background: none !important
 
 .columns
   .column
@@ -96,6 +106,9 @@
   padding: 2em 2em
   display: table
   text-align: center
+
+.background-hero
+  background: $dark-blue !important
 
 // *********************
 // Components 
@@ -263,19 +276,24 @@ figcaption
 .navbar-brand, .navbar-item
   font-family: $family-serif
 
-
 .navbar-item 
   color: $primary
   text-transform: uppercase
   &.is-active
-    text-decoration: underline  
+    text-decoration: underline
+  &:hover
+    background: none !important
 
-@media screen and (min-width: 1024px)
+@media screen and (min-width: 1023px)
   .navbar > .container .navbar-brand, .container > .navbar .navbar-brand
     margin-left: 0px !important
-@media screen and (max-width: 768px)
+@media screen and (max-width: 1023px)
   .nav-logo
     padding-left: 12px
+  #navMenu.is-primary
+    background: darken($dark-blue, 5%) !important
+    .navbar-item
+      color: $white !important
 
 
 @import "~bulma"

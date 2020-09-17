@@ -32,21 +32,19 @@ export const IndexPageTemplate = ({
   subheading,
 }) => (
   <Fragment>
-    <section className="home hero is-medium has-background-white">
+    <section className="home hero is-medium background-hero">
       <div className="hero-body">
-        <div id="hero-container" className="container" style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src: image
-          })`
-        }}>
-          <div className="columns is-mobile">
-            <div className="column is-half-desktop is-full-tablet hero-text-container">
+        <div id="hero-container" className="container">
+          <div className="columns is-mobile full-height hero-bg">
+            <div className="column is-two-thirds-desktop is-full-tablet hero-text-container">
               <h1 data-sal="fade" data-sal-delay="300" className="title is-spaced hero-headline is-primary">
                 {title}
               </h1>
               <h2 data-sal="slide-up" data-sal-delay="600" className="subtitle hero-subheadline">
                 {subheading}
               </h2>
+            </div>
+            <div className="column is-one-third-desktop is-hidden-touch">
             </div>
           </div>
         </div>
@@ -88,7 +86,7 @@ export const IndexPageTemplate = ({
               </div>
               <div className="column ">
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="prototyping icon" />
-                Prototyping
+                Development
               </div>
             </div>
           </div>
@@ -122,11 +120,10 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
 }
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark
-
   return (
-    <Layout structuredData={structuredData}>
+    <Layout structuredData={structuredData} path={location.pathname}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

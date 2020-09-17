@@ -30,19 +30,19 @@ const Navbar = class extends React.Component {
       }
     )
   }
-
   render() {
+    const { path } = this.props
+    console.log(path)
     return (
       <nav
-        className="navbar is-transparent"
+        className={
+          path === "/" ? 'navbar is-primary' : 'navbar'
+        }
         role="navigation"
         aria-label="main-navigation"
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" title="home">
-              <img src={`../../img/logo.png`} alt="logo" className="nav-logo" />
-            </Link>
             <Link to="/" className="navbar-item" title="home">
               Matthew Rea
             </Link>
@@ -59,7 +59,9 @@ const Navbar = class extends React.Component {
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`
+              ${path === "/" ? 'navbar-menu is-primary' : 'navbar-menu'} ${this.state.navBarActiveClass}
+            `}
           >
             <div className="navbar-end">
               <Link className="navbar-item" activeClassName="is-active" partiallyActive={true} to="/about/">

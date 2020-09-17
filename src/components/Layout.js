@@ -6,7 +6,7 @@ import '../styles/all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-const TemplateWrapper = ({ children, structuredData }) => {
+const TemplateWrapper = ({ children, structuredData, path }) => {
   const { title, description } = useSiteMetadata()
   return (
     <div>
@@ -49,7 +49,7 @@ const TemplateWrapper = ({ children, structuredData }) => {
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
-      <Navbar />
+      <Navbar path={path} />
       <div className="main-body">{children}</div>
       <Footer />
     </div>
