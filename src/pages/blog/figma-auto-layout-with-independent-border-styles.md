@@ -11,7 +11,6 @@ description: >-
 tags:
   - Figma
   - auto-layout
-  - workaround
   - design
 ---
 
