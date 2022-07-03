@@ -19,7 +19,7 @@ tags:
   <div class="column is-12 content">
    <h3> 🎉 Update 🎉</h3>
     <p>
-     Since this article was published, Figma has introduced independent border styles as a new feature! The new update provides a way to acheive independing border styling without the use of hacks!
+     Since this article was published, Figma has introduced independent border styles as a new feature! The update provides a way to achieve independing border styling without the use of hacks!
     
     For more information, check out the feature <a href="https://help.figma.com/hc/en-us/articles/360049283914">release article</a> on Figma's website. <br/><br/>
     
