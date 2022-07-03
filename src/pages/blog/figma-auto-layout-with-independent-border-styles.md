@@ -14,6 +14,20 @@ tags:
   - design
 ---
 
+
+<div class="columns is-centered has-margin-top-32 has-background-light">
+  <div class="column is-12 content">
+   <h3> 🎉 Update 🎉</h3>
+    <p>
+     Since this article was published, Figma has introduced independent border styles as a new feature! The new update provides a way to acheive independing border styling without the use of hacks!
+    
+    For more information, check out the feature <a href="https://help.figma.com/hc/en-us/articles/360049283914">release article</a> on Figma's website. <br/><br/>
+    
+     While you likely no longer need the workarounds below, I'll keep them posted here for reference. If you need to have border styles with different colors, you may still need to use option 2 below. (Inner Shadow effect)
+    </p>    
+  </div>
+</div>
+
 ### Basic Figma Auto-Layout 
 Figma's auto-layout feature has been a real differentiator in its rise to defacto design tool. While basic auto-layout features are *really* nice to have, there are some scenarios in which an auto-layout solution isn't readily apparent. 
 
