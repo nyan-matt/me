@@ -5,8 +5,8 @@ featuredimage: /img/figma-auto-layout-cover.jpg
 date: 2022-04-22T16:04:10.000Z
 featuredpost: true
 description: >-
-  A workaround / hack for acheiving independent border styling in an auto-layout component
-  Photo by Salvatore Andrea Santacroce on Unsplash
+  A workaround / hack for achieving independent border styling in an auto-layout component
+  (Photo by Salvatore Andrea Santacroce on Unsplash)
   
 tags:
   - Figma
