@@ -9,7 +9,7 @@ featuredimage: /img/work-banner-marvel.png
 cardimage: /img/card-work-marvel.png
 cardcolor: '#62A0A5'
 summary: >
-  This personal project was created to help teach myself the basics of working with React and client-side data fetching using a public API.  
+  This **[personal project](https://journalist-machinery-28864.netlify.app/)** was created to help teach myself the basics of working with React and client-side data fetching using a public API.  
 roles: >
   For this side project, I spent the majority of my time learning about React and exploring Marvel's public API. The basic design is based on bootstrap with minimal customization.
 
