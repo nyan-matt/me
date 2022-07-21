@@ -7,7 +7,7 @@ title: About
 I'm an experienced design professional with a strong background in user-centered design methodologies, visual, and interaction design. I've worked in various roles including design, development, and product management. I'm interested in working at the intersection of user needs, technological capabilities, and business strategy.   
 
 
-I think designers should be empathetic, curious, and have a deep understanding of the people for whom they're designing, but they should also aknowledge that design rarely happens in a vacuum, and the implementation of a good design is better than a perfect one that only lives in the designer's imagination.
+I think designers should be empathetic, curious, and have a deep understanding of the people for whom they're designing, but they should also acknowledge that design rarely happens in a vacuum, and the implementation of a good design is better than a perfect one that only lives in the designer's imagination.
 
 ## Background & Experience
 A designer at heart, I have a BFA in graphic design and spent my early career working as a web designer during the dot com boom of the late 90s and early 2000s where I mastered using tables for layout, the magical 1-pixel spacer gif, and flash intros. 
