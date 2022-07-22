@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: Seven Habits PWA
-date: 2019-08-01T00:00:00.000Z
+date: 2019-04-01T00:00:00.000Z
 description: PWA using Gatsby, Netlify, and Netlify CMS
 workdate: '2019'
 featuredpost: true

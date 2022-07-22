@@ -4,8 +4,7 @@ path: /about
 title: About
 ---
 ## TLDR
-I'm an experienced design professional with a strong background in user-centered design methodologies, visual, and interaction design. I've worked in various roles including design, development, and product management. I'm interested in working at the intersection of user needs, technological capabilities, and business strategy.   
-
+I'm an experienced design professional with a strong background in user-centered design methodologies, visual, and interaction design. I've worked in various roles including design, development, and product management. I'm interested in working at the intersection of user needs, technological capabilities, and business strategy.
 
 I think designers should be empathetic, curious, and have a deep understanding of the people for whom they're designing, but they should also acknowledge that design rarely happens in a vacuum, and the implementation of a good design is better than a perfect one that only lives in the designer's imagination.
 

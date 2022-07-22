@@ -1,7 +1,7 @@
 ---
 templateKey: work-post
 title: User Research (Private)
-date: 2019-04-17T00:00:00.000Z
+date: 2019-08-17T00:00:00.000Z
 description: User research discovery project for a managed healthcare provider
 featuredpost: true
 workdate: '2019'
