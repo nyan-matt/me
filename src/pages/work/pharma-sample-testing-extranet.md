@@ -38,6 +38,7 @@ learning: |
 tags:
   - SPA
   - React
+  - GraphQL
   - Axure
 ---
 ### About
@@ -101,7 +102,7 @@ As we studied this technical problem, it became apparent there was a need for:
   </div>
 </div>
 
-While Node had been around for awhile, it seemed that in 2015 it was gaining more mainstream appeal due to its asynchonous, event driven architecture. This aligned well with our need to handle all of the n+1 requests required in our application. While moving to Node could dramatically improve our roundtrip performance issues, we still needed to client-side solution as we offloaded things from the server side to the client. DOM manipulation with jQuery was prone to errors and hard to organize, Angular was fairly popular at this time, but there were uncertainty with its release versioning and we were looking for a solution that could be re-used in other applications which required server-side rendering for search engine optimization. React was new on the scene, but seemed very promising with its small footprint (compared with Angular), the availability of writing in ES5 with the upstart ecosystem including Babel & Webpack. To cement the decision, we developed a  very successful proof-of-concept written in React that quickly supplanted our existing RoR codebase.
+While Node had been around for awhile, it seemed that in 2015 it was gaining more mainstream appeal due to its asynchonous, event driven architecture. This aligned well with our need to handle all of the n+1 requests required in our application. While moving to Node could dramatically improve our roundtrip performance issues, we still needed to client-side solution as we offloaded things from the server side to the client. DOM manipulation with jQuery was prone to errors and hard to organize, Angular was fairly popular at this time, but there were uncertainty with its release versioning and we were looking for a solution that could be re-used in other applications which required server-side rendering for search engine optimization. React was new on the scene, but seemed very promising with its small footprint (compared with Angular), the availability of writing in ES5 with the upstart ecosystem including Babel & Webpack. To cement the decision, we developed a  very successful proof-of-concept written in React and utilizing the new GraphQL specification to help proxy our data the data we needed from our disparate APIs to replace our initial RoR implementation.
 
 As we switched over to the Node & React stack, we encountered the growing pains that come along with a new technology; best practices and patterns were still emerging, it was not as easy to find resources proficient in ES5 syntax and React as traditional front end developers, and we generally were making things up as we went. Even with these challenges, we were deliving a better product much faster than before. We eventually refactored pieces of the code base as we built consensus on style and best practices, and although we evolved our approach as improvements to individual libraries and design patterns were released, we continued to rely on this stack as a core foundation in projects going forward. 
 
