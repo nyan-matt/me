@@ -16,7 +16,7 @@ tags:
 ---
 
 ### Summary
-If you're like me, you can't imagine designing in Figma without auto layout. And while auto layout has become an indespensable feature, but many designers still aren't utilizing its full potential... 
+If you're like me, you can't imagine designing in Figma without auto layout. And while auto layout has become an indispensable feature, many designers still aren't utilizing its full potential... 
 
 <ul>
 <li>Common implementations of auto layout include “inside out” use cases - designing components to adapt to their content. (e.g., buttons)</li>
@@ -27,6 +27,7 @@ If you're like me, you can't imagine designing in Figma without auto layout. And
   <li>Using auto layout for page templating can make our designs less fragile and reduce the amount of repositioning needed when we make changes that affect child or sibling elements</li> 
   </ul>
 </ul>
+
 In this post and **[companion Figma file](https://www.figma.com/community/file/1153449469932166395)**, I'll briefly cover common auto layout use cases and a proposal for extending usage from components and component groupings to include auto layout for templating entire page designs. 
 
 <div class="columns is-centered has-margin-top-32">
@@ -60,7 +61,7 @@ The next layer up is not so much about adapting UI elements to their content, ra
   </div>
 </div>
 
- In the *Button Container* frame above, our design supports common uses where our primary and secondary action buttons are aligned to the right of the container. An optional tertiary button is also available in this grouping, but hidden. In some cases, we may have also need a button aligned left to accommodate less frequent or distinct actions (e.g, a destructive action). 
+ In the *Button Container* frame above, our design supports common uses where our primary and secondary action buttons are aligned to the right of the container. An optional tertiary button is also available in this grouping, but hidden. In some cases, we may also need a button aligned left to accommodate less frequent or distinct actions (e.g, a destructive action). 
  
  This is likely a repeated pattern within our app for which we can componentize - using auto layout to consistently apply alignment and padding values / tokens that support individual use cases (e.g., only primary and secondary buttons, primary, secondary, and tertiary buttons, etc.)  
  
@@ -68,9 +69,9 @@ The next layer up is not so much about adapting UI elements to their content, ra
 
 
 ### Extending auto layout usage beyond atoms, molecules, and simple organisms
-As designers, we often stop using auto layout once have a mature (enough) component set that includes a minimal set of atoms, molecules, and simple organisms. After placing components on the screen, we rely on grids, guides, rulers, and measuring tools to nudge elements around the page in order to maintain consistent spacing and alignment. It's easy to overlook the invisible layout rules we've established in any given design because they're not bound or defined by anything other than x,y position on the screen. If you change the position of one element, you're obliged to manually change the size and/or position of its neighboring elements to main uniformity. 
+As designers, we often stop using auto layout once we have a mature (enough) component set that includes a minimal set of atoms, molecules, and simple organisms. After placing components on the screen, we rely on grids, guides, rulers, and measuring tools to nudge elements around the page in order to maintain consistent spacing and alignment. It's easy to overlook the invisible layout rules we've established in any given design because they're not bound or defined by anything other than x,y position on the screen. If you change the position of one element, you're obliged to manually change the size and/or position of its neighboring elements to maintain uniformity. 
 
-This cycle of manual adjustments can feel a bit like playng whack-a-mole; it's tedious and error prone. Quite conveniently, we have a tool that can help in this regard, and it's been sitting under our noses... 
+This cycle of manual adjustments can feel a bit like playing whack-a-mole; it's tedious and error prone. Quite conveniently, we have a tool that can help in this regard, and it's been sitting under our noses... 
 
 Before we go any farther, I want to add a few important caveats to using auto layout in context of page layouts / templates: 
 
@@ -80,7 +81,7 @@ Before we go any farther, I want to add a few important caveats to using auto la
      🚨 Premature use of auto layout can lead to headaches 
      <ul>
       <li>In early design stages, when designs are still diverging and the UI is volatile, it's better ignore auto layout and focus on getting the design right</li>
-      <li>Loosley following a grid system or guides at this stage can help keep things consistent without requiring too much rework of auto layout settings when things inevitably change </li>
+      <li>Loosely following a grid system or guides at this stage can help keep things consistent without requiring too much rework of auto layout settings when things inevitably change </li>
       <li>As designs mature and solidify, consider adding auto layout to overall page structure as part of your design workflow </ul>
      </ul>
     </p>
@@ -90,11 +91,11 @@ Before we go any farther, I want to add a few important caveats to using auto la
 Building an auto layout structure “all the way down” the layer tree takes some up-front planning, but pays dividends down the road. When properly configured, changes to things such as width, component states, or different content will automatically adjust other elements on the page - removing the need for manual repositioning. I believe the key is to find the right time in your workflow - this will vary based on your team's process and structure. Generally, a good time to introduce this is when you're ready to "scale" designs. 
 
 #### Building our page scaffoling
-What does auto layout look like for page scaffolding? In the atomic design metaphor, we have complex organisms like pages and templates. As an example, let’s imagine a typical web application that consists of a expandable/collapsible side navigation, page header, tabs, buttons, table, and pagination...
-- We can use a component’s auto layout to make sure that our sidenav will remain consistent when used at different heights, or that our page header can exapand to accommodate different page widths
-- However, when those components are nested in an auto layout page structure, we can let the page layout do much of the work that we might ordinarilly have to do manually by setting widths, nudging components, or making separate designs for the sidenav in a collapsed and expanded state
+What does auto layout look like for page scaffolding? In the atomic design metaphor, we have complex organisms like pages and templates. As an example, let’s imagine a typical web application that consists of expandable/collapsible side navigation, page header, tabs, buttons, table, and pagination...
+- We can use a component’s auto layout to make sure that our sidenav will remain consistent when used at different heights, or that our page header can expand to accommodate different page widths
+- However, when those components are nested in an auto layout page structure, we can let the page layout do much of the work that we might ordinarily have to do manually by setting widths, nudging components, or making separate designs for the sidenav in a collapsed and expanded state
 - Similarly, when we use auto layout structure for the page itself, we can easily handle things like pagination location relative to different table content (e.g., 5 rows vs 25 rows) without any manual adjustment of the pagination location
-- We can also do things like desingate what columns of our table should remain a fixed width versus what columns should grow or shrink depending on the width available to the table container   
+- We can also do things like designate what columns of our table should remain a fixed width versus what columns should grow or shrink depending on the width available to the table container   
 
 <div class="columns is-centered has-margin-top-32 has-background-light">
   <div class="column is-12 content">
@@ -105,7 +106,7 @@ What does auto layout look like for page scaffolding? In the atomic design metap
 </div>
 
 ##### Step 1
-In the first step, we'll split the parent frame into two zones - one for our *SideNav* and another *Main Content* for our remaining UI elements. It's important that the parent frame is set to a horizontal auto layout orientation, and height and width are set to fixed. This allows us to resize the parent frame and the child contents will adjust as configured. (Ususally child frames are set to fill container or fixed width depending on your layout needs)
+In the first step, we'll split the parent frame into two zones - one for our *SideNav* and another *Main Content* for our remaining UI elements. It's important that the parent frame is set to a horizontal auto layout orientation, and height and width are set to fixed. This allows us to resize the parent frame and the child contents will adjust as configured. (Usually child frames are set to fill container or fixed width depending on your layout needs)
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-12 has-text-centered">
@@ -153,7 +154,7 @@ Below the Page Header component, we've added a *Tab Bar*, row of *Table Actions*
 ##### Step 4
 Let's take a closer look at the *Table Container* structure in this example. Similar to other children of the Main Content container, its width is set to fill the container and its height to hug contents. The auto layout direction is set to horizontal, so that the children of the Table Container (the table columns) will stack up side-by-side. 
 
-Within each column, the table cells children stack vertically. Each column can be configured with different settings for width which impacts how the overall table is displayed. To illustrate how this works, let's look at the *Checkbox Column* and *Description Column*. 
+Within each column, the table cell children stack vertically. Each column can be configured with different settings for width which impacts how the overall table is displayed. To illustrate how this works, let's look at the *Checkbox Column* and *Description Column*. 
 
 The Checkbox column allows users to select one or more table rows, and since it will always be a consistent width, we can set that width with a numeric value (60px in this example). Applying fixed width to columns is a good strategy for predictable content such as dates, timestamps, etc.
 
@@ -168,9 +169,9 @@ In addition to fixed width columns, we can also choose to set column width to fi
 Working with nested components and their auto layout settings can be tricky. A few caveats and notes around working with fixed and fill width columns like above: 
 <ul>
   <li>You may notice unexpected results if your column width setting is not in sync with all of the child table cell width settings. (e.g., if your column is set to fill container, but your individual table cells are set to fixed width, you might see some weird blank spots in your table) If you encounter this, check that the columns and cell widths are compatible.</li>
-  <li>When column (and their children) are set to fill container, the column widths will be equally split among the available space.</li>
+  <li>When columns (and their children) are set to fill container, the column widths will be equally split among the available space.</li>
   <li>If your table container is wider than the sum of your fixed width columns, you will have an empty area on the left or right of your table container depending on your alignment settings.</li>
-  <li>If many of your columns are fixed width, you might want to designate at least one column to be fill container to accommodate varying parent container widths.</li>
+  <li>If many of your columns are fixed width, you might want to designate at least one column set to fill container to accommodate varying parent container widths.</li>
 </ul>
 
 
@@ -180,10 +181,10 @@ I realize this may seem like a lot of extra boilerplate steps that could be seen
 #### What is the advantage to this approach if most of my screen designs are static? Can I use this for responsive design?
 This depends on your circumstances - if you're designing a responsive app, it's common to implement screen designs at different breakpoints (desktop, tablet, mobile). While Figma's auto layout feature is useful, it's still not robust enough to handle a full-fledged responsive design as it doesn't support layout wrapping, conditional media queries, etc. For this reason, I don't think of this approach as a solution for responsive design. Instead, I would frame this as a way to make scaling designs and maintenance easier. 
 
-As an example, I was recently working on a project for a desktop-only application that ships with it's own computer and monitor. The minumum requirements specfify a resolution which we target in our designs. While we have a good idea of the end-users environment, during usabiity testing, it was apparent that some participants would be using a lower resolution monitor or laptop. Because of this, we needed to produce a prototype in a lower resolution than we target in our designs. Rather than manually adjusting dozens of screens and playing whack-a-mole with positioning, I just changed the parent frame dimensions and the contents of the design adjusted accordingly. This saved days of extra work and was an immediate return on investment. 
+As an example, I was recently working on a project for a desktop-only application that ships with its own computer and monitor. The minimum requirements specify a resolution which we target in our designs. While we have a good idea of the end-users environment, during usability testing, it was apparent that some participants would be using a lower resolution monitor or laptop. Because of this, we needed to produce a prototype in a lower resolution than we target in our designs. Rather than manually adjusting dozens of screens and playing whack-a-mole with positioning, I just changed the parent frame dimensions and the contents of the design adjusted accordingly. This saved days of extra work and was an immediate return on investment. 
 
-#### Can't I acheive similar results using grids and constraints?
-Yes, there are existing patterns that allow you to setup grids within frames and then apply contstraints with similar outcomes. Like the pattern outlined in this post, it can involve nested frames all with their own grids and constraint settings. Grids really shine when you want to distribute things evenly within a frame, but (in my opinion) don't offer the flexibility afforded by auto layout.   
+#### Can't I achieve similar results using grids and constraints?
+Yes, there are existing patterns that allow you to set up grids within frames and then apply constraints with similar outcomes. Like the pattern outlined in this post, it can involve nested frames all with their own grids and constraint settings. Grids really shine when you want to distribute things evenly within a frame, but (in my opinion) don't offer the flexibility afforded by auto layout.   
 
 #### Can you 'componentize' page templates?
 Yes, although you may want to first try this without componentizing (just use auto layout frames) to see if it fits your needs. When you choose to make something a component, you essentially surrender any structural updates to the child elements (unless they are all components themselves and you can update via component properties or visibility settings).
