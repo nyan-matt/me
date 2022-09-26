@@ -32,7 +32,8 @@ In this post and **[companion Figma file](https://www.figma.com/community/file/1
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-12 has-text-centered">
-    <video width="" muted="true" autoplay="true" loop="true" style="border:1px solid #efefef" controls="" poster="/img/blog-step-3-output.png">
+    <video width="100%" muted="true" autoplay="true" loop="true" style="border:1px solid #efefef; height:auto" controls poster="/img/blog-step-3-output.png">
+      <source src="/img/page-auto-layout-0.ogvmp4" type="video/ogg" />
       <source src="/img/page-auto-layout-0.mp4" type="video/mp4" />
     </video>
     <figcaption>Above: Example of using auto layout for page templating</figcaption>
