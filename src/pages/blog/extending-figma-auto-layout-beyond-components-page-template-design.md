@@ -35,6 +35,7 @@ In this post and **[companion Figma file](https://www.figma.com/community/file/1
     <video width="100%" muted autoplay loop controls poster="/img/blog-step-3-output.png">
       <source src="/img/page-auto-layout-0.mp4" type="video/mp4" />
       <source src="/img/page-auto-layout-0.ogv" type="video/ogg" />
+      <source src="/img/page-auto-layout-0.mov" type="video/quicktime" />
     </video>
     <figcaption>Above: Example of using auto layout for page templating</figcaption>
   </div>
