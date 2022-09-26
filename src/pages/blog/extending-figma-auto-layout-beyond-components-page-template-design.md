@@ -32,10 +32,22 @@ In this post and **[companion Figma file](https://www.figma.com/community/file/1
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-12 has-text-centered">
-    <video width="" muted="true" autoplay="true" loop="true" src="/img/page-auto-layout-0.mp4" style="border:1px solid #efefef" controls=""></video>
+    <video width="100%" muted autoplay loop controls poster="/img/blog-step-3-output.png">
+      <source src="/img/page-auto-layout-0.mp4" type="video/mp4" />
+      <source src="/img/page-auto-layout-0.ogv" type="video/ogg" />
+      <source src="/img/page-auto-layout-0.mov" type="video/quicktime" />
+    </video>
     <figcaption>Above: Example of using auto layout for page templating</figcaption>
   </div>
 </div>
+
+
+<!-- <div class="columns is-centered has-margin-top-32">
+  <div class="column is-12 has-text-centered">
+    <video width="" autoplay loop muted src="/img/page-auto-layout-0.mov" poster="/img/blog-step-3-output.png" controls=""></video>
+    <figcaption>Above: Example of using auto layout for page templating</figcaption>
+  </div>
+</div> -->
 
 The example above shows how we might use auto layout to scaffold a page template to allow for easier maintenance and less fragile designs. To see how it was created skip to [Extending auto layout usage beyond atoms, molecules, and simple organisms](#extending-auto-layout-usage-beyond-atoms-molecules-and-simple-organisms) section. Before we get there, let's first take a look at more common auto layout use cases:
 
