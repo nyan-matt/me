@@ -49,8 +49,6 @@ In this post and **[companion Figma file](https://www.figma.com/community/file/1
   </div>
 </div>
 
-
-
 The example above shows how we might use auto layout to scaffold a page template to allow for easier maintenance and less fragile designs. To see how it was created skip to [Extending auto layout usage beyond atoms, molecules, and simple organisms](#extending-auto-layout-usage-beyond-atoms-molecules-and-simple-organisms) section. Before we get there, let's first take a look at more common auto layout use cases:
 
 
