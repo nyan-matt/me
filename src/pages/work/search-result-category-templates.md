@@ -50,7 +50,7 @@ tags:
   - sketching
   - information architecture
 ---
-### TLDR
+### Problem
 You are a lab manager working in a cell culture lab. You're running low on syringe filters, and your usual brand is being discontinued. You need to order replacements that are sterile, and have a 0.2 µm pore size, and 15 mm diameter. After navigating to one of your preferred vendor sites, you search for "syringe filters" - hundreds of results are returned from the search. Can you find a suitable replacement in one of the two images below?   
 
 

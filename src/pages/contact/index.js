@@ -141,7 +141,7 @@ export default class Index extends React.Component {
                     </li>
                     <li className="is-block">
                       <img className="image is-24x24 is-inline" src={twitterlogo} alt="twitter logo" />
-                      <a className="is-inline" href="https://twitter.com/mattrea">Connect on Twitter</a>
+                      <a className="is-inline" href="https://twitter.com/mattrea">Follow on Twitter</a>
                     </li>
                   </ul>
                 
