@@ -1,68 +1,38 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useState } from "react";
+import { Link } from "gatsby";
 
-
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    }
-  }
-
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
-  }
-  render() {
-    const { path } = this.props
-    console.log(path)
-    return (
-      <nav
-        className={
-          path === "/" ? 'navbar is-primary' : 'navbar'
-        }
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="home">
+const Navbar = (path) => {
+  const [isActive, setIsActive] = useState(false);
+  const isHome = ( path.path === '/' ? true : false )
+  console.log(path.path)
+  return (
+    <nav
+      className={ isHome ? 'navbar is-primary' : 'navbar' }
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item" title="home">
               Matthew Rea
             </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`
-              ${path === "/" ? 'navbar-menu is-primary' : 'navbar-menu'} ${this.state.navBarActiveClass}
-            `}
+          {/* Hamburger menu */}
+          <button
+            className={`navbar-burger burger ${isActive && "is-active"}`}
+            aria-expanded={isActive}
+            data-target="navMenu"
+            onClick={() => setIsActive(!isActive)}
           >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+        <div id="navMenu" className={`${isHome ? 'navbar-menu is-primary' : 'navbar-menu'} ${isActive && "is-active"}`}>
+            {/* TODO: inline override of padding is a result of refactoring
+                to a ul for accessibilty purposes, would like to see a css
+                re-write that makes this unneccesary.
+             */}
             <div className="navbar-end">
               <Link className="navbar-item" activeClassName="is-active" partiallyActive={true} to="/about/">
                 About
@@ -77,11 +47,10 @@ const Navbar = class extends React.Component {
                 Contact
               </Link>
             </div>
-          </div>
         </div>
-      </nav>
-    )
-  }
-}
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,15 +1,9 @@
 [build]
   publish = "public"
-  command = "gatsby build"
-  functions = "lambda"
+  command = "npm run build"
 [build.environment]
-  YARN_VERSION = "1.9.4"
+  NODE_VERSION = "14.15.0"
+  YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
-[[headers]]
-  for = "/static/*"
-  [headers.values]
-    Cache-Control = "public, max-age=360000"
-[[headers]]
-  for = "/work/user-research-private/"
-  [headers.values]
-    X-Foo = "bar"
+
+

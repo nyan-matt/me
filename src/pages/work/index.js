@@ -12,7 +12,7 @@ class WorkIndexPage extends React.Component {
     // const totalCount = data.allMarkdownRemark.totalCount;
     const title = data.site.siteMetadata.title;
     return (
-      <Layout>
+      <Layout path="/work/">
         <section className="section">
         <div className="container">
           <Helmet
@@ -122,7 +122,7 @@ export const workIndexQuery = graphql`
             cardcolor
             cardimage {
               childImageSharp {
-                fluid(maxWidth: 600, quality: 60) {
+                fluid(maxWidth:400, quality:80) {
                   ...GatsbyImageSharpFluid
                 }
               }

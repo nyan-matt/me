@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-import MarkdownContent from "../components/MarkdownContent";
+//import MarkdownContent from "../components/MarkdownContent";
 import BlogRoll from "../components/BlogRoll";
 import useSiteMetadata from '../components/SiteMetadata';
 import backButton from "../img/arrow-left-solid.svg";
@@ -68,11 +68,11 @@ export const WorkPostTemplate = ({
         <div className="columns">
           <div className="column is-6">
             <h2 className="title is-size-4 has-margin-bottom-8">Summary</h2>
-            <MarkdownContent className="foo" content={summary} />
+            
           </div>
           <div className="column is-6">
             <h4 className="title is-size-4 has-margin-bottom-8">Role &amp; Contribution</h4>
-            <MarkdownContent className="foo" content={roles} />
+            
           </div>
         </div>
         </div>
@@ -118,7 +118,7 @@ export const WorkPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            <MarkdownContent className="foo" content={learning} />
+            
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@ export const WorkPostTemplate = ({
         <div className="columns">
           <div className="column is-12">
             <h4 className="title">Latest Stories</h4>
-            <BlogRoll />
+            <BlogRoll count={3} />
           </div>
         </div>
       </div>
@@ -163,20 +163,21 @@ WorkPostTemplate.propTypes = {
   workdate: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-  featuredimage: PropTypes.object,
+  featuredimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   summary: PropTypes.string,
   roles: PropTypes.string,
-  showcase1: PropTypes.object,
-  showcase2: PropTypes.object,
+  showcase1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  showcase2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  cardimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   learning: PropTypes.string,
   cardColor: PropTypes.string
 };
 
-const WorkPost = ({ data }) => {
+const WorkPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
   const { siteUrl } = useSiteMetadata();
   return (
-    <Layout>
+    <Layout path={location.pathname}>
       <WorkPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -192,14 +193,6 @@ const WorkPost = ({ data }) => {
             <meta
               property="og:title"
               content={`${post.frontmatter.title}`}
-            />
-            <meta
-              property="og:image"
-              content={`${siteUrl}${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
-            />
-            <meta
-              property="og:url"
-              content={`${siteUrl}${post.fields.slug}`}
             />
           </Helmet>
         }
