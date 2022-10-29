@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-//import MarkdownContent from "../components/MarkdownContent";
+import MarkdownContent from "../components/MarkdownContent";
 import BlogRoll from "../components/BlogRoll";
 import useSiteMetadata from '../components/SiteMetadata';
 import backButton from "../img/arrow-left-solid.svg";
@@ -68,11 +68,11 @@ export const WorkPostTemplate = ({
         <div className="columns">
           <div className="column is-6">
             <h2 className="title is-size-4 has-margin-bottom-8">Summary</h2>
-            
+            <MarkdownContent className="foo" content={summary} />
           </div>
           <div className="column is-6">
             <h4 className="title is-size-4 has-margin-bottom-8">Role &amp; Contribution</h4>
-            
+            <MarkdownContent className="foo" content={roles} />
           </div>
         </div>
         </div>
@@ -118,7 +118,7 @@ export const WorkPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-12">
-            
+            <MarkdownContent className="foo" content={learning} />
           </div>
         </div>
       </div>
