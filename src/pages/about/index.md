@@ -17,7 +17,7 @@ title: About
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-6 has-text-centered">
-    <img class="img" srcset="/img/me-shangai.jpg" alt="handsome man in front of city skyline" style="border:1px solid #efefef; border-radius:8px"/>  
+    <img class="img" srcset="/img/me-shanghai.jpg" alt="handsome man in front of city skyline" style="border:1px solid #efefef; border-radius:8px"/>  
   </div>
   <div class="column is-6">
     <p>A designer at heart, I have a BFA in graphic design and spent my early career working as a web designer during the dot com boom of the late 90s and early 2000s where I mastered using tables for layout, the magical 1-pixel spacer gif, and flash intros. I later moved to a visual design, then a UX design position working in the education technology space. Thanks to a great mentor and customer-focused organization, I was able to learn a tremendous amount about user-centered design methods by working closely with educators to truly understand user needs. I later progressed to product management and strategy roles where I helped visualize & test product concepts for the new mobile device market.</p>  
