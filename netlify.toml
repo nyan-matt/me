@@ -5,5 +5,8 @@
   NODE_VERSION = "16.13.1"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
-
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=360000"
 

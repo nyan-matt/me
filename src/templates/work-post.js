@@ -10,7 +10,7 @@ import BlogRoll from "../components/BlogRoll";
 //import useSiteMetadata from '../components/SiteMetadata';
 import backButton from "../img/arrow-left-solid.svg";
 
-export const WorkPostTemplate = ({
+const WorkPostTemplate = ({
   content,
   contentComponent,
   description,

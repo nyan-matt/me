@@ -5,14 +5,31 @@ import Layout from "../components/Layout";
 
 const TagRoute = (props) =>  {
 
-    const posts = props.data.allMarkdownRemark.edges;
+  const posts = props.data.allMarkdownRemark.edges;
+  
+  function getImagePath(post) {
+    if (post.node.frontmatter.templateKey === 'work-post') {
+      return post.node.frontmatter.cardimage.childImageSharp.fluid.src
+    } else {
+      return post.node.frontmatter.featuredimage.childImageSharp.fluid.src
+    }
+  }
 
     const postLinks = posts.map((post) => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
+      <div key={post.node.fields.slug} className="columns is-12 is-paddingless has-margin-top-32">
+        <div className="column column-content is-4-desktop is-6-tablet" style={{
+          backgroundImage: `url(${getImagePath(post)})`,
+          backgroundColor: post.node.frontmatter.cardcolor ? post.node.frontmatter.cardcolor : '#AAA'
+        }}>
+        </div>
+        <div className="column is-8-desktop is-6-tablet">
+          <Link to={post.node.fields.slug} className="is-size-4 is-family-secondary">
+            {post.node.frontmatter.title}
+          </Link>
+          <p>{post.node.frontmatter.description}</p>
+          <p className="is-size-7 has-text-grey-light">From the {post.node.frontmatter.templateKey === 'blog-post' ? 'Blog' : 'Work'} Collection</p>
+        </div>
+      </div>
     ));
 
     const { tag } = props.pageContext;
@@ -24,24 +41,21 @@ const TagRoute = (props) =>  {
 
     return (
       <Layout>
-        <section className="section">
-          <Helmet title={`${tag} | ${title}`} />
-          <div className="container content">
-            <div className="columns">
-              <div
-                className="column is-10 is-offset-1"
-                style={{ marginBottom: "6rem" }}
-              >
-                <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-                <ul className="taglist">{postLinks}</ul>
-                <p>
-                  <Link to="/tags/">Browse all tags</Link>
-                </p>
-              </div>
+      <section className="section">
+        <Helmet title={`Items tagged with ${tag} | ${title}`} />
+        <div className="container content">
+          <div className="columns">
+            <div className="column is-12">
+              <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
+              {postLinks}
+              <p className="has-margin-top-32">
+                <Link className="button is-primary is-rounded" to="/tags/">Browse all tags</Link>
+              </p>
             </div>
           </div>
-        </section>
-      </Layout>
+        </div>
+      </section>
+    </Layout>
     );
 }
 
@@ -56,8 +70,8 @@ export const tagPageQuery = graphql`
     }
     allMarkdownRemark(
       limit: 1000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: { fields: [frontmatter___templateKey], order: ASC }
+      filter: { frontmatter: { tags: { in: [$tag] }, featuredpost: {eq: true } } }
     ) {
       totalCount
       edges {
@@ -67,6 +81,23 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
+            description
+            templateKey
+            cardcolor
+            featuredimage {
+              childImageSharp {
+                fluid(maxWidth:600, quality: 100) {
+                  src
+                }
+              }
+            }
+            cardimage {
+              childImageSharp {
+                fluid(maxWidth:600, quality: 100) {
+                  src
+                }
+              }
+            }
           }
         }
       }
