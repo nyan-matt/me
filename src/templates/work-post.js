@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import MarkdownContent from "../components/MarkdownContent";
 import BlogRoll from "../components/BlogRoll";
-import useSiteMetadata from '../components/SiteMetadata';
+//import useSiteMetadata from '../components/SiteMetadata';
 import backButton from "../img/arrow-left-solid.svg";
 
 export const WorkPostTemplate = ({
@@ -49,7 +49,7 @@ export const WorkPostTemplate = ({
                   backgroundImage: `url('${
                     featuredimage
                       ? featuredimage.childImageSharp.fluid.src
-                      : "img/chemex.jpg"
+                      : "img/blog-hero.png"
                   }')`,
                   backgroundColor: cardColor
                 }}
@@ -148,7 +148,7 @@ export const WorkPostTemplate = ({
         <div className="columns">
           <div className="column is-12">
             <h4 className="title">Latest Stories</h4>
-            <BlogRoll count={3} />
+            <BlogRoll />
           </div>
         </div>
       </div>
@@ -175,7 +175,6 @@ WorkPostTemplate.propTypes = {
 
 const WorkPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
-  const { siteUrl } = useSiteMetadata();
   return (
     <Layout path={location.pathname}>
       <WorkPostTemplate
