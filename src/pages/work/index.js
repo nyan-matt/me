@@ -12,7 +12,7 @@ class WorkIndexPage extends React.Component {
     // const totalCount = data.allMarkdownRemark.totalCount;
     const title = data.site.siteMetadata.title;
     return (
-      <Layout>
+      <Layout path="/work/">
         <section className="section">
         <div className="container">
           <Helmet
@@ -21,12 +21,7 @@ class WorkIndexPage extends React.Component {
           <div className="container content">
           <div className="columns">
             <div className="column is-12">
-              <div className="banner-image"
-                style={{
-                  backgroundImage: 'url(/img/shapes-bg-2.png)',
-                  backgroundColor: '#333E48'
-                }}
-              >
+              <div className="banner-image">
                 <div className="banner-image-text has-border-radius">
                   <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Work</h1>
                   <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Summaries of various projects</h2>
@@ -122,7 +117,7 @@ export const workIndexQuery = graphql`
             cardcolor
             cardimage {
               childImageSharp {
-                fluid(maxWidth: 600, quality: 60) {
+                fluid(maxWidth:400, quality:80) {
                   ...GatsbyImageSharpFluid
                 }
               }

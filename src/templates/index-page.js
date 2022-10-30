@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+// import { getImage } from "gatsby-plugin-image";
+import Layout from "../components/Layout";
+import FeaturedWork from "../components/FeaturedWork";
+import BlogRoll from "../components/BlogRoll";
+//import FullWidthImage from "../components/FullWidthImage";
 
-import Layout from '../components/Layout'
-import BlogRoll from '../components/BlogRoll'
-import FeaturedWork from '../components/FeaturedWork'
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -26,12 +28,15 @@ const structuredData = {
       "https://github.com/nyan-matt", "https://twitter.com/mattrea"]
 }
 
+// eslint-disable-next-line
 export const IndexPageTemplate = ({
   image,
   title,
   subheading,
-}) => (
-  <Fragment>
+}) => {
+  
+  return (
+    <>
     <section className="home hero is-medium background-hero">
       <div className="hero-body">
         <div id="hero-container" className="container">
@@ -107,21 +112,24 @@ export const IndexPageTemplate = ({
 
     <section className="section has-background-white">
       <div className="container">
-        <h3 className="title is-size-4">Latest Stories</h3>
+        <h3 className="title is-size-4">Latest Posts</h3>
         <BlogRoll />
       </div>
     </section>
-  </Fragment>
-)
+  </>
+  )
+};
+
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   subheading: PropTypes.string,
-}
+};
 
 const IndexPage = ({ data, location }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark;
+
   return (
     <Layout structuredData={structuredData} path={location.pathname}>
       <IndexPageTemplate
@@ -130,8 +138,8 @@ const IndexPage = ({ data, location }) => {
         subheading={frontmatter.subheading}
       />
     </Layout>
-  )
-}
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -139,9 +147,9 @@ IndexPage.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-}
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -159,4 +167,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

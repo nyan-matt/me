@@ -1,58 +1,55 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
-import useSiteMetadata from '../components/SiteMetadata';
 import backButton from "../img/arrow-left-solid.svg";
+import Content, { HTMLContent } from "../components/Content";
+
+// eslint-disable-next-line
 export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
   tags,
   title,
-  helmet,
   featuredimage,
-  slug,
+  helmet,
 }) => {
   const PostContent = contentComponent || Content;
+
   return (
-    <Fragment>
-      <section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
-        {helmet || ""}
-        <div className="container content">
-          <div className="columns">
-            <div className="column is-12">
+    <><section className="section has-padding-bottom-32 has-padding-left-0 has-padding-right-0">
+      {helmet || ""}
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-12">
             <div className="has-margin-top-0 has-margin-bottom-8">
-                <Link to="/blog/">
-                  <img className="image is-24x24 is-inline" src={backButton} alt="Back Arrow" /> 
-                  <span style={{position: 'absolute', top: '12px', paddingLeft: '12px'}}>
+              <Link to="/blog/">
+                <img className="image is-24x24 is-inline" src={backButton} alt="Back Arrow" />
+                <span style={{ position: 'absolute', top: '12px', paddingLeft: '12px' }}>
                   Back
-                  </span>
-                </Link>
-              </div>
-              <div
-                className="featured-image"
-                style={{
-                  backgroundImage: `url(${
-                    featuredimage
-                      ? featuredimage.childImageSharp.fluid.src
-                      : "img/placholder.jpg"
-                  })`
-                }}
-              ></div>
-              <h1 className="title is-size-3">{title}</h1>
-              <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
-                {description}
-              </h2>
-              <PostContent className="main" content={content} />
+                </span>
+              </Link>
             </div>
+            <div
+              className="featured-image"
+              style={{
+                backgroundImage: `url(${featuredimage
+                    ? featuredimage.childImageSharp.fluid.src
+                    : "img/placholder.jpg"})`
+              }}
+            ></div>
+            <h1 className="title is-size-3">{title}</h1>
+            <h2 className="subtitle is-size-5 has-text-weight-normal is-family-primary">
+              {description}
+            </h2>
+            <PostContent className="main" content={content} />
           </div>
         </div>
-      </section>
-      <div className="container content">
+      </div>
+    </section><div className="container content">
         <div className="columns">
           <div className="column is-12">
             {tags && tags.length ? (
@@ -73,8 +70,7 @@ export const BlogPostTemplate = ({
             ) : null}
           </div>
         </div>
-      </div>
-    </Fragment>
+      </div></>
   );
 };
 
@@ -82,17 +78,16 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
-  slug: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-  featuredimage: PropTypes.object,
+  featuredimage: PropTypes.object
 };
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
-  const { siteUrl } = useSiteMetadata();
+
   return (
-    <Layout>
+    <Layout path={location.pathname}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -103,22 +98,6 @@ const BlogPost = ({ data }) => {
             <meta
               name="description"
               content={`${post.frontmatter.description}`}
-            />
-            <meta
-              property="og:title"
-              content={`${post.frontmatter.title}`}
-            />
-            <meta 
-              property="og:image" 
-              content={`${siteUrl}${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
-            />
-            <meta
-              property="og:description"
-              content={`${post.frontmatter.description}`}
-            />
-            <meta
-              property="og:url"
-              content={`${siteUrl}${post.fields.slug}`}
             />
           </Helmet>
         }
@@ -132,8 +111,8 @@ const BlogPost = ({ data }) => {
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
+    markdownRemark: PropTypes.object,
+  }),
 };
 
 export default BlogPost;
@@ -143,9 +122,6 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
-      fields {
-        slug
-      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
@@ -153,7 +129,7 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 1200, quality: 100) {
+            fluid(maxWidth: 1200, quality:100) {
               ...GatsbyImageSharpFluid
             }
           }

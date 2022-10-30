@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import Layout from "../../components/Layout";
 
 class BlogIndexPage extends React.Component {
@@ -10,19 +10,14 @@ class BlogIndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
     const title = data.site.siteMetadata.title;
     return (
-      <Layout>
+      <Layout path="/blog/">
         <section className="section">
           <div className="container">
             <Helmet title={`Blog listing | ${title}`} />
             <div className="container content">
             <div className="columns">
               <div className="column is-12">
-                <div className="banner-image"
-                  style={{
-                    backgroundImage: 'url(/img/shapes-bg-3.png)',
-                    backgroundColor: '#333E48'
-                  }}
-                >
+                <div className="banner-image">
                   <div className="banner-image-text has-border-radius">
                     <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Blog</h1>
                     <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Writings on design and technology</h2>

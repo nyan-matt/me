@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-class FeaturedWork extends React.Component {
-  render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-    return (
-      <div className="columns is-mobile is-multiline work">
+
+const FeaturedWorkTemplate = (props) => {
+  const { edges: posts } = props.data.allMarkdownRemark
+
+  return (
+    <div className="columns is-mobile is-multiline work">
         {posts &&
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
@@ -26,9 +26,9 @@ class FeaturedWork extends React.Component {
           ))
         }
       </div>
-    )
-  }
+  )
 }
+
 
 FeaturedWork.propTypes = {
   data: PropTypes.shape({
@@ -38,7 +38,8 @@ FeaturedWork.propTypes = {
   }),
 }
 
-export default () => (
+export default function FeaturedWork() {
+  return (
   <StaticQuery
     query={graphql`
       query FeaturedWorkQuery {
@@ -73,6 +74,7 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <FeaturedWork data={data} count={count} />}
+    render={(data, count) => <FeaturedWorkTemplate data={data} count={count} />}
   />
-)
+  );
+}

@@ -7,10 +7,10 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import MarkdownContent from "../components/MarkdownContent";
 import BlogRoll from "../components/BlogRoll";
-import useSiteMetadata from '../components/SiteMetadata';
+//import useSiteMetadata from '../components/SiteMetadata';
 import backButton from "../img/arrow-left-solid.svg";
 
-export const WorkPostTemplate = ({
+const WorkPostTemplate = ({
   content,
   contentComponent,
   description,
@@ -49,7 +49,7 @@ export const WorkPostTemplate = ({
                   backgroundImage: `url('${
                     featuredimage
                       ? featuredimage.childImageSharp.fluid.src
-                      : "img/chemex.jpg"
+                      : "img/blog-hero.png"
                   }')`,
                   backgroundColor: cardColor
                 }}
@@ -163,20 +163,20 @@ WorkPostTemplate.propTypes = {
   workdate: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-  featuredimage: PropTypes.object,
+  featuredimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   summary: PropTypes.string,
   roles: PropTypes.string,
-  showcase1: PropTypes.object,
-  showcase2: PropTypes.object,
+  showcase1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  showcase2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  cardimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   learning: PropTypes.string,
   cardColor: PropTypes.string
 };
 
-const WorkPost = ({ data }) => {
+const WorkPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
-  const { siteUrl } = useSiteMetadata();
   return (
-    <Layout>
+    <Layout path={location.pathname}>
       <WorkPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -192,14 +192,6 @@ const WorkPost = ({ data }) => {
             <meta
               property="og:title"
               content={`${post.frontmatter.title}`}
-            />
-            <meta
-              property="og:image"
-              content={`${siteUrl}${post.frontmatter.featuredimage.childImageSharp.fluid.src}`}
-            />
-            <meta
-              property="og:url"
-              content={`${siteUrl}${post.fields.slug}`}
             />
           </Helmet>
         }
