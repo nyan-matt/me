@@ -3,41 +3,6 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../../components/Layout";
-//import BlogRoll from "../../components/BlogRoll";
-
-// export default class BlogIndexPage extends React.Component {
-//   render() {
-//     return (
-//       <Layout path="/blog/">
-//         <div
-//           className="full-width-image-container margin-top-0"
-//           style={{
-//             backgroundImage: `url('/img/blog-index.jpg')`,
-//           }}
-//         >
-//           <h1
-//             className="has-text-weight-bold is-size-1"
-//             style={{
-//               boxShadow: "0.5rem 0 0 #f40, -0.5rem 0 0 #f40",
-//               backgroundColor: "#f40",
-//               color: "white",
-//               padding: "1rem",
-//             }}
-//           >
-//             Latest Stories
-//           </h1>
-//         </div>
-//         <section className="section">
-//           <div className="container">
-//             <div className="content">
-//               <BlogRoll />
-//             </div>
-//           </div>
-//         </section>
-//       </Layout>
-//     );
-//   }
-// }
 
 class BlogIndexPage extends React.Component {
   render() {
@@ -52,12 +17,7 @@ class BlogIndexPage extends React.Component {
             <div className="container content">
             <div className="columns">
               <div className="column is-12">
-                <div className="banner-image"
-                  style={{
-                    backgroundImage: 'url(/img/shapes-bg-3.png)',
-                    backgroundColor: '#333E48'
-                  }}
-                >
+                <div className="banner-image">
                   <div className="banner-image-text has-border-radius">
                     <h1 className="landing-title has-text-white" data-sal="fade" data-sal-duration="500">Blog</h1>
                     <h2 className="landing-subtitle has-text-white" data-sal="fade" data-sal-duration="500" data-sal-delay="500">Writings on design and technology</h2>
