@@ -51,7 +51,8 @@ tags:
   - information architecture
 ---
 ### Problem
-You are a lab manager working in a cell culture lab. You're running low on syringe filters, and your usual brand is being discontinued. You need to order replacements that are sterile, and have a 0.2 µm pore size, and 15 mm diameter. After navigating to one of your preferred vendor sites, you search for "syringe filters" - hundreds of results are returned from the search. Can you find a suitable replacement in one of the two images below?   
+With hundreds of thousands of product offerings across the life science space, users need a quick way to identify relevant products based on a wide breadth and depth of search criteria. While the site search function was the primary method for users to find products, research indicated users were encountering two key problems in the search experience; search terms that returned too few or too many result sets and result sets that made it difficult to disambiguate product attributes.
+
 
 
 <div class="columns is-centered has-margin-top-32">
@@ -67,7 +68,7 @@ You are a lab manager working in a cell culture lab. You're running low on syrin
 
 This project was initiated by business stakeholders based on a user research project in which customer groups were observed searching and shopping for products on our ecommerce channel as well as competitors. 
 
-With a catalog approaching 300,000 products from a wide range of product categories and applications, it can be difficult to cater search results that support the diversified needs of users. Chemists, Biologists, Pharmaceutical Researchers, & Manufacturers all have different care-abouts, and use different types of product data for purchasing decisions. Because this product data can be very localized to a specific product category or application, users were having trouble identifying these key product attributes when sifting through search results. 
+With a catalog approaching 500,000 products from a wide range of product categories and applications, it can be difficult to cater search results that support the diversified needs of users. Chemists, Biologists, Pharmaceutical Researchers, & Manufacturers all have different care-abouts, and use different types of product data for purchasing decisions. Because this product data can be very localized to a specific product category or application, users were having trouble identifying these key product attributes when sifting through search results. 
 
 Someone searching for syringe filters has specific attributes they are looking for (diameter, pore size, sterility) while someone searching for antibodies will be concerned with different attributes (application, species, citations).    
 
@@ -79,7 +80,7 @@ User research revealed that customers tended to be overly specific or general in
 
 Filtering results by relevant product attribute types helps, but with a large catalog and somewhat overwhelming list of different attribute types, analytics revealved that filter usage in search result pages was greatly under-utilized. 
 
-Since users rarely applied category filters to their results, one option we explored was to suggest categories in the typeahead search form results with the hope to increase the discoverability of relevant category filters which would return more relavent results based on a familiar category, technique, or application.   
+Since analytics revealed that users rarely applied category filters to their results, one option we explored was to suggest categories in the typeahead search form results with the hope to increase the discoverability of relevant category filters which would return more relavent results based on a familiar category, technique, or application.   
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-12 has-text-centered">
