@@ -48,7 +48,7 @@ const WorkPostTemplate = ({
                 style={{
                   backgroundImage: `url('${
                     featuredimage
-                      ? featuredimage.childImageSharp.fluid.src
+                      ? featuredimage.childImageSharp.gatsbyImageData.images.fallback.src
                       : "img/blog-hero.png"
                   }')`,
                   backgroundColor: cardColor
@@ -163,7 +163,7 @@ WorkPostTemplate.propTypes = {
   workdate: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-  featuredimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  featuredimage: PropTypes.string,
   summary: PropTypes.string,
   roles: PropTypes.string,
   showcase1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -235,6 +235,12 @@ export const pageQuery = graphql`
         roles
         learning
         cardcolor
+        featuredimage {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+
         showcase1 {
           height
           fixed
@@ -254,13 +260,6 @@ export const pageQuery = graphql`
               fluid(maxWidth: 1600, quality: 60) {
                 src
               }
-            }
-          }
-        }
-        featuredimage {
-          childImageSharp {
-            fluid(maxWidth: 1200, quality: 60) {
-              ...GatsbyImageSharpFluid
             }
           }
         }

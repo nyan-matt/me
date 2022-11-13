@@ -40,8 +40,7 @@ class BlogIndexPage extends React.Component {
                         style={{
                           backgroundImage: `url(${
                             post.frontmatter.featuredimage
-                              ? post.frontmatter.featuredimage.childImageSharp
-                                  .fluid.src
+                              ? post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.images.fallback.src
                               : "img/chemex.jpg"
                           })`
                         }}
@@ -107,9 +106,7 @@ export const blogIndexQuery = graphql`
             tags
             featuredimage {
               childImageSharp {
-                fluid(maxWidth: 600, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
           }

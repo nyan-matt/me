@@ -12,11 +12,10 @@ const FeaturedWorkTemplate = (props) => {
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
               <Link className="" to={post.fields.slug}>
-                <div className="column-content" data-sal="fade" data-sal-duration="500" style={{ 
-                  backgroundColor: post.frontmatter.cardcolor,
+                <div className="column-content" style={{ 
+                  backgroundColor: post.frontmatter.cardcolor ,
                   backgroundImage: `url(${
-                    !!post.frontmatter.cardimage.childImageSharp ?
-                    post.frontmatter.cardimage.childImageSharp.fluid.src: post.frontmatter.cardimage 
+                    post.frontmatter.cardimage.childImageSharp.gatsbyImageData.images.fallback.src
                   })` 
                 }}>
                 </div>
@@ -50,7 +49,6 @@ export default function FeaturedWork() {
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
               id
               fields {
                 slug
@@ -63,9 +61,7 @@ export default function FeaturedWork() {
                 cardcolor
                 cardimage {
                   childImageSharp {
-                    fluid(maxWidth:600, quality: 50) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData
                   }
                 }
               }

@@ -44,8 +44,7 @@ class WorkIndexPage extends React.Component {
                       style={{
                         backgroundImage: `url(${
                           post.frontmatter.cardimage
-                            ? post.frontmatter.cardimage.childImageSharp.fluid
-                                .src
+                            ? post.frontmatter.cardimage.childImageSharp.gatsbyImageData.images.fallback.src
                             : "img/chemex.jpg"
                         })`,
                         backgroundColor: post.frontmatter.cardcolor
@@ -63,9 +62,7 @@ class WorkIndexPage extends React.Component {
                   <p className="is-size-6 has-text-grey-dark">
                     {post.frontmatter.description}
                   </p>
-                  {/* <p className="is-size-7 has-text-grey-dark excerpt">
-                    {post.frontmatter.summary}
-                  </p> */}
+                  
                 </div>
               ))}
           </div>
@@ -117,16 +114,12 @@ export const workIndexQuery = graphql`
             cardcolor
             cardimage {
               childImageSharp {
-                fluid(maxWidth:400, quality:80) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
             featuredimage {
               childImageSharp {
-                fluid(maxWidth: 600, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
           }

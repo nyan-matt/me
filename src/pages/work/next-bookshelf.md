@@ -6,8 +6,8 @@ description: Concept application for managing favorite books with Next.js, Fauna
 workdate: '2020'
 featuredpost: true
 featuredimage: /img/work-banner-next-books.png
-cardimage: /img/card-work-next-bookshelf.png
-cardcolor: '#f95c2b'
+cardimage: /img/work-banner-next-books.png
+cardcolor: '#F95C2B'
 summary: >
   This [personal project](https://book-next-gql.now.sh/) goal was to learn more about [Next.js](https://nextjs.org), [React hooks](https://reactjs.org/docs/hooks-intro.html), and explore serverless backend providers to create a web application to manage and share favorite book titles.
 roles: >
@@ -40,7 +40,7 @@ While I spent a fair amount of time on the design, it wasn't primary to what I w
  - [Add book form](https://book-next-gql.now.sh/add)
  - [Content/about](https://book-next-gql.now.sh/about) 
 
-I did want to experiment with dark mode and site theming, so I added a theme toggle control.
+I did want to experiment with dark mode and site theming, so I added a theme toggle control.  
 
 <div class="columns is-centered has-margin-top-32">
   <div class="column is-6 has-text-centered">

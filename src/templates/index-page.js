@@ -57,7 +57,7 @@ export const IndexPageTemplate = ({
       </div>
       <div className="baz">
           <div className="bar">
-            <img className="image is-16x16 is-inline mr-2" src={githublogo} alt="github logo" />
+            <img className="image is-16x16 is-inline mr-2 mt-1" src={githublogo} alt="github logo" />
               <a className="is-inline" href="https://github.com/nyan-matt/me">view this site's code on github</a>
           </div>
         </div>
