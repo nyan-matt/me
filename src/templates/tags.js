@@ -9,9 +9,9 @@ const TagRoute = (props) =>  {
   
   function getImagePath(post) {
     if (post.node.frontmatter.templateKey === 'work-post') {
-      return post.node.frontmatter.cardimage.childImageSharp.fluid.src
+      return post.node.frontmatter.cardimage.childImageSharp.gatsbyImageData.images.fallback.src
     } else {
-      return post.node.frontmatter.featuredimage.childImageSharp.fluid.src
+      return post.node.frontmatter.featuredimage.childImageSharp.gatsbyImageData.images.fallback.src
     }
   }
 
@@ -86,16 +86,12 @@ export const tagPageQuery = graphql`
             cardcolor
             featuredimage {
               childImageSharp {
-                fluid(maxWidth:600, quality: 100) {
-                  src
-                }
+                gatsbyImageData
               }
             }
             cardimage {
               childImageSharp {
-                fluid(maxWidth:600, quality: 100) {
-                  src
-                }
+                gatsbyImageData
               }
             }
           }

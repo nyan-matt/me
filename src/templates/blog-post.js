@@ -37,7 +37,7 @@ export const BlogPostTemplate = ({
               className="featured-image"
               style={{
                 backgroundImage: `url(${featuredimage
-                    ? featuredimage.childImageSharp.fluid.src
+                    ? featuredimage.childImageSharp.gatsbyImageData.images.fallback.src
                     : "img/placholder.jpg"})`
               }}
             ></div>
@@ -129,9 +129,7 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 1200, quality:100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
 
+
 const BlogRollTemplate = (props) => {
   const { edges: posts } = props.data.allMarkdownRemark
   
@@ -15,7 +16,7 @@ const BlogRollTemplate = (props) => {
               <div className="column-content" data-sal="fade" data-sal-duration="500" style={{ 
                 backgroundImage: `url(${
                   post.frontmatter.featuredimage ?
-                  post.frontmatter.featuredimage.childImageSharp.fluid.src : 'img/chemex.jpg' 
+                  post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.images.fallback.src : 'img/chemex.jpg' 
                 })` 
               }}>
               </div>
@@ -64,11 +65,9 @@ return (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData
                   }
-                }
+              }
               }
             }
           }
