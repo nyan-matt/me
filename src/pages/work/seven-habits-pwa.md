@@ -4,7 +4,7 @@ title: Seven Habits PWA
 date: 2013-04-01T00:00:00.000Z
 description: PWA using Gatsby, Netlify, and Netlify CMS
 workdate: '2019'
-featuredpost: true
+featuredpost: false
 featuredimage: /img/work-banner-7-habits.png
 cardimage: /img/card-work-7habits.png
 cardcolor: '#5BB75B'
