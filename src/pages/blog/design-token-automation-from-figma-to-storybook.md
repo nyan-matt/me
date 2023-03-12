@@ -50,12 +50,12 @@ At the 40,000 foot view, we'll cover:
 
 
 <div class="columns is-centered has-margin-top-32 has-background-light">
-  <div class="column is-12 p-5">
-  <h5 class="p-0 m-0">Resources for this demo</h5> 
-  <ul class="pl-2">
-    <li><a href="">Figma Button Component</a> - Figma community file which contains our button component design</li>
-    <li><a href="">token-demo-src</a> - Repository that contains our design token json files and where we do our token transforms using style dictionary and token transformer</li>
-    <li><a href="">stencil-storybook-token-demo</a> - Repository that contains our stencil components and storybook code</li>
+  <div class="column is-12" style="margin:8px">
+  <b style="margin:8px">Resources for this demo</b> 
+  <ul>
+    <li><a href="https://www.figma.com/community/file/1216594232712914852">Figma Button Component</a> - Figma community file which contains our button component design</li>
+    <li><a href="https://github.com/nyan-matt/token-demo-src">token-demo-src</a> - Repository that contains our design token json files and where we do our token transforms using style dictionary and token transformer</li>
+    <li><a href="https://github.com/nyan-matt/stencil-storybook-token-demo">stencil-storybook-token-demo</a> - Repository that contains our stencil components and storybook code</li>
   </ul>
   </div>
 </div>
@@ -258,17 +258,15 @@ Coming full circle, we now have a proof-of-concept design automation pipeline th
 Not a bad start! Of course, there are several areas that we could improve upon, but it's not a bad outcome for our a proof-of-concept exercise. If you wanted to explore a more turn-key solution, platforms like [supernova.io](https://supernova.io) and [zeroheight.com](https://zeroheight.com) offer similar functionality wrapped in a GUI with lots of bells and whistles.  
 
 <div class="columns is-centered has-margin-top-32 has-background-light">
-  <div class="column is-12 p-5">
-  <h5 class="p-0 m-0">Resources for this demo</h5> 
-  <ul class="pl-2">
-    <li><a href="">Figma Button Component</a> - Figma community file which contains our button component design</li>
-    <li><a href="">token-demo-src</a> - Repository that contains our design token json files and where we do our token transforms using style dictionary and token transformer</li>
-    <li><a href="">stencil-storybook-token-demo</a> - Repository that contains our stencil components and storybook code</li>
+  <div class="column is-12" style="margin:8px">
+  <b style="margin:8px">Resources for this demo</b> 
+  <ul>
+    <li><a href="https://www.figma.com/community/file/1216594232712914852">Figma Button Component</a> - Figma community file which contains our button component design</li>
+    <li><a href="https://github.com/nyan-matt/token-demo-src">token-demo-src</a> - Repository that contains our design token json files and where we do our token transforms using style dictionary and token transformer</li>
+    <li><a href="https://github.com/nyan-matt/stencil-storybook-token-demo">stencil-storybook-token-demo</a> - Repository that contains our stencil components and storybook code</li>
   </ul>
   </div>
 </div>
 
 ### Caveats & inspiration
-This is a super-simple implementation that utilizes lots of ideas pulled together from sources like [Michael Mang](https://github.com/michaelmang) and [Jan Six](https://github.com/six7). There is a lot of room for improvement in this repo, for instance the design tokens structure and naming need to be refactored and is not something I would necessarily recommend outside of a proof-of-concept project. I need to bump some of the action versions, and the destination repository consuming the the css output requires some some build automation. Hopefully will be able to get to this soon, along with a follow-up blog post.
-
-version 16.13.1
+This is a super-simple implementation that utilizes lots of ideas pulled together from sources like [Michael Mang](https://github.com/michaelmang) and [Jan Six](https://github.com/six7). There is a lot of room for improvement in this repo, for instance the design tokens structure and naming need to be refactored and is not something I would necessarily recommend outside of a proof-of-concept project. v16.13.1
