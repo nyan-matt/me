@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import { motion } from "framer-motion";
 // import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import FeaturedWork from "../components/FeaturedWork";
@@ -35,7 +36,22 @@ export const IndexPageTemplate = ({
   title,
   subheading,
 }) => {
+  const container = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
+  }
   
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 }
+  }
+
   return (
     <>
     <section className="home hero is-medium background-hero">
@@ -44,10 +60,22 @@ export const IndexPageTemplate = ({
           <div className="columns is-mobile full-height hero-bg">
             <div className="column is-two-thirds-desktop is-full-tablet hero-text-container">
               <h1 data-sal="fade" data-sal-delay="300" className="title is-spaced hero-headline is-primary">
-                {title}
+              <motion.div 
+                  initial={{ opacity: 0, y: -12  }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ ease: "easeIn", duration: 0.2 }}
+                >
+                  {title}
+                </motion.div>
               </h1>
-              <h2 data-sal="slide-up" data-sal-delay="600" className="subtitle hero-subheadline">
-                {subheading}
+              <h2 className="subtitle hero-subheadline">
+                <motion.div 
+                  initial={{ opacity: 0, y: 12  }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ ease: "easeInOut", duration: 0.2 }}
+                >
+                  {subheading}
+                </motion.div>
               </h2>
             </div>
             <div className="column is-one-third-desktop is-hidden-touch">
@@ -65,44 +93,58 @@ export const IndexPageTemplate = ({
     <section className="section has-background-white">
       <div className="container">
       <h3 className="title is-size-4">Expertise &amp; Skills</h3>
+        <motion.div variants={container} initial="hidden" animate="show">
         <div className="columns is-mobile is-multiline">
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
-              <div className="column ">
+              <div className="column">
+                <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/strategy.svg" alt="strategy icon" />
                 Strategy
+                </motion.div>
               </div>
               <div className="column ">
+                <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/interview.svg" alt="user research icon" />
                 User Research
+                </motion.div>
               </div>
             </div>
           </div>
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
               <div className="column ">
+                <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/journey-map.svg" alt="journey mapping icon" />
                 Journey Mapping
+                </motion.div>
               </div>
               <div className="column ">
+                <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/wireframe.svg" alt="design icon" />
                 Design
+                </motion.div>
               </div>
             </div>
           </div>
           <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
             <div className="columns is-mobile">
               <div className="column ">
+                <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/prototype.svg" alt="user testing icon" />
                 Testing
+                </motion.div>
               </div>
               <div className="column ">
+                <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="prototyping icon" />
                 Development
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
+        </motion.div>
       </div>
     </section>
     <section className="section has-background-white">
