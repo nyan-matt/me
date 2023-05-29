@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Hi, I’m Matthew Rea, an experienced UX leader working at the intersection of user needs, design, & technology.
+title: I'm an experienced UX leader who's passionate about solving the right problems through research, design, and technology.
 image: /img/shapes-bg.png
 subheading: 🙌 Currently working as Staff Product Designer at Thermo Fisher Scientific
 ---

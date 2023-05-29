@@ -58,7 +58,7 @@ export const IndexPageTemplate = ({
       <div className="hero-body">
         <div id="hero-container" className="container">
           <div className="columns is-mobile full-height hero-bg">
-            <div className="column is-two-thirds-desktop is-full-tablet hero-text-container">
+            <div className="column is-full-desktop is-full-tablet hero-text-container">
               <h1 data-sal="fade" data-sal-delay="300" className="title is-spaced hero-headline is-primary">
               <motion.div 
                   initial={{ opacity: 0, y: -12  }}
@@ -78,8 +78,8 @@ export const IndexPageTemplate = ({
                 </motion.div>
               </h2>
             </div>
-            <div className="column is-one-third-desktop is-hidden-touch">
-            </div>
+            {/* <div className="column is-one-third-desktop is-hidden-touch">
+            </div> */}
           </div>
         </div>
       </div>

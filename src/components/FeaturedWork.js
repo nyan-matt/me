@@ -13,7 +13,7 @@ const FeaturedWorkTemplate = (props) => {
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
               <Link className="" to={post.fields.slug}>
-              <motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ duration: 0.25}}>
+              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6}}>
                 <div className="column-content" style={{ 
                   backgroundColor: post.frontmatter.cardcolor ,
                   backgroundImage: `url(${
