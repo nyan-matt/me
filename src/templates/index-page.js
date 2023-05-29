@@ -95,57 +95,51 @@ export const IndexPageTemplate = ({
       <h3 className="title is-size-4">Expertise &amp; Skills</h3>
         <motion.div variants={container} initial="hidden" animate="show">
         <div className="columns is-mobile is-multiline">
-          <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
-            <div className="columns is-mobile">
-              <div className="column">
+          
+            
+              <div className="column has-text-centered is-half-mobile">
                 <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/strategy.svg" alt="strategy icon" />
                 Strategy
                 </motion.div>
               </div>
-              <div className="column ">
+              
+              <div className="column has-text-centered is-half-mobile">
                 <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/interview.svg" alt="user research icon" />
                 User Research
                 </motion.div>
               </div>
-            </div>
-          </div>
-          <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
-            <div className="columns is-mobile">
-              <div className="column ">
-                <motion.div variants={item}>
-                <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/journey-map.svg" alt="journey mapping icon" />
-                Journey Mapping
-                </motion.div>
-              </div>
-              <div className="column ">
+            
+          
+            
+              <div className="column has-text-centered">
                 <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/wireframe.svg" alt="design icon" />
                 Design
                 </motion.div>
               </div>
-            </div>
-          </div>
-          <div className="column is-4-desktop is-4-tablet is-full-mobile has-text-centered">
-            <div className="columns is-mobile">
-              <div className="column ">
+            
+          
+            
+              <div className="column has-text-centered">
                 <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/prototype.svg" alt="user testing icon" />
                 Testing
                 </motion.div>
               </div>
-              <div className="column ">
+              <div className="column has-text-centered">
                 <motion.div variants={item}>
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="prototyping icon" />
                 Development
                 </motion.div>
               </div>
             </div>
-          </div>
-        </div>
+          
         </motion.div>
       </div>
+
+
     </section>
     <section className="section has-background-white">
       <div className="container">
