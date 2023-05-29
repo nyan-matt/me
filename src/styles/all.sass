@@ -22,20 +22,18 @@
       padding-bottom: .5rem
       padding-top: 1.5rem
     .container 
-      background-size: inherit
-      background-position: right
-      background-repeat: no-repeat
       height: 400px
-      transform: translateX(0px)
-      background-position-y: 0px
       @media (min-width: 767px) and (max-width: 1023px)
           height: 350px
-          background-image: none !important
-          padding-top: 2em
       @media (max-width:767px)
-          background-image: none !important
           height: 340px
+      .hero-bg
+        align-items: center
+        @media (min-width: 1408px)
+          padding: 0px 96px
       .hero-text-container
+        text-align: center
+        text-wrap: balance
         @media (max-width:767px)
           padding: 0px
   h1.title 
@@ -45,24 +43,23 @@
     font-size: 3rem
     line-height: 3.5rem
     @media (max-width: 1215px)
-      font-size: 2.8rem
-      line-height: 3rem
+      font-size: 2.5rem
+      line-height: 2.8rem
     @media (max-width: 767px)
       font-size: 2rem
+      line-height: 2rem
+    @media (max-width: 512px)
+      font-size: 1.8rem
       line-height: 2rem
   h2.subtitle 
     font-family: $family-primary
     color: $white
+    @media (max-width: 512px)
+      font-size: 1rem
+      line-height: 1.2rem
 
 .full-height
   height: 100%
-.hero-bg
-  background: url('/img/shapes-bg-home.png')
-  background-size: contain
-  background-position: right
-  background-repeat: no-repeat
-  @media (max-width: 1023px)
-    background: none !important
 
 .baz
   margin: 0 auto
@@ -90,8 +87,6 @@
       transition: all .22s ease-in
       &:hover
         background-size: 110%
-      @media (max-width: 1220px)
-        background-color: #FFF !important
 
 .div-center 
   width: 100%
