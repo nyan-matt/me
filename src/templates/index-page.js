@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import FeaturedWork from "../components/FeaturedWork";
@@ -44,22 +44,10 @@ export const IndexPageTemplate = ({
           <div className="columns is-mobile full-height hero-bg">
             <div className="column is-full-desktop is-full-tablet hero-text-container">
               <h1 data-sal="fade" data-sal-delay="300" className="title is-spaced hero-headline is-primary">
-              <motion.div 
-                  initial={{ opacity: 0, y: -12  }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ ease: "easeIn", duration: 0.2 }}
-                >
                   {title}
-                </motion.div>
               </h1>
               <h2 className="subtitle hero-subheadline">
-                <motion.div 
-                  initial={{ opacity: 0, y: 12  }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ ease: "easeInOut", duration: 0.2 }}
-                >
-                  {subheading}
-                </motion.div>
+                {subheading}
               </h2>
             </div>
             {/* <div className="column is-one-third-desktop is-hidden-touch">
