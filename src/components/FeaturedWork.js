@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from "framer-motion";
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
@@ -13,7 +12,6 @@ const FeaturedWorkTemplate = (props) => {
           posts.map(({ node: post }) => (
             <div className="column is-4-desktop is-6-tablet is-full-mobile" key={post.id}>
               <Link className="" to={post.fields.slug}>
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6}}>
                 <div className="column-content" style={{ 
                   backgroundColor: post.frontmatter.cardcolor ,
                   backgroundImage: `url(${
@@ -22,7 +20,6 @@ const FeaturedWorkTemplate = (props) => {
                 }}>
                 </div>
                 <span className="is-block is-family-secondary has-margin-top-12 is-size-6">{post.frontmatter.title}</span>
-              </motion.div>
               </Link>
             </div>
           ))
