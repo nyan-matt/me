@@ -36,22 +36,6 @@ export const IndexPageTemplate = ({
   title,
   subheading,
 }) => {
-  const container = {
-    hidden: { opacity: 0, y: 10 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.05
-      }
-    }
-  }
-  
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 }
-  }
-
   return (
     <>
     <section className="home hero is-medium background-hero">
@@ -93,50 +77,50 @@ export const IndexPageTemplate = ({
     <section className="section has-background-white">
       <div className="container">
       <h3 className="title is-size-4">Expertise &amp; Skills</h3>
-        <motion.div variants={container} initial="hidden" animate="show">
+        
         <div className="columns is-mobile is-multiline">
           
             
               <div className="column has-text-centered is-half-mobile">
-                <motion.div variants={item}>
+                
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/strategy.svg" alt="strategy icon" />
                 Strategy
-                </motion.div>
+                
               </div>
               
               <div className="column has-text-centered is-half-mobile">
-                <motion.div variants={item}>
+                
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/interview.svg" alt="user research icon" />
                 User Research
-                </motion.div>
+                
               </div>
             
           
             
               <div className="column has-text-centered">
-                <motion.div variants={item}>
+                
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/wireframe.svg" alt="design icon" />
                 Design
-                </motion.div>
+                
               </div>
             
           
             
               <div className="column has-text-centered">
-                <motion.div variants={item}>
+                
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/prototype.svg" alt="user testing icon" />
                 Testing
-                </motion.div>
+                
               </div>
               <div className="column has-text-centered">
-                <motion.div variants={item}>
+                
                 <img className="image is-96x96 has-margin-bottom-5 is-centered-img" src="img/code.svg" alt="prototyping icon" />
                 Development
-                </motion.div>
+                
               </div>
             </div>
           
-        </motion.div>
+    
       </div>
 
 
