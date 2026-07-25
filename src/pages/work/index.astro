@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import CardGrid from '../../components/CardGrid.astro'
+import { byEditorialOrder, isFeaturedIndex, site } from '../../lib/content'
+
+const posts = byEditorialOrder((await getCollection('work')).filter(isFeaturedIndex))
+---
+
+<BaseLayout title={`Work - summaries of various projects | ${site.title}`} description="Summaries of various projects" path="/work/">
+  <section class="section">
+    <header class="page-banner">
+      <h1>Work</h1>
+      <p>Summaries of various projects</p>
+    </header>
+    <CardGrid entries={posts} />
+  </section>
+</BaseLayout>

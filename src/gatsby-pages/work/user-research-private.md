@@ -57,7 +57,7 @@ tags:
   - personas
   - storyboarding
 ---
-### Stakeholder Interviews
+### Stakeholder Interviewssssssdsfsdfsd
 The team interviewed multiple project stakeholders to get a sense of what leaders saw as their biggest challenges. We were able to learn how different organizations view current barriers and their unique concerns as we identified goals and expectations for the project. At a high level, this allowed us to understand the contours of the problems we needed to tackle, identify core roles and personas to explore, and connect with key resources for research activities. 
 
 ### Contextual Inquiry
@@ -65,7 +65,7 @@ After some initial way-finding, the team set out for contextual inquiry sessions
 
 <div class="columns">
   <div class="column is-6">
-    <img class="image img is-rounded" srcset="/img/card-work-ci-1.jpg" alt="contextual inquiry photo" />
+    <img class="image img" srcset="/img/card-work-ci-1.jpg" alt="contextual inquiry photo" />
   </div>
   <div class="column is-6">
     <img srcset="/img/card-work-ci-2.jpg" alt="contextual inquiry photo" />

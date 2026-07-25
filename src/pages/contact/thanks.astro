@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { site } from '../../lib/content'
+---
+
+<BaseLayout title={`Thank you | ${site.title}`} description="Thank you for your message" path="/contact/thanks/">
+  <section class="section">
+    <h1>Thank you!</h1>
+    <p>Your message has been sent.</p>
+  </section>
+</BaseLayout>

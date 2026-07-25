@@ -1,0 +1,68 @@
+---
+import '../styles/global.css'
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
+import { site } from '../lib/content'
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  path?: string
+  structuredData?: Record<string, unknown>
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  image = '/img/og-image.jpg',
+  path = Astro.url.pathname,
+  structuredData,
+} = Astro.props
+
+const canonical = new URL(path, site.url).toString()
+const imageUrl = new URL(image, site.url).toString()
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="stylesheet" href="https://use.typekit.net/pyk5nls.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('theme')
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+        document.documentElement.dataset.theme = saved || preferred
+      })()
+    </script>
+    {
+      structuredData && (
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+      )
+    }
+  </head>
+  <body>
+    <Navbar path={path} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

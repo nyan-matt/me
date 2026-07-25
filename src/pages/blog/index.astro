@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import CardGrid from '../../components/CardGrid.astro'
+import Pagination from '../../components/Pagination.astro'
+import { blogPageSize, byDateDesc, isFeaturedIndex, site } from '../../lib/content'
+
+const allPosts = byDateDesc((await getCollection('blog')).filter(isFeaturedIndex))
+const posts = allPosts.slice(0, blogPageSize)
+const totalPages = Math.ceil(allPosts.length / blogPageSize)
+---
+
+<BaseLayout title={`Blog listing | ${site.title}`} description="Writings on design and technology" path="/blog/">
+  <section class="section">
+    <header class="page-banner">
+      <h1>Blog</h1>
+      <p>Writings on design and technology</p>
+    </header>
+    <CardGrid entries={posts} />
+    <Pagination basePath="/blog/" currentPage={1} totalPages={totalPages} />
+  </section>
+</BaseLayout>

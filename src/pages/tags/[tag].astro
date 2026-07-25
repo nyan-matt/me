@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { byDateDesc, cardImage, entryPath, isFeaturedIndex, kebabTag, site } from '../../lib/content'
+
+export async function getStaticPaths() {
+  const entries = [...(await getCollection('blog')), ...(await getCollection('work'))].filter(isFeaturedIndex)
+  const tagsByPath = new Map<string, string>()
+
+  for (const tag of entries.flatMap((entry) => entry.data.tags || [])) {
+    const path = kebabTag(tag)
+    if (!tagsByPath.has(path)) tagsByPath.set(path, tag)
+  }
+
+  return Array.from(tagsByPath.entries()).map(([path]) => ({
+    params: { tag: path },
+  }))
+}
+
+const tagPath = Astro.params.tag
+const entries = [...(await getCollection('blog')), ...(await getCollection('work'))].filter(isFeaturedIndex)
+const matchingTags = entries
+  .flatMap((entry) => entry.data.tags || [])
+  .filter((entryTag: string) => kebabTag(entryTag) === tagPath)
+const tag = matchingTags[0] || tagPath
+const posts = byDateDesc(
+  entries.filter((entry) =>
+    entry.data.tags?.some((entryTag: string) => kebabTag(entryTag) === tagPath)
+  )
+)
+const tagHeader = `${posts.length} post${posts.length === 1 ? '' : 's'} tagged with "${tag}"`
+---
+
+<BaseLayout title={`Items tagged with ${tag} | ${site.title}`} description={tagHeader} path={`/tags/${tagPath}/`}>
+  <section class="section">
+    <header class="page-banner">
+      <h1>{tagHeader}</h1>
+    </header>
+    {
+      posts.map((entry) => (
+        <article class="tag-result">
+          <a
+            class="tag-result__image"
+            href={entryPath(entry)}
+            aria-label={entry.data.title}
+            style={{
+              backgroundImage: `url(${cardImage(entry)})`,
+              backgroundColor: entry.collection === 'work' ? entry.data.cardcolor || undefined : undefined,
+            }}
+          />
+          <div>
+            <h2><a href={entryPath(entry)}>{entry.data.title}</a></h2>
+            <p>{entry.data.description}</p>
+            <p class="small-muted">From the {entry.collection === 'blog' ? 'Blog' : 'Work'} Collection</p>
+          </div>
+        </article>
+      ))
+    }
+    <p><a class="button button--primary" href="/tags/">Browse all tags</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .small-muted {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+</style>

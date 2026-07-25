@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { site } from '../lib/content'
+
+const page = await getEntry('pages', 'about')
+
+if (!page) {
+  throw new Error('Missing about content')
+}
+
+const { Content } = await render(page)
+---
+
+<BaseLayout title={`About | ${site.title}`} description="About Matthew Rea" path="/about/">
+  <section class="section">
+    <header class="page-banner">
+      <h1>About</h1>
+      <p>About me</p>
+    </header>
+    <article class="content">
+      <Content />
+    </article>
+  </section>
+</BaseLayout>

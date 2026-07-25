@@ -1,0 +1,32 @@
+---
+import type { ContentEntry } from '../lib/content'
+import { cardImage, entryPath } from '../lib/content'
+
+interface Props {
+  entries: ContentEntry[]
+}
+
+const { entries } = Astro.props
+---
+
+<div class="card-grid">
+  {
+    entries.map((entry) => (
+      <article class="entry-card">
+        <a class="entry-card__image-link" href={entryPath(entry)} aria-label={entry.data.title}>
+          <span
+            class="entry-card__image"
+            style={{
+              backgroundImage: `url(${cardImage(entry)})`,
+              backgroundColor: entry.collection === 'work' ? entry.data.cardcolor || undefined : undefined,
+            }}
+          />
+        </a>
+        <a class="entry-card__title" href={entryPath(entry)}>
+          {entry.data.title}
+        </a>
+        {entry.data.description && <p>{entry.data.description}</p>}
+      </article>
+    ))
+  }
+</div>

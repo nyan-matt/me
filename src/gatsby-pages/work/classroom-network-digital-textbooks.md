@@ -71,11 +71,11 @@ Traditional textbooks typically introduce concepts with examples and practice qu
 
 Although digital textbooks were not new, they mostly represented 1:1 digital copies of their hardcover counterparts. While there were some inherent advantages to this, their usage in the classroom still basically followed the existing pattern (concept introduction, practice / exploration, assessment). For these concepts, I wanted to illustrate how a truly interactive digital textbook could streamline the process - providing the concepts, exploratory tools, and formative assessment into a networked experience.  
 
-***Digital Textbook (Student Edition) example lesson with integrated example questions***
 <div class="columns is-centered">
   <div class="column is-12 has-text-centered"">
     <img class="img" srcset="/img/card-work-digital-textbook-2.png" alt="Digital Textbook" />
   </div>
+  <caption>Digital Textbook (Student Edition) example lesson with integrated example questions</caption>
 </div>
 
 ***As answers are submitted, the student responses are collected and can be viewed and aggregated by the Teacher software***

@@ -1,0 +1,20 @@
+---
+import { kebabTag } from '../lib/content'
+
+const { tags = [] } = Astro.props
+---
+
+{
+  tags.length > 0 && (
+    <section class="tags-block" aria-labelledby="tags-heading">
+      <h2 id="tags-heading">Tags</h2>
+      <div class="tag-list">
+        {tags.map((tag: string) => (
+          <a class="tag-pill" href={`/tags/${kebabTag(tag)}/`}>
+            {tag}
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}

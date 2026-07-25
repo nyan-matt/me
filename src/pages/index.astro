@@ -1,0 +1,110 @@
+---
+import { getCollection, getEntry } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CardGrid from '../components/CardGrid.astro'
+import ExpertiseIcon from '../components/ExpertiseIcon.astro'
+import { byEditorialOrder, isFeaturedHome, site } from '../lib/content'
+
+const home = await getEntry('pages', 'index')
+const work = byEditorialOrder((await getCollection('work')).filter(isFeaturedHome)).slice(0, 6)
+const blog = byEditorialOrder((await getCollection('blog')).filter(isFeaturedHome)).slice(0, 6)
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Saint Louis',
+    addressRegion: 'MO',
+  },
+  knowsAbout: [
+    'design',
+    'user experience',
+    'human-centered design',
+    'product management',
+    'technology',
+    'UX',
+    'HCD',
+    'product design',
+  ],
+  image: 'https://matthewrea.com/img/matt-rea.jpg',
+  name: 'Matthew Rea',
+  additionalName: 'Matt Rea',
+  alumniOf: 'Miami University',
+  gender: 'male',
+  disambiguatingDescription: 'Design and Technology Professional',
+  url: site.url,
+  sameAs: [
+    'https://www.linkedin.com/in/mattrea/',
+    'https://github.com/nyan-matt',
+    'https://twitter.com/mattrea',
+  ],
+}
+---
+
+<BaseLayout
+  title={home?.data.title || site.title}
+  description={home?.data.subheading || site.description}
+  path="/"
+  structuredData={structuredData}
+>
+  <section class="hero-section" data-home-hero>
+    <div>
+      <h1>{home?.data.title}</h1>
+      <p>{home?.data.subheading}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Featured Work</h2>
+    <CardGrid entries={work} />
+  </section>
+
+ 
+
+  <section class="section image-divider" aria-hidden="true"></section>
+ 
+  
+   <section class="section">
+    <h2>Expertise &amp; Skills</h2>
+    <div class="card-grid expertise-grid">
+      <div class="expertise-item"><ExpertiseIcon name="strategy" /> Strategy</div>
+      <div class="expertise-item"><ExpertiseIcon name="interview" /> User Research</div>
+      <div class="expertise-item"><ExpertiseIcon name="wireframe" /> Design</div>
+      <div class="expertise-item"><ExpertiseIcon name="prototype" /> Testing</div>
+      <div class="expertise-item"><ExpertiseIcon name="code" /> Development</div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2>Latest Posts</h2>
+    <CardGrid entries={blog} />
+  </section>
+</BaseLayout>
+
+<style>
+  .expertise-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    /* grid-template-columns: repeat(5, minmax(0, 1fr)); */
+  }
+
+  .expertise-item {
+    color: var(--color-heading);
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .image-divider {
+    background-image: linear-gradient(rgba(51, 62, 72, 0.55), rgba(51, 62, 72, 0.55)),
+      url('/img/workshop.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 360px;
+  }
+
+  @media (max-width: 860px) {
+    .expertise-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

@@ -1,0 +1,6 @@
+<svg class="back-link__icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <path
+    fill="currentColor"
+    d="M13.7 20.7l-1 1c-.4.4-1.1.4-1.6 0l-8.9-8.9c-.4-.4-.4-1.1 0-1.6l8.9-8.9c.4-.4 1.1-.4 1.6 0l1 1c.4.4.4 1.1 0 1.6l-5.5 5.3h13.2c.6 0 1.1.5 1.1 1.1v1.5c0 .6-.5 1.1-1.1 1.1H8.1l5.5 5.3c.5.3.5 1 .1 1.5z"
+  />
+</svg>
