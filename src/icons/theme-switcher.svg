@@ -1,0 +1,18 @@
+<svg class="theme-switcher" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <g class="theme-switcher__rays" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8">
+    <path d="M12 2.75v1.6" />
+    <path d="M12 19.65v1.6" />
+    <path d="M21.25 12h-1.6" />
+    <path d="M4.35 12h-1.6" />
+    <path d="m18.54 5.46-1.13 1.13" />
+    <path d="m6.59 17.41-1.13 1.13" />
+    <path d="m18.54 18.54-1.13-1.13" />
+    <path d="m6.59 6.59-1.13-1.13" />
+  </g>
+  <circle class="theme-switcher__sun" cx="12" cy="12" r="4.5" fill="currentColor" />
+  <path
+    class="theme-switcher__moon"
+    fill="currentColor"
+    d="M11.2949 3.60498C9.94543 4.96116 9.11133 6.83066 9.11133 8.89502C9.11133 13.0372 12.4692 16.395 16.6113 16.395C17.7869 16.395 18.8992 16.1242 19.8896 15.6421C18.4746 17.8958 15.9688 19.395 13.1113 19.395C8.69305 19.395 5.11133 15.8133 5.11133 11.395C5.11133 7.60175 7.75201 4.42781 11.2949 3.60498Z"
+  />
+</svg>

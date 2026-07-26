@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import CardGrid from '../../../components/CardGrid.astro'
+import Pagination from '../../../components/Pagination.astro'
+import { blogPageSize, byDateDesc, isFeaturedIndex, site } from '../../../lib/content'
+
+export async function getStaticPaths() {
+  const posts = byDateDesc((await getCollection('blog')).filter(isFeaturedIndex))
+  const totalPages = Math.ceil(posts.length / blogPageSize)
+
+  return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => {
+    const page = index + 2
+
+    return {
+      params: { page: String(page) },
+    }
+  })
+}
+
+const currentPage = Number(Astro.params.page)
+const allPosts = byDateDesc((await getCollection('blog')).filter(isFeaturedIndex))
+const totalPages = Math.ceil(allPosts.length / blogPageSize)
+const posts = allPosts.slice((currentPage - 1) * blogPageSize, currentPage * blogPageSize)
+---
+
+<BaseLayout
+  title={`Blog - Page ${currentPage} | ${site.title}`}
+  description="Writings on design and technology"
+  path={`/blog/page/${currentPage}/`}
+>
+  <section class="section">
+    <header class="page-banner">
+      <h1>Blog</h1>
+      <p>Writings on design and technology</p>
+    </header>
+    <CardGrid entries={posts} />
+    <Pagination basePath="/blog/" currentPage={currentPage} totalPages={totalPages} />
+  </section>
+</BaseLayout>

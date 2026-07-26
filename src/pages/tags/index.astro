@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { allTags, isFeaturedIndex, kebabTag, site } from '../../lib/content'
+
+const entries = [...(await getCollection('blog')), ...(await getCollection('work'))].filter(isFeaturedIndex)
+const tags = allTags(entries)
+---
+
+<BaseLayout title={`Tags | ${site.title}`} description="Browse posts by tag" path="/tags/">
+  <section class="section">
+    <header class="page-banner">
+      <h1>Tags</h1>
+      <p>Browse posts and work by topic.</p>
+    </header>
+    <ul class="tag-index">
+      {
+        tags.map((tag) => {
+          const count = entries.filter((entry) => entry.data.tags?.includes(tag)).length
+          return (
+            <li>
+              <a href={`/tags/${kebabTag(tag)}/`}>
+                {tag} ({count})
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .tag-index {
+    columns: 3;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tag-index li {
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 860px) {
+    .tag-index {
+      columns: 1;
+    }
+  }
+</style>

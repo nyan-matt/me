@@ -1,0 +1,30 @@
+---
+import themeSwitcher from '../icons/theme-switcher.svg?raw'
+---
+
+<button class="theme-toggle" type="button" aria-label="Toggle color theme">
+  <span class="theme-toggle__icon" aria-hidden="true" set:html={themeSwitcher}></span>
+</button>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle')
+  const icon = document.querySelector<HTMLElement>('.theme-toggle__icon')
+
+  function setPressed(theme: string) {
+    toggle?.setAttribute('aria-pressed', String(theme === 'dark'))
+    if (icon) icon.dataset.state = theme
+  }
+
+  function currentTheme() {
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+  }
+
+  setPressed(currentTheme())
+
+  toggle?.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark'
+    document.documentElement.dataset.theme = next
+    localStorage.setItem('theme', next)
+    setPressed(next)
+  })
+</script>

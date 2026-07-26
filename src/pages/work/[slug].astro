@@ -1,0 +1,112 @@
+---
+import { getCollection, getEntry, render } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import CardGrid from '../../components/CardGrid.astro'
+import TagLinks from '../../components/TagLinks.astro'
+import arrowLeft from '../../icons/arrow-left.svg?raw'
+import { byDateDesc, isFeatured, renderMarkdown, site } from '../../lib/content'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('work')
+  return posts.map((post) => ({
+    params: { slug: post.id },
+  }))
+}
+
+const { slug } = Astro.params
+const post = slug ? await getEntry('work', slug) : undefined
+
+if (!post) {
+  throw new Error(`Missing work post for slug: ${slug}`)
+}
+
+const { Content } = await render(post)
+const image = post.data.featuredimage || '/img/og-image.jpg'
+const latest = byDateDesc((await getCollection('blog')).filter(isFeatured)).slice(0, 6)
+
+function showcaseImage(showcase: any) {
+  return showcase?.backgroundimage || ''
+}
+---
+
+<BaseLayout
+  title={`${post.data.title} | Work`}
+  description={post.data.description || site.description}
+  image={image}
+  path={`/work/${post.id}/`}
+>
+  <article>
+    <header class="article-header">
+      <a class="back-link" href="/work/">
+        <span class="back-link__icon" aria-hidden="true" set:html={arrowLeft}></span>
+        Back
+      </a>
+      
+        <div
+        class="featured-image"
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundColor: post.data.cardcolor || undefined,
+        }}
+      ></div>
+      <h1 class="article-title">{post.data.title}</h1>
+      {post.data.description && <p class="article-description">{post.data.description}</p>}
+      {post.data.workdate && <span class="meta-pill">{post.data.workdate}</span>}
+    </header>
+    <div class="article-body">
+      <section class="summary-grid">
+        <div class="content">
+          <h2>Summary</h2>
+          <div set:html={renderMarkdown(post.data.summary)} />
+        </div>
+        <div class="content">
+          <h2>Role &amp; Contribution</h2>
+          <div set:html={renderMarkdown(post.data.roles)} />
+        </div>
+      </section>
+      {
+        post.data.showcase1 && showcaseImage(post.data.showcase1) && (
+          <div
+            class="work-banner-image"
+            style={{
+              backgroundImage: `url(${showcaseImage(post.data.showcase1)})`,
+              minHeight: `${post.data.showcase1.height || 0}px`,
+              backgroundAttachment: `${post.data.showcase1.fixed ? 'fixed' : 'scroll'}`,
+            }}
+          />
+        )
+      }
+      <div class="content">
+        <Content />
+      </div>
+      {
+        post.data.showcase2 && showcaseImage(post.data.showcase2) && (
+          <div
+            class="work-banner-image"
+            style={{
+              backgroundImage: `url(${showcaseImage(post.data.showcase2)})`,
+              minHeight: `${post.data.showcase2.height || 0}px`,
+              backgroundAttachment: `${post.data.showcase2.fixed ? 'fixed' : 'scroll'}`,
+            }}
+          />
+        )
+      }
+      {
+        post.data.learning && (
+          <section class="content" set:html={renderMarkdown(post.data.learning)} />
+        )
+      }
+      <TagLinks tags={post.data.tags} />
+      <section class="related-posts">
+        <h2>Latest Stories</h2>
+        <CardGrid entries={latest} />
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .related-posts {
+    margin-top: 3rem;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import { getCollection, getEntry, render } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import TagLinks from '../../components/TagLinks.astro'
+import arrowLeft from '../../icons/arrow-left.svg?raw'
+import { site } from '../../lib/content'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  return posts.map((post) => ({
+    params: { slug: post.id },
+  }))
+}
+
+const { slug } = Astro.params
+const post = slug ? await getEntry('blog', slug) : undefined
+
+if (!post) {
+  throw new Error(`Missing blog post for slug: ${slug}`)
+}
+
+const { Content } = await render(post)
+const image = post.data.featuredimage || '/img/og-image.jpg'
+const publishDate = post.data.date
+const formattedPublishDate = publishDate?.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+  year: 'numeric',
+})
+---
+
+<BaseLayout
+  title={`${post.data.title} | Blog`}
+  description={post.data.description || site.description}
+  image={image}
+  path={`/blog/${post.id}/`}
+>
+  <article>
+    <header class="article-header">
+      <a class="back-link" href="/blog/">
+        <span class="back-link__icon" aria-hidden="true" set:html={arrowLeft}></span>
+        Back
+      </a>
+      <div class="featured-image" style={{ backgroundImage: `url(${image})` }}></div>
+      <h1 class="article-title">{post.data.title}</h1>
+      {post.data.description && <p class="article-description">{post.data.description}</p>}
+      {
+        publishDate && (
+          <span class="meta-pill">
+            <time datetime={publishDate.toISOString()}>{formattedPublishDate}</time>
+          </span>
+        )
+      }
+    </header>
+    <div class="article-body">
+      <div class="content">
+        <Content />
+      </div>
+      <TagLinks tags={post.data.tags} />
+    </div>
+  </article>
+</BaseLayout>

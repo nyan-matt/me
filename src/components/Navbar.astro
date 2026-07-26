@@ -1,0 +1,85 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+
+const { path = '/' } = Astro.props
+const navItems = [
+  { href: '/about/', label: 'About' },
+  { href: '/work/', label: 'Work' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/contact/', label: 'Contact' },
+]
+
+function active(href: string) {
+  return href === '/' ? path === '/' : path.startsWith(href)
+}
+---
+
+<nav class:list={['site-nav', path === '/' && 'site-nav--home']} aria-label="Main navigation" data-site-nav>
+  <div class="site-nav__bar">
+    <a class="site-nav__brand" href="/">Matthew Rea</a>
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-controls="site-navigation"
+      aria-expanded="false"
+      aria-label="Open navigation menu"
+      data-site-nav-toggle
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="site-nav__links" id="site-navigation" data-site-nav-links>
+    {
+      navItems.map((item) => (
+        <a class:list={['site-nav__link', active(item.href) && 'is-active']} href={item.href}>
+          {item.label}
+        </a>
+      ))
+    }
+    <ThemeToggle />
+  </div>
+</nav>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-site-nav]').forEach((nav) => {
+    const toggle = nav.querySelector<HTMLButtonElement>('[data-site-nav-toggle]')
+    const links = nav.querySelector<HTMLElement>('[data-site-nav-links]')
+    const hero = document.querySelector<HTMLElement>('[data-home-hero]')
+    let navFrame = 0
+
+    if (!toggle || !links) return
+
+    function setOpen(isOpen: boolean) {
+      nav.classList.toggle('is-open', isOpen)
+      toggle.setAttribute('aria-expanded', String(isOpen))
+      toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu')
+    }
+
+    toggle.addEventListener('click', () => {
+      setOpen(!nav.classList.contains('is-open'))
+    })
+
+    links.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false))
+    })
+
+    if (hero && nav.classList.contains('site-nav--home')) {
+      function setPastHero() {
+        navFrame = 0
+        const heroBottom = hero.getBoundingClientRect().bottom
+        nav.classList.toggle('is-past-hero', heroBottom <= nav.offsetHeight)
+      }
+
+      function requestPastHeroUpdate() {
+        if (navFrame) return
+        navFrame = window.requestAnimationFrame(setPastHero)
+      }
+
+      setPastHero()
+      window.addEventListener('scroll', requestPastHeroUpdate, { passive: true })
+      window.addEventListener('resize', requestPastHeroUpdate)
+    }
+  })
+</script>

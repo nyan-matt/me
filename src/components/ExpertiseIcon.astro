@@ -1,0 +1,30 @@
+---
+import code from '../../static/img/code.svg?raw'
+import interview from '../../static/img/interview.svg?raw'
+import prototype from '../../static/img/prototype.svg?raw'
+import strategy from '../../static/img/strategy.svg?raw'
+import wireframe from '../../static/img/wireframe.svg?raw'
+
+type IconName = 'code' | 'interview' | 'prototype' | 'strategy' | 'wireframe'
+
+interface Props {
+  name: IconName
+}
+
+const icons: Record<IconName, string> = {
+  code,
+  interview,
+  prototype,
+  strategy,
+  wireframe,
+}
+
+const { name } = Astro.props
+const svg = icons[name]
+const normalizedSvg = svg
+  .replace(/<\?xml[\s\S]*?\?>\s*/i, '')
+  .replace(/<!--[\s\S]*?-->\s*/g, '')
+  .replace('<svg ', '<svg class="expertise-icon__svg" focusable="false" ')
+---
+
+<span class="expertise-icon" aria-hidden="true" set:html={normalizedSvg} />

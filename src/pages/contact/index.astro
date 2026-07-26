@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { site } from '../../lib/content'
+---
+
+<BaseLayout title={`Contact | ${site.title}`} description="Send Matthew Rea a message" path="/contact/">
+  <section class="section">
+    <header class="page-banner">
+      <h1>Contact</h1>
+      <p>Send me a message</p>
+    </header>
+    <div class="contact-grid">
+      <form
+        name="contact"
+        method="post"
+        action="/contact/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <div hidden>
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </div>
+        <div class="field">
+          <label class="label" for="name">Your name</label>
+          <input class="input" type="text" name="name" id="name" required />
+        </div>
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <input class="input" type="email" name="email" id="email" required />
+        </div>
+        <div class="field">
+          <label class="label" for="message">Message</label>
+          <textarea class="textarea" name="message" id="message" required></textarea>
+        </div>
+        <div class="field">
+          <button class="button button--primary" type="submit">Send</button>
+        </div>
+      </form>
+      <aside>
+        <p class="eyebrow">Connect</p>
+        <ul class="contact-links">
+          <li><a href="https://www.figma.com/@mattrea">Follow on Figma</a></li>
+          <li><a href="https://github.com/nyan-matt">Follow on Github</a></li>
+          <li><a href="https://www.linkedin.com/in/mattrea/">Connect on LinkedIn</a></li>
+          <li><a href="https://twitter.com/mattrea">Follow on Twitter</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

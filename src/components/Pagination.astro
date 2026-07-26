@@ -1,0 +1,38 @@
+---
+interface Props {
+  basePath: string
+  currentPage: number
+  totalPages: number
+}
+
+const { basePath, currentPage, totalPages } = Astro.props
+const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`
+
+function pagePath(page: number) {
+  return page === 1 ? normalizedBasePath : `${normalizedBasePath}page/${page}/`
+}
+---
+
+{
+  totalPages > 1 && (
+    <nav class="pagination" aria-label="Pagination">
+      <a
+        class:list={['pagination__link', currentPage <= 1 && 'is-disabled']}
+        href={currentPage > 1 ? pagePath(currentPage - 1) : undefined}
+        aria-disabled={currentPage <= 1 ? 'true' : undefined}
+      >
+        Previous
+      </a>
+      <span class="pagination__status">
+        Page {currentPage} of {totalPages}
+      </span>
+      <a
+        class:list={['pagination__link', currentPage >= totalPages && 'is-disabled']}
+        href={currentPage < totalPages ? pagePath(currentPage + 1) : undefined}
+        aria-disabled={currentPage >= totalPages ? 'true' : undefined}
+      >
+        Next
+      </a>
+    </nav>
+  )
+}
