@@ -4,6 +4,11 @@ title: Figma Auto-layout with Independent Border Styling
 featuredimage: /img/blog-figma-independent-borders.jpg
 date: 2022-04-22T16:04:10.000Z
 featuredpost: true
+featuredHome: false
+featuredIndex: true
+archived: false
+featuredOrder: null
+category: figma
 description: >-
   A workaround / hack for achieving independent border styling in an auto-layout component
   (Photo by Salvatore Andrea Santacroce on Unsplash)

@@ -2,8 +2,13 @@
 templateKey: blog-post
 title: Lighthouse Mobile Performance Scores
 featuredimage: /img/blog-banner-lighthouse.jpg
-date: 2019-11-12T16:04:10.000Z
+date: 2019-11-12
 featuredpost: true
+featuredHome: false
+featuredIndex: true
+archived: false
+featuredOrder: null
+category: performance
 description: >-
   Lighthouse performance scores for popular mobile retail commerce sites 
   (Photo by Robert Wiedemann on Unsplash)

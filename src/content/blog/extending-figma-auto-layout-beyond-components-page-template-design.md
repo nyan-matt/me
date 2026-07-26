@@ -2,8 +2,13 @@
 templateKey: blog-post
 title: Extending Figma's Auto Layout Beyond Components to Page Templating
 featuredimage: /img/blog-figma-auto-layout.jpg
-date: 2022-09-18T16:04:10.000Z
+date: 2022-09-18
 featuredpost: true
+featuredHome: true
+featuredIndex: true
+archived: false
+featuredOrder: 2
+category: figma
 description: >-
   Using auto layout for whole page template design
   (Photo by Mariia Shalabaieva on Unsplash)

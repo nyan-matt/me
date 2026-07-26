@@ -2,8 +2,14 @@
 templateKey: blog-post
 title: Design token automation from Figma to Storybook
 featuredimage: /img/blog-design-automation-figma-storybook.png
-date: 2023-02-23T16:04:10.000Z
+date: 2023-02-23
 featuredpost: true
+featuredHome: true
+featuredIndex: true
+archived: false
+featuredOrder: 1
+category: design-systems
+
 description: >-
   Demo for automating design token integration with code components and documentation
   

@@ -2,8 +2,13 @@
 templateKey: blog-post
 title: Identifying gaps in user experiences
 featuredimage: /img/blog-product-iceberg.jpeg
-date: 2021-02-23T16:04:10.000Z
+date: 2023-02-23
 featuredpost: true
+featuredHome: true
+featuredIndex: true
+archived: false
+featuredOrder: 3
+category: process
 description: >-
   Overcoming organizational misalignment and blind spots 
   (Photo by Dylan Shaw on Unsplash)

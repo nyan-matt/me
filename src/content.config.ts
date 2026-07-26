@@ -9,7 +9,7 @@ const editorialFields = {
   category: z.string().optional(),
   featuredHome: z.boolean().optional(),
   featuredIndex: z.boolean().optional(),
-  featuredOrder: z.number().optional(),
+  featuredOrder: z.number().nullable().optional(),
 }
 
 const contentPattern = '**/*.{md,mdx}'

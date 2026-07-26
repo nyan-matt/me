@@ -21,6 +21,13 @@ if (!post) {
 
 const { Content } = await render(post)
 const image = post.data.featuredimage || '/img/og-image.jpg'
+const publishDate = post.data.date
+const formattedPublishDate = publishDate?.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+  year: 'numeric',
+})
 ---
 
 <BaseLayout
@@ -38,6 +45,13 @@ const image = post.data.featuredimage || '/img/og-image.jpg'
       <div class="featured-image" style={{ backgroundImage: `url(${image})` }}></div>
       <h1 class="article-title">{post.data.title}</h1>
       {post.data.description && <p class="article-description">{post.data.description}</p>}
+      {
+        publishDate && (
+          <span class="meta-pill">
+            <time datetime={publishDate.toISOString()}>{formattedPublishDate}</time>
+          </span>
+        )
+      }
     </header>
     <div class="article-body">
       <div class="content">

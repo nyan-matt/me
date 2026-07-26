@@ -2,8 +2,12 @@
 templateKey: blog-post
 title: Social Wishlist Sharing
 featuredimage: /img/blog-banner-wishy.jpg
-date: 2019-10-01T16:04:10.000Z
-featuredpost: true
+date: 2019-10-01
+featuredHome: false
+featuredIndex: true
+archived: false
+featuredOrder: null
+category: concepts
 description: >-
   Product concept for a social wishlist app
 tags:

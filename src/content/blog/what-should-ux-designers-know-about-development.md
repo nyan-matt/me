@@ -2,8 +2,12 @@
 templateKey: blog-post
 title: What Should UX Designers Know About Development?
 featuredimage: /img/blog-banner-design-know-development.jpg
-date: 2020-03-18T16:04:10.000Z
-featuredpost: true
+date: 2020-03-18
+featuredHome: false
+featuredIndex: true
+archived: false
+featuredOrder: null
+category: process
 description: >-
   The case for understanding and building mental models of development process and basic technical architectures  
   (Photo by Oskar Yildiz on Unsplash)

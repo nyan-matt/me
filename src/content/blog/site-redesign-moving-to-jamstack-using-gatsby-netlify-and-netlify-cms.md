@@ -2,7 +2,12 @@
 templateKey: blog-post
 title: Site Redesign - Moving to JAMstack using Gatsby, Netlify, and Netlify CMS 
 featuredimage: /img/blog-banner-jamstack.jpg
-date: 2020-04-26T16:04:10.000Z
+date: 2020-04-26
+featuredHome: false
+featuredIndex: true
+archived: false
+featuredOrder: null
+category: ux-engineering
 featuredpost: true
 description: >-
   What I learned when moving my personal portfolio & blog to a static site generator  
